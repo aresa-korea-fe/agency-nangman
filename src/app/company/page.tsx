@@ -99,7 +99,7 @@ export default function Home() {
                   <p className='font-bold text-3xl pt-4 pb-5 pl-1 tracking-wide'>Design</p>
                   <div className='text-base font-normal pl-1 opacity-70 leading-loose tracking-normal'>
                     • 와이어프레임 및 프로토타입 제작<br />
-                    • 반응형 디자인<br />
+                    • 반응형(디바이스 지원형) 디자인<br />
                     • 디자인 피드백 및 확정<br />
                   </div>
                 </div>
@@ -109,12 +109,17 @@ export default function Home() {
                   <div className='text-base font-normal pl-1 opacity-70 leading-loose tracking-normal'>
                     • 호스팅 및 도메인 구매 대행<br />
                     • 정적 컨텐츠 1차 퍼블리싱<br />
-                    •
+                    • 역할별 페이지 정적 개발<br />
                   </div>
                 </div>
                 <div>
                   <Image src='/icons8-circle-design.svg' width={60} height={60} alt='Development' />
                   <p className='font-bold text-3xl pt-4 pb-5 pl-1 tracking-wide'>Development</p>
+                  <div className='text-base font-normal pl-1 opacity-70 leading-loose tracking-normal'>
+                    • 동적 컨텐츠 제작<br />
+                    • 서비스 로직 개발 및 API 발행<br />
+                    • 서비스 로직 개발 및 API 발행
+                  </div>
                 </div>
               </div>
             </div>

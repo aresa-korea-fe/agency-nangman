@@ -21,7 +21,7 @@ export default function GrowthLayout({
 
   return (
     <div className="flex bg-white">
-      <div className="min-w-72 pt-24 pl-20 border-r">
+      <div className="min-w-72 pt-24 pl-20 border-r z-10">
         <Link href="/" className='mb-6'><h3 className="font-tenada">낭만</h3></Link>
         <p className="font-bold pb-10 text-[#3D6775]">성장기록물</p>
         <ul className="text-lg">
