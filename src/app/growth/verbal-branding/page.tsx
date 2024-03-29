@@ -8,7 +8,8 @@ export const metadata: Metadata = {
 
 export default function VerbalBranding() {
   const items = [
-    { src: "/growth/Rectangle 190.png", alt: "Rectangle 190.png" },
+    { src: "/growth/vb-aresa-001.jpg", alt: "아리사코리아.jgp" },
+    { src: "/growth/vb-odocs-002.jpg", alt: "오독스.jpg" },
     { src: "/growth/Rectangle 191.png", alt: "Rectangle 191.png" },
     { src: "/growth/Rectangle 192.png", alt: "Rectangle 192.png" },
     { src: "/growth/Rectangle 193.png", alt: "Rectangle 193.png" },
@@ -36,7 +37,8 @@ export default function VerbalBranding() {
               width={300}
               height={300}
               src={item.src}
-              className="max-w-72 w-full contrast-75"
+              className="max-w-72 w-full"
+              // className="max-w-72 w-full contrast-75"
               alt={item.alt} />
           ))}
         </div>

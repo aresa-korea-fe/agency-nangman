@@ -60,7 +60,6 @@ export default function Home() {
 
         <section className='max-w-screen-2xl mx-auto h-full w-full min-h-screen'>
           <div className='h-full pt-32 text-white text-[40px] font-bold text-center'>
-            <p id='chapterName' className='uppercase text-xl text-white/50 mb-10 font-normal'></p>
             <p id='chapterName' className='uppercase text-xl text-white/50 mb-10 font-normal'>nangman</p>
             <h2>
               크고 작은 서비스가 아닌<br />

@@ -47,7 +47,7 @@ body {
 
 @layer base {
   * {
-    letter-spacing: -1px;
+    /* letter-spacing: -1px; */
     font-family: 'Pretendard-Regular', sans-serif;
   }
 
