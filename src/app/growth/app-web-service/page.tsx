@@ -26,16 +26,16 @@ export default function VerbalBranding() {
       description: "프로젝트 3 설명",
       image: "/growth/sv-odocs"
     },
-    {
-      title: "mo-v",
-      description: "프로젝트 3 설명",
-      image: "/growth/aw-mo-v.png"
-    },
-    {
-      title: "ANDi.nnovation",
-      description: "프로젝트 3 설명",
-      image: "/growth/aw-andi.png"
-    },
+    // {
+    //   title: "mo-v",
+    //   description: "프로젝트 3 설명",
+    //   image: "/growth/aw-mo-v.png"
+    // },
+    // {
+    //   title: "ANDi.nnovation",
+    //   description: "프로젝트 3 설명",
+    //   image: "/growth/aw-andi.png"
+    // },
     {
       title: "흑호랑",
       description: "프로젝트 3 설명",
@@ -108,7 +108,7 @@ export default function VerbalBranding() {
         ) : currentImage ? (
           <div className="max-h-screen overflow-y-auto">
             {/* <Image src={currentImage} alt="Featured Project" style={{ width: '100%', height: 'auto', objectFit: 'cover' }} /> */}
-            <Image src={currentImage} className="!relative object-cover" alt="Featured Project" layout="fill" />
+            <Image src={currentImage} className="!relative object-cover" alt="Featured Project" layout="fill" placeholder='blur' blurDataURL="/placeholder-image.jpg" />
           </div>
         ) : (
           <div className="w-full h-full"></div>
