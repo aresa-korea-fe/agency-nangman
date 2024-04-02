@@ -59,10 +59,7 @@ export default function Header() {
   const hiddenUrls = ['growth'];
 
   const isActive = () => urls.includes(segment);
-  const isHide = () => {
-    console.log('segment', segment)
-    return hiddenUrls.includes(segment)
-  };
+  const isHide = () => hiddenUrls.includes(segment);
 
   useHandleScroll(); // 커스텀 훅 사용
 

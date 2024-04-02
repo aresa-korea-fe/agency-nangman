@@ -70,3 +70,94 @@ body {
     letter-spacing: -1px;
   }
 }
+
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow:
+      0 0 8px rgba(255, 255, 255, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.5),
+      0 0 60px rgba(255, 255, 255, 0.5),
+      0 0 100px rgba(255, 255, 255, 0.5);
+  }
+
+  50% {
+    text-shadow:
+      0 0 8px rgba(255, 255, 255, 0.2),
+      0 0 30px rgba(255, 255, 255, 0.2),
+      0 0 60px rgba(255, 255, 255, 0.2),
+      0 0 100px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.neon-effect {
+  animation: neon 2s ease-in-out infinite;
+  color: #FFF;
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.5),
+    0 0 60px rgba(255, 255, 255, 0.5),
+    0 0 100px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes neonBlue {
+
+  0%,
+  100% {
+    text-shadow:
+      0 0 8px rgba(0, 0, 255, 0.7),
+      0 0 30px rgba(0, 0, 255, 0.7),
+      0 0 60px rgba(0, 0, 255, 0.7),
+      0 0 100px rgba(0, 0, 255, 0.7);
+  }
+
+  50% {
+    text-shadow:
+      0 0 8px rgba(0, 0, 255, 0.3),
+      0 0 30px rgba(0, 0, 255, 0.3),
+      0 0 60px rgba(0, 0, 255, 0.3),
+      0 0 100px rgba(0, 0, 255, 0.3);
+  }
+}
+
+.neon-effect-blue {
+  animation: neonBlue 2s ease-in-out infinite;
+  /* color: #0000FF; */
+  /* 기본 텍스트 색상을 파란색으로 설정 */
+  text-shadow:
+    0 0 8px rgba(0, 0, 255, 0.7),
+    0 0 30px rgba(0, 0, 255, 0.7),
+    0 0 60px rgba(0, 0, 255, 0.7),
+    0 0 100px rgba(0, 0, 255, 0.7);
+}
+
+@keyframes neonDark {
+  0%,
+  100% {
+    text-shadow:
+      0 0 8px rgba(50, 50, 50, 0.5),
+      0 0 30px rgba(50, 50, 50, 0.5),
+      0 0 60px rgba(50, 50, 50, 0.5),
+      0 0 100px rgba(50, 50, 50, 0.5);
+  }
+
+  50% {
+    text-shadow:
+      0 0 8px rgba(50, 50, 50, 0.2),
+      0 0 30px rgba(50, 50, 50, 0.2),
+      0 0 60px rgba(50, 50, 50, 0.2),
+      0 0 100px rgba(50, 50, 50, 0.2);
+  }
+}
+
+.neon-effect-dark {
+  animation: neonDark 2s ease-in-out infinite;
+  /* color: #323232; */
+  /* 어두운 그레이로 설정, 검은색 네온의 대안 */
+  text-shadow:
+    0 0 8px rgba(50, 50, 50, 0.5),
+    0 0 30px rgba(50, 50, 50, 0.5),
+    0 0 60px rgba(50, 50, 50, 0.5),
+    0 0 100px rgba(50, 50, 50, 0.5);
+}
