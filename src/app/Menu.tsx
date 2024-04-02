@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Contact Us | Nangman Agency',
 }
 
-export default function Home() {
+export default function Menu() {
   return (
     <main className="h-screen py-80 bg-[#04070B] text-white">
       <div className="max-w-screen-xl mx-auto  h-full">

@@ -7,178 +7,192 @@ import Typed from 'typed.js';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+
 export default function Home() {
-  const [shouldDisplay, setShouldDisplay] = useState(true);
-  const [opacity, setOpacity] = useState(0.5);
 
-  const justforyou = useRef(null);
 
-  useEffect(() => {
-    AOS.init({
-      easing: "ease-out-cubic",
-      once: true,
-      offset: 100,
-    });
-  }, []);
-
-  useEffect(() => {
-    const typed = new Typed(justforyou.current, {
-      strings: ['낭만의 시작점', '낭만이 살아 숨쉬는 이 곳', '낭만은 오롯히 당신을 위해', '낭만이란 가능성', '낭만으로 가득한 이 곳', '낭만과 함께하는 시간', '낭만이 머무는 곳'],
-      typeSpeed: 50,
-      backSpeed: 20,
-      loop: true,
-      showCursor: false,
-      smartBackspace: true,
-    });
-
-    return () => {
-      typed.destroy();
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const chapterName = document.getElementById('chapterName');
-      const chapterTopPosition = chapterName?.getBoundingClientRect()?.top ?? 0;
-
-      // 화면 중간보다 위에 있을 경우
-      if (chapterTopPosition < window.innerHeight / 4) {
-        if (shouldDisplay) {
-          setOpacity(0); // 먼저 opacity를 0으로
-          setTimeout(() => setShouldDisplay(false), 200); // 0.2초 후에 display를 none으로 변경
-        }
-      } else {
-        if (!shouldDisplay) {
-          setShouldDisplay(true); // 먼저 display를 block으로 변경
-          setTimeout(() => setOpacity(0.5), 10); // 바로 opacity를 0.5로 변경
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [shouldDisplay]);
 
   return (
-    <main className="h-screen bg-[#040002] text-white">
-      <div className='flex fixed top-0 left-0 w-full h-full bg-[#040002]'>
-        <video width="320" height="240" autoPlay muted loop className='m-auto w-4/5'>
-          <source src="/third.mp4" type="video/mp4" />
-        </video>
-      </div>
+    <section className='h-full '>
+      {/* <div className='absolute bg-transparent ' style={{
+        transform: `translate(${xy.x}px, ${xy.y}px)`
+      }} /> */}
 
-      <div className='relative flex justify-center items-center h-screen tracking-normal'>
-        <div className='font-bold text-6xl leading-none text-center'>
-          {/* <span className='font-medium text-7xl'>NangMan</span>
-          <br /> */}
-          <span ref={justforyou} className='font-tenada neon-effect-blue tracking-tight'></span>
+
+
+      {/* <div className="styles_pageWrapper__YIB2q">
+        <div className="CursorCircle_cursor__Wko3P CursorCircle_cursor_small__jsqaz">
         </div>
-        <p className='absolute bottom-8' data-aos="fade-up" data-aos-duration="1000">낭만은 오롯히 당신을 위해 존재합니다.</p>
-      </div>
-      <div className='backdrop-blur-2xl py-40 flex flex-col gap-32'>
-        <section className='max-w-screen-2xl mx-auto h-full w-full'>
-          <div className='h-full text-white text-3xl font-bold text-center'>
-            <h2 className='leading-snug' data-aos="fade-up" data-aos-duration="1000">낭만은 꿈과 현실이 어우러진 바다 위에서</h2>
-            <h2 className='leading-snug' data-aos="fade-up" data-aos-duration="1000">열정을 가진 여러분의 항해를 지원합니다.</h2>
-            <h2 className='leading-snug' data-aos="fade-up" data-aos-duration="1000">어디든 끝까지 함께하겠습니다.</h2>
+        <div className="CursorCircle_cursor__Wko3P CursorCircle_cursor_bigWrapper__YCE_o">
+          <div className="CursorCircle_cursor_big__VmAMr">
           </div>
-          <div className='relative top-0 left-2/4 w-[1px] h-32 mt-32 bg-white'></div>
-        </section>
-
-        <section className='max-w-screen-2xl mx-auto h-full w-full min-h-screen'>
-          <div className='h-full pt-32 text-white text-3xl font-bold text-center'>
-            <p id='chapterName' className='uppercase text-xl text-white/50 mb-10 font-normal'>nangman</p>
-            <h2>
-              크고 작은 서비스가 아닌<br />
-              우리의 서비스라는 마음으로
-            </h2>
-            <div className='text-2xl mt-28 leading-[1.8] font-normal'>
-              모든 서비스는 <span style={{ display: shouldDisplay ? 'inline' : 'none', opacity: opacity, transition: 'opacity 0.5s' }} className='opacity-50'>결코 크고 작음으로 단순히 나뉘지 않습니다.</span>
-              <br style={{ display: shouldDisplay ? 'inline' : 'none', opacity: opacity, transition: 'opacity 0.5s' }} />
-              <span className='opacity-50' style={{ display: shouldDisplay ? 'inline' : 'none', opacity: opacity, transition: 'opacity 0.5s' }}>단지,</span> 성장의 과정을 거치고 있는 것 뿐입니다.<br />
-              그렇기에 낭만<span className='opacity-50' style={{ display: shouldDisplay ? 'inline' : 'none', opacity: opacity, transition: 'opacity 0.5s' }}>은 그러한 성장을 함께하고 싶은 생각으로</span> 가득합니다.
-            </div>
+        </div>
+        <div className="styles_letters__gqxIL">
+          <div className="styles_lettersRow__HoiKg">
+            <span className="styles_textDecor__U0_YS">s</span>
+            <span className="styles_textDecor__U0_YS">w</span>
           </div>
-        </section>
-
-        <section className='max-w-screen-2xl mx-auto h-full w-full'>
-          <div className='h-full pt-32 text-white text-[40px] font-bold text-center'>
-            <p className='uppercase text-xl text-white/50 mb-10 font-normal'>process</p>
-            <h2>
-              어떤 서비스를 만들더라도<br />
-              같은 방향을 바라보는 것부터
-            </h2>
-            <div className='text-2xl mt-28 leading-[1.8] font-normal'>
-              낭만이 있다면 <span className='opacity-50'>사업 계획서와 방향성 수립부터</span><br />
-              <span className='opacity-50'>온전한 서비스 개발과 출시까지 한번에</span> 가능합니다.
-            </div>
-            <div className='mt-32 pt-16 px-10 border-t'>
-              <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 text-left gap-y-16'>
-                <div>
-                  <Image src='/icons8-centre-point.svg' width={60} height={60} alt='Strategy' />
-                  <p className='font-bold text-3xl pt-4 pb-5 pl-1 tracking-wide'>Strategy</p>
-                  <div className='text-base font-normal pl-1 opacity-70 leading-loose tracking-normal'>
-                    • 사업 방향성 공유<br />
-                    • 요구사항 분석<br />
-                    • 창업패키지 컨설팅<br />
-                    • 정부 사업 제안서 컨설팅<br />
-                    • 실현 가능 범위 정의<br />
-                    • 핵심 기능 정리
-                  </div>
+          <div className="styles_lettersRow__HoiKg">
+            <span className="styles_textDecor__U0_YS">e</span>
+            <span className="styles_textDecor__U0_YS">ll</span>
+          </div>
+        </div>
+        <div className="styles_header__p4QXK">
+          <header className="styles_wrapper__nYu6r">
+            <div className="styles_burgerMenuWrapper__NaYqV">
+              <div>
+                <div className="styles_nav__gcXf3">
                 </div>
+              </div>
+              <div>
                 <div>
-                  <Image src='/icons8-black-and-white.svg' width={60} height={60} alt='Analyze' />
-                  <p className='font-bold text-3xl pt-4 pb-5 pl-1 tracking-wide'>Analyze</p>
-                  <div className='text-base font-normal pl-1 opacity-70 leading-loose tracking-normal'>
-                    • 페르소나 정리<br />
-                    • 레퍼런스 분석<br />
-                    • 정보 구조 설계<br />
-                    • DB 설계<br />
-                    • 사용자 역할 설정
-                  </div>
-                </div>
-                <div>
-                  <Image src='/icons8-fibonacci-circles.svg' width={60} height={60} alt='Design' />
-                  <p className='font-bold text-3xl pt-4 pb-5 pl-1 tracking-wide'>Design</p>
-                  <div className='text-base font-normal pl-1 opacity-70 leading-loose tracking-normal'>
-                    • 와이어프레임 및 프로토타입 제작<br />
-                    • 반응형(디바이스 지원형) 디자인<br />
-                    • 디자인 피드백 및 확정<br />
-                  </div>
-                </div>
-                <div>
-                  <Image src='/icons8-inactive-state.svg' width={60} height={60} alt='Publishing' />
-                  <p className='font-bold text-3xl pt-4 pb-5 pl-1 tracking-wide'>Publishing</p>
-                  <div className='text-base font-normal pl-1 opacity-70 leading-loose tracking-normal'>
-                    • 호스팅 및 도메인 구매 대행<br />
-                    • 정적 컨텐츠 1차 퍼블리싱<br />
-                    • 역할별 페이지 정적 개발<br />
-                  </div>
-                </div>
-                <div>
-                  <Image src='/icons8-circle-design.svg' width={60} height={60} alt='Development' />
-                  <p className='font-bold text-3xl pt-4 pb-5 pl-1 tracking-wide'>Development</p>
-                  <div className='text-base font-normal pl-1 opacity-70 leading-loose tracking-normal'>
-                    • 동적 컨텐츠 제작<br />
-                    • 서비스 로직 개발<br />
-                    • 운영 가능 코드 이전<br />
-                    • (옵션) 유지보수 및 운영 대행<br />
-                    • (옵션) API 발행<br />
-                    • (옵션) 서비스 확장 및 추가 개발
+                  <nav className="styles_wrapper__mFiw9 styles_burgerContent__5sxSD">
+                    <a className="btn btn-primary styles_btnAfter___ruZ2">Swell.</a>
+                    <a className="btn btn-primary">About us</a>
+                    <a className="btn btn-primary">Projects</a>
+                    <a className="btn btn-primary">Contact</a>
+                  </nav>
+                  <div className="styles_miniMenu__VqUeD">Menu<svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.5 1.5H15.5" stroke="white" stroke-width="2.5" stroke-linecap="square">
+                    </path>
+                    <path d="M1.5 7.5H15.5" stroke="white" stroke-width="2.5" stroke-linecap="square">
+                    </path>
+                    <path d="M1.5 13.5H15.5" stroke="white" stroke-width="2.5" stroke-linecap="square">
+                    </path>
+                  </svg>
                   </div>
                 </div>
               </div>
+              <button className="btn btn-burger styles_burgerBtn__QAhg9">
+                <svg fill="#FFFFFF" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" id="hamburger-menu">
+                  <path d="M 9.667 15 L 39.667 15 C 40.437 15 40.918 14.167 40.533 13.5 C 40.354 13.191 40.024 13 39.667 13 L 9.667 13 C 8.897 13 8.416 13.833 8.801 14.5 C 8.98 14.809 9.31 15 9.667 15 Z M 9.667 37 L 39.667 37 C 40.437 37 40.918 36.167 40.533 35.5 C 40.354 35.191 40.024 35 39.667 35 L 9.667 35 C 8.897 35 8.416 35.833 8.801 36.5 C 8.98 36.809 9.31 37 9.667 37 Z M 9.667 26 L 39.667 26 C 40.437 26 40.918 25.167 40.533 24.5 C 40.354 24.191 40.024 24 39.667 24 L 9.667 24 C 8.897 24 8.416 24.833 8.801 25.5 C 8.98 25.809 9.31 26 9.667 26 Z">
+                  </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="30px" height="30px" viewBox="0 0 64 64" id="close">
+                  <line x1="60.92" x2="3.08" y1="5.92" y2="58.08" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="4">
+                  </line>
+                  <line x1="3.08" x2="60.92" y1="5.92" y2="58.08" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="4">
+                  </line>
+                </svg>
+              </button>
+            </div>
+          </header>
+        </div>
+        <div className="styles_footer__uKv1y">
+          <footer className="styles_wrapper__AVBoc">
+            <nav className="styles_leftSide__EFLMt">
+              <div className="styles_text__r91Bo">
+                <span>
+                  <span className="styles_div__Eh5g9">
+                    <i className="i-linkedin circle-border i-negative">
+                    </i>
+                  </span>
+                </span>
+                <div className="styles_fill__m1ljM">
+                </div>
+              </div>
+              <div className="styles_text__r91Bo">
+                <span>
+                  <span className="styles_div__Eh5g9">
+                    <i className="i-instagram circle-border i-negative">
+                    </i>
+                  </span>
+                </span>
+                <div className="styles_fill__m1ljM">
+                </div>
+              </div>
+            </nav>
+            <nav className="styles_rightSide__OfqA1">
+              <i className="i-copyright circle-border">© 2024</i>
+              <div>
+                <div className="styles_text__r91Bo">
+                  <span>
+                    <span className="styles_div__Eh5g9">
+                      <i className="circle-border i-negative i-sound">
+                        <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <line x1="1" y1="16" x2="1" y2="3.094265" stroke="white" stroke-width="2">
+                          </line>
+                          <line x1="9" y1="16" x2="9" y2="8.280455" stroke="white" stroke-width="2">
+                          </line>
+                          <line x1="5" y1="16" x2="5" y2="4.008347" stroke="white" stroke-width="2">
+                          </line>
+                          <line x1="13" y1="16" x2="13" y2="4.517675" stroke="white" stroke-width="2">
+                          </line>
+                          <line x1="17" y1="16" x2="17" y2="9.172814" stroke="white" stroke-width="2">
+                          </line>
+                        </svg>
+                      </i>
+                    </span>
+                  </span>
+                  <div className="styles_fill__m1ljM">
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </footer>
+        </div>
+        <div className="styles_content__WvOcS">
+          <main className="Home_wrapper__CDAK8">
+            <h1>Swell Interactive</h1>
+            <section className="Home_canvasWrapper__fVqcl">
+              <div data-line="true">
+                <div>
+                  <div>
+                    <canvas data-engine="three.js r154" width="2560" height="1271">
+                    </canvas>
+                  </div>
+                  <h2>
+                    <div>
+                      <div>
+                        <div className="Home_caseInfo__cJh86">
+                          <h4 className="Home_subtitle__KzT68 3dtext">Swell</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </h2>
+                  <h3>
+                    <div>
+                      <div>
+                        <div className="Home_caseInfo__cJh86">
+                          <p className="Home_text__FLP25 3dtext">Experts in the Digital Experience</p>
+                        </div>
+                      </div>
+                    </div>
+                  </h3>
+                  <div>
+                    <div>
+                      <div>
+                        <div className="Home_caseInfo__cJh86">
+                          <div className="styles_text__r91Bo btn btn-secondary Home_btnSecondary__IHZcE styles_hoverBlack__wEWcb btn btn-secondary Home_btnSecondary__IHZcE" color="#000">
+                            <span>
+                              <span className="styles_div__Eh5g9">
+                                <i>PROJECTS<span className="icon i-arrow">
+                                </span>
+                                </i>
+                              </span>
+                            </span>
+                            <div className="styles_fill__m1ljM">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+        <div className="styles_bgCanvas__YVjuW">
+          <div id="video">
+            <div>
+              <canvas data-engine="three.js r154" width="2560" height="1271">
+              </canvas>
             </div>
           </div>
-        </section>
-
-      </div >
-
-      {/* <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover" >
-        <source src="/watermarked_preview.mp4" type="video/mp4" />
-      </video> */}
-
-    </main>
+        </div>
+      </div> */}
+    </section>
   );
 }
 
