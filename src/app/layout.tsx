@@ -25,7 +25,6 @@ export default function RootLayout({
     const mouseY = e.clientY;
 
     setXY({ x: mouseX, y: mouseY });
-
   }
 
   return (
@@ -33,7 +32,7 @@ export default function RootLayout({
       <body className={`${inter.className} cursor-none`} onMouseMove={xyHandler}>
         <Header />
 
-        <h1 className='mt-20'>{xy.x}px, {xy.y}px</h1>
+        {/* <h1 className='mt-20'>{xy.x}px, {xy.y}px</h1> */}
         <div className="bg-white rounded-full block h-2.5 w-2.5 mix-blend-difference left-0 bottom-0 pointer-events-none fixed right-0 top-0 z-[10000]" style={{
           translate: "translate: none", rotate: "none", scale: "none", transform: `translate(${xy.x}px, ${xy.y}px)`
         }}>
