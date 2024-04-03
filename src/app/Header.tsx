@@ -65,7 +65,7 @@ export default function Header() {
 
   return (
     <header className={`fixed top-0 z-[2] bg-white w-screen transition-all ease-out delay-300 
-      ${isActive() ? 'invert' : 'bg-[#d9dedf]'} 
+      ${isActive() ? '' : 'bg-[#d9dedf]'} 
       ${isHide() ? 'hidden' : 'block'}`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">

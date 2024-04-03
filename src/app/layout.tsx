@@ -40,7 +40,7 @@ export default function RootLayout({
         <div className="bottom-0 top-0 right-0 left-0 fixed mix-blend-difference pointer-events-none z-[10000]" style={{
           translate: "translate: none", rotate: "none", scale: "none", transform: `translate(${xy.x - 15}px, ${xy.y - 15}px)`
         }}>
-          <div className="border border-white block bg-transparent rounded-full h-10 w-10" style={{ translate: "none", rotate: "none", scale: "none", transform: "translate(0px, 0px);" }}>
+          <div className="border border-white block bg-transparent rounded-full h-10 w-10" style={{ translate: "none", rotate: "none", scale: "none", transform: "translate(0px, 0px)" }}>
           </div>
         </div>
 
