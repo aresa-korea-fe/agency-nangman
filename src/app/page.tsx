@@ -175,7 +175,8 @@ export default function Home() {
       <canvas id='world' className='absolute' ref={canvasRef}></canvas>
       <div className='h-full flex flex-col justify-center items-center'>
         <h3 className='font-inklipquid text-white z-[1] transition-all mb-0 md:mb-8 lg:mb-12 xl:mb-16 scale-[1] md:scale-[2]'>STUDIO</h3>
-        <h1 className='text-white font-cwdangam z-[1] transition-all ease-linear scale-[1] md:scale-[2] lg:scale-[3] xl:scale-[4]'>NANGMAN</h1>
+        <div className='text-5xl tracking-[-2px] text-white font-cwdangam z-[1] transition-all ease-linear scale-[1.3] md:scale-[2] lg:scale-[3] xl:scale-[4]'>
+          <span className='font-cwdangam text-[#87c7d9]'>N</span>ANG<span className='font-cwdangam text-[#feeffa]'>M</span>AN</div>
       </div>
     </section>
   );

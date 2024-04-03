@@ -13,6 +13,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, EnvelopeOpenIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { useSelectedLayoutSegment } from 'next/navigation'
+import Image from 'next/image';
 
 const products = [
   { name: 'VERBAL BRANDING', description: 'Delivering powerful brand messages for products or services', href: '/growth/verbal-branding', icon: FaceSmileIcon },
@@ -71,7 +72,8 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">낭만</span>
-            <SparklesIcon className="h-8 w-auto text-indigo-600" aria-hidden="true" />
+            <Image src="/nangman_logo@4x.png" alt="Your Company" width={40} height={40} />
+            {/* <SparklesIcon className="h-8 w-auto text-indigo-600" aria-hidden="true" /> */}
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -152,12 +154,13 @@ export default function Header() {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
+              <span className="sr-only">Agency nangman</span>
+              <Image src="/nangman_logo@4x.png" alt="Agency nangman" width={40} height={40} />
+              {/* <img
                 className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 alt=""
-              />
+              /> */}
             </a>
             <button
               type="button"
