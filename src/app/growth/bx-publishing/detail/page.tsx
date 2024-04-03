@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 
-type props = {
+type DetailProps = {
   index: number;
 };
 
-export default function BxPublishingDetailPage({ index }: props) {
+export default function BxPublishingDetailPage({ index }: DetailProps) {
   const contents = [
     {
       category: "business Card Design",
