@@ -86,7 +86,7 @@ export default function Header() {
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+            <Popover.Button className={`flex items-center gap-x-1 text-sm font-semibold leading-6 ${isActive() ? 'text-white' : 'text-gray-900'}`}>
               성장기록물
               <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </Popover.Button>
@@ -136,13 +136,13 @@ export default function Header() {
             </Transition>
           </Popover>
 
-          <a href="/project-request" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="/project-request" className={`text-sm font-semibold leading-6 ${isActive() ? 'text-white' : 'text-gray-900'}`}>
             Project Request
           </a>
-          <a href="/company" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="/company" className={`text-sm font-semibold leading-6 ${isActive() ? 'text-white' : 'text-gray-900'}`}>
             Company
           </a>
-          <a href="/contact-us" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="/contact-us" className={`text-sm font-semibold leading-6 ${isActive() ? 'text-white' : 'text-gray-900'}`}>
             Contact Us
           </a>
         </Popover.Group>
