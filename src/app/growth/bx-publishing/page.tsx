@@ -1,3 +1,62 @@
+"use client";
+
+import Modal from "@/app/components/modal";
+import Image from "next/image";
+import BxPublishingDetailPage from "./detail/page";
+import { useState } from "react";
+
 export default function BxPublishing() {
-  return <section className="h-screen"></section>;
+  const [index, setIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const items = [
+    {
+      title: "agency NANGMAN",
+      category: "business identity design",
+      imageUrl: "/growth/bx-publishing/bx_detail_nangman_01.png",
+    },
+    {
+      title: "agency NANGMAN",
+      category: "business identity design",
+      imageUrl: "/growth/bx-publishing/bx_detail_nangman_01.png",
+    },
+    {
+      title: "agency NANGMAN",
+      category: "business identity design",
+      imageUrl: "/growth/bx-publishing/bx_detail_nangman_01.png",
+    },
+  ];
+
+  const isClick = (index: number) => {
+    setIndex(index);
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <section className="text-black h-screen overflow-y-auto bg-white leading-none">
+      <div className="flex flex-col gap-40 pl-12 pr-24 pt-24">
+        {items.map((item, index) => (
+          <div key={index} className="flex">
+            <div className="relative" onClick={() => isClick(index)}>
+              <Image
+                key={item.imageUrl}
+                width={1020}
+                height={400}
+                src={item.imageUrl}
+                className="hover:animate-pulse"
+                alt=""
+              />
+              <div className="absolute z-20 -mt-6 ml-6 flex flex-col gap-4">
+                <p className="text-4xl font-black">{item.title}</p>
+                <label className="text-black/50 text-sm">{item.category}</label>
+              </div>
+            </div>
+          </div>
+        ))}
+        <Modal onClose={() => setIsOpen(false)} isOpen={isOpen}>
+          <BxPublishingDetailPage index={index}></BxPublishingDetailPage>
+        </Modal>
+      </div>
+    </section>
+  );
 }

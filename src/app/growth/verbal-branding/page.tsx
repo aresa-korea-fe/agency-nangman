@@ -3,7 +3,8 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "VERBAL-BRANDING | PORTFOLIO | Nangman Agency",
-  description: "각종 브랜딩 작업을 공유합니다. 낭만 에이전시의 포트폴리오입니다.",
+  description:
+    "각종 브랜딩 작업을 공유합니다. 낭만 에이전시의 포트폴리오입니다.",
 };
 
 export default function VerbalBranding() {
@@ -28,7 +29,7 @@ export default function VerbalBranding() {
   ];
 
   return (
-    <section className="h-screen py-24">
+    <section className="h-screen overflow-y-auto py-24">
       <div className="container pl-10">
         <div className="flex flex-wrap gap-3">
           {items.map((item) => (
@@ -37,9 +38,10 @@ export default function VerbalBranding() {
               width={300}
               height={300}
               src={item.src}
-              className="max-w-72 w-full"
+              className="w-full max-w-72"
               // className="max-w-72 w-full contrast-75"
-              alt={item.alt} />
+              alt={item.alt}
+            />
           ))}
         </div>
       </div>

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 // import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -18,33 +18,55 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [xy, setXY] = useState({ x: 0, y: 0 })
+  const [xy, setXY] = useState({ x: 0, y: 0 });
 
   const xyHandler = (e: any) => {
     const mouseX = e.clientX;
     const mouseY = e.clientY;
 
     setXY({ x: mouseX, y: mouseY });
-  }
+  };
 
   return (
     <html lang="en">
-      <body className={`${inter.className} cursor-none`} onMouseMove={xyHandler}>
+      <body
+        className={`${inter.className} cursor-none`}
+        onMouseMove={xyHandler}
+      >
         <Header />
 
         {/* <h1 className='mt-20'>{xy.x}px, {xy.y}px</h1> */}
-        <div className="bg-white rounded-full block h-2.5 w-2.5 mix-blend-difference left-0 bottom-0 pointer-events-none fixed right-0 top-0 z-[10000]" style={{
-          translate: "translate: none", rotate: "none", scale: "none", transform: `translate(${xy.x}px, ${xy.y}px)`
-        }}>
-        </div>
-        <div className="bottom-0 top-0 right-0 left-0 fixed mix-blend-difference pointer-events-none z-[10000]" style={{
-          translate: "translate: none", rotate: "none", scale: "none", transform: `translate(${xy.x - 15}px, ${xy.y - 15}px)`
-        }}>
-          <div className="border border-white block bg-transparent rounded-full h-10 w-10" style={{ translate: "none", rotate: "none", scale: "none", transform: "translate(0px, 0px)" }}>
-          </div>
+        <div
+          className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-[10000] block h-2.5 w-2.5 rounded-full bg-white mix-blend-difference"
+          style={{
+            translate: "translate: none",
+            rotate: "none",
+            scale: "none",
+            transform: `translate(${xy.x}px, ${xy.y}px)`,
+          }}
+        ></div>
+        <div
+          className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-[10000] mix-blend-difference"
+          style={{
+            translate: "translate: none",
+            rotate: "none",
+            scale: "none",
+            transform: `translate(${xy.x - 15}px, ${xy.y - 15}px)`,
+          }}
+        >
+          <div
+            className="block h-10 w-10 rounded-full border border-white bg-transparent"
+            style={{
+              translate: "none",
+              rotate: "none",
+              scale: "none",
+              transform: "translate(0px, 0px)",
+            }}
+          ></div>
         </div>
 
         {children}
+        <div id="modal-container"></div>
       </body>
     </html>
   );
