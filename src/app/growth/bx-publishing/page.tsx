@@ -43,11 +43,11 @@ export default function BxPublishing() {
                 width={1020}
                 height={400}
                 src={item.imageUrl}
-                className="hover:animate-pulse"
+                className="hover:[animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite]"
                 alt=""
               />
-              <div className="absolute z-20 -mt-6 ml-6 flex flex-col gap-4">
-                <p className="text-4xl font-black">{item.title}</p>
+              <div className="absolute -mt-6 ml-6 flex flex-col gap-4">
+                <p className="text-4xl font-bold">{item.title}</p>
                 <label className="text-black/50 text-sm">{item.category}</label>
               </div>
             </div>

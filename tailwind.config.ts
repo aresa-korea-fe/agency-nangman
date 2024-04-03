@@ -18,6 +18,7 @@ const config: Config = {
       },
       colors: {
         black: "#1b1b1b",
+        navyBlue: "#132962",
       },
     },
   },
