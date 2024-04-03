@@ -171,10 +171,10 @@ export default function Home() {
   }, []);
 
   return (
-    <section className='h-full h-screen'>
+    <section className='h-screen'>
       <canvas id='world' className='absolute' ref={canvasRef}></canvas>
       <div className='h-full flex flex-col justify-center items-center'>
-        <h3 className='font-inklipquid text-white z-[1] transition-all mb-0 md:mb-8 lg:mb-12 xl:mb-16 scale-[1] md:scale-[2]'>AGENCY</h3>
+        <h3 className='font-inklipquid text-white z-[1] transition-all mb-0 md:mb-8 lg:mb-12 xl:mb-16 scale-[1] md:scale-[2]'>STUDIO</h3>
         <h1 className='text-white font-cwdangam z-[1] transition-all ease-linear scale-[1] md:scale-[2] lg:scale-[3] xl:scale-[4]'>NANGMAN</h1>
       </div>
     </section>
