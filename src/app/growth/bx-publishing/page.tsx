@@ -33,7 +33,7 @@ export default function BxPublishing() {
   };
 
   return (
-    <section className="text-black h-screen overflow-y-auto bg-white leading-none">
+    <section className="h-screen overflow-y-auto bg-white leading-none text-black">
       <div className="flex flex-col gap-40 pl-12 pr-24 pt-24">
         {items.map((item, index) => (
           <div key={index} className="flex">
@@ -48,13 +48,13 @@ export default function BxPublishing() {
               />
               <div className="absolute -mt-6 ml-6 flex flex-col gap-4">
                 <p className="text-4xl font-bold">{item.title}</p>
-                <label className="text-black/50 text-sm">{item.category}</label>
+                <label className="text-sm text-black/50">{item.category}</label>
               </div>
             </div>
           </div>
         ))}
         <Modal onClose={() => setIsOpen(false)} isOpen={isOpen}>
-          <BxPublishingDetailPage index={index}></BxPublishingDetailPage>
+          <BxPublishingDetailPage></BxPublishingDetailPage>
         </Modal>
       </div>
     </section>

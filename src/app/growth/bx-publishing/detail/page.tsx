@@ -6,7 +6,7 @@ type DetailProps = {
   index: number;
 };
 
-export default function BxPublishingDetailPage({ index }: DetailProps) {
+export default function BxPublishingDetailPage() {
   const contents = [
     {
       category: "business Card Design",
@@ -52,11 +52,10 @@ export default function BxPublishingDetailPage({ index }: DetailProps) {
     },
   ];
 
-  const { category, title, content, headImage, contentImages } =
-    contents[index];
+  const { category, title, content, headImage, contentImages } = contents[0];
 
   return (
-    <section className="text-black top-4 flex flex-col gap-[7.5rem] overflow-y-auto bg-white">
+    <section className="top-4 flex flex-col gap-[7.5rem] overflow-y-auto bg-white text-black">
       <div className="relative">
         <Image
           src={headImage}
@@ -70,15 +69,15 @@ export default function BxPublishingDetailPage({ index }: DetailProps) {
 
       <div className="mx-[7.5rem] flex flex-col gap-12 text-left">
         <div className="flex flex-col gap-1">
-          <p className="text-navyBlue/70 text-sm">{category}</p>
-          <h1 className="text-navyBlue text-[2.625rem] font-bold leading-none">
+          <p className="text-sm text-navyBlue/70">{category}</p>
+          <h1 className="text-[2.625rem] font-bold leading-none text-navyBlue">
             {title}
           </h1>
         </div>
         <div className="flex flex-col gap-5">
-          <p className="text-navyBlue/80 text-xl font-bold">about us</p>
+          <p className="text-xl font-bold text-navyBlue/80">about us</p>
           <p
-            className="font-base text-navyBlue leading-8"
+            className="font-base leading-8 text-navyBlue"
             dangerouslySetInnerHTML={{ __html: content }}
           ></p>
         </div>
