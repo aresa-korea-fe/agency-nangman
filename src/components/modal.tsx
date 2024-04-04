@@ -1,24 +1,33 @@
 "use client";
 
 import { Dialog, Transition } from "@headlessui/react";
+import { useRouter } from "next/navigation";
 import { Fragment, ReactNode, useEffect, useRef, useState } from "react";
 
 type props = {
-  isOpen: boolean;
-  onClose: () => void;
   children: ReactNode;
 };
 
-export default function Modal({ children, onClose, isOpen }: props) {
+export default function Modal({ children }: props) {
+  const [open, isOpen] = useState<boolean>(true);
   const cancelButtonRef = useRef(null);
 
+  const router = useRouter();
+
+  const isClose = (open: boolean) => {
+    isOpen(!open);
+    if (!open) {
+      router.back();
+    }
+  };
+
   return (
-    <Transition.Root show={isOpen} as={Fragment}>
+    <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        onClose={onClose}
+        onClose={isClose}
       >
         <Transition.Child
           as={Fragment}
@@ -29,7 +38,7 @@ export default function Modal({ children, onClose, isOpen }: props) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 bg-black bg-opacity-75 transition-opacity" />
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">

@@ -1,34 +1,57 @@
 "use client";
 
-import { Fragment, useEffect, useState } from 'react'
-import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
+import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+import {
+  ChevronDownIcon,
+  EnvelopeOpenIcon,
+  PlayCircleIcon,
+} from "@heroicons/react/20/solid";
 import {
   Bars3Icon,
   CursorArrowRippleIcon,
   FaceSmileIcon,
   HomeModernIcon,
   InboxIcon,
-  SparklesIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon, EnvelopeOpenIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import { useSelectedLayoutSegment } from 'next/navigation'
-import Image from 'next/image';
+} from "@heroicons/react/24/outline";
+import Image from "next/image";
+import { useSelectedLayoutSegment } from "next/navigation";
+import { Fragment, useEffect, useState } from "react";
 
 const products = [
-  { name: 'VERBAL BRANDING', description: 'Delivering powerful brand messages for products or services', href: '/growth/verbal-branding', icon: FaceSmileIcon },
-  { name: 'APP/WEB SERVICE', description: 'User-friendly app/web service for seamless experiences', href: '/growth/app-web-service', icon: CursorArrowRippleIcon },
-  { name: 'BX/PUBLISHING', description: 'Engaging BX/Publishing for impactful content', href: '/growth/bx-publishing', icon: InboxIcon },
-  { name: 'PROP-TECH', description: 'Innovative prop-tech solutions for real estate', href: '/growth/prop-tech', icon: HomeModernIcon },
-]
+  {
+    name: "VERBAL BRANDING",
+    description: "Delivering powerful brand messages for products or services",
+    href: "/growth/verbal-branding",
+    icon: FaceSmileIcon,
+  },
+  {
+    name: "APP/WEB SERVICE",
+    description: "User-friendly app/web service for seamless experiences",
+    href: "/growth/app-web-service",
+    icon: CursorArrowRippleIcon,
+  },
+  {
+    name: "BX/PUBLISHING",
+    description: "Engaging BX/Publishing for impactful content",
+    href: "/growth/bx-publishing",
+    icon: InboxIcon,
+  },
+  {
+    name: "PROP-TECH",
+    description: "Innovative prop-tech solutions for real estate",
+    href: "/growth/prop-tech",
+    icon: HomeModernIcon,
+  },
+];
 
 const callsToAction = [
-  { name: 'Nangman Views', href: '#', icon: PlayCircleIcon },
-  { name: 'Project Request', href: '/project-request', icon: EnvelopeOpenIcon },
-]
+  { name: "Nangman Views", href: "#", icon: PlayCircleIcon },
+  { name: "Project Request", href: "/project-request", icon: EnvelopeOpenIcon },
+];
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
 function useHandleScroll() {
@@ -36,28 +59,31 @@ function useHandleScroll() {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
-      const header = document.querySelector('header');
+      const header = document.querySelector("header");
 
-      if (window.scrollY > lastScrollY && window.scrollY > (window.innerHeight / 4)) {
-        header?.classList.add('-top-40');
+      if (
+        window.scrollY > lastScrollY &&
+        window.scrollY > window.innerHeight / 4
+      ) {
+        header?.classList.add("-top-40");
       } else {
-        header?.classList.remove('-top-40');
+        header?.classList.remove("-top-40");
       }
 
       lastScrollY = window.scrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 }
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const segment = useSelectedLayoutSegment() || '';
-  const urls = ['', 'company'];
-  const hiddenUrls = ['growth'];
+  const segment = useSelectedLayoutSegment() || "";
+  const urls = ["", "company"];
+  const hiddenUrls = ["growth"];
 
   const isActive = () => urls.includes(segment);
   const isHide = () => hiddenUrls.includes(segment);
@@ -65,14 +91,24 @@ export default function Header() {
   useHandleScroll(); // 커스텀 훅 사용
 
   return (
-    <header className={`fixed top-0 z-[2] bg-transparent w-screen transition-all ease-out delay-300 
-      ${isActive() ? '' : 'bg-[#d9dedf]'} 
-      ${isHide() ? 'hidden' : 'block'}`}>
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header
+      className={`fixed top-0 z-[2] w-screen bg-transparent transition-all delay-300 ease-out 
+      ${isActive() ? "" : "bg-[#d9dedf]"} 
+      ${isHide() ? "hidden" : "block"}`}
+    >
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">낭만</span>
-            <Image src="/nangman_logo@4x.png" alt="Your Company" width={40} height={40} />
+            <Image
+              src="/nangman_logo@4x.png"
+              alt="Your Company"
+              width={40}
+              height={40}
+            />
             {/* <SparklesIcon className="h-8 w-auto text-indigo-600" aria-hidden="true" /> */}
           </a>
         </div>
@@ -88,9 +124,14 @@ export default function Header() {
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
-            <Popover.Button className={`flex items-center gap-x-1 text-sm font-semibold leading-6 ${isActive() ? 'text-white' : 'text-gray-900'}`}>
+            <Popover.Button
+              className={`flex items-center gap-x-1 text-sm font-semibold leading-6 ${isActive() ? "text-white" : "text-gray-900"}`}
+            >
               성장기록물
-              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+              <ChevronDownIcon
+                className="h-5 w-5 flex-none text-gray-400"
+                aria-hidden="true"
+              />
             </Popover.Button>
 
             <Transition
@@ -110,10 +151,16 @@ export default function Header() {
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                     >
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        <item.icon
+                          className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                          aria-hidden="true"
+                        />
                       </div>
                       <div className="flex-auto">
-                        <a href={item.href} className="block font-semibold text-gray-900">
+                        <a
+                          href={item.href}
+                          className="block font-semibold text-gray-900"
+                        >
                           {item.name}
                           <span className="absolute inset-0" />
                         </a>
@@ -129,7 +176,10 @@ export default function Header() {
                       href={item.href}
                       className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                     >
-                      <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                      <item.icon
+                        className="h-5 w-5 flex-none text-gray-400"
+                        aria-hidden="true"
+                      />
                       {item.name}
                     </a>
                   ))}
@@ -138,24 +188,43 @@ export default function Header() {
             </Transition>
           </Popover>
 
-          <a href="/project-request" className={`text-sm font-semibold leading-6 ${isActive() ? 'text-white' : 'text-gray-900'}`}>
+          <a
+            href="/project-request"
+            className={`text-sm font-semibold leading-6 ${isActive() ? "text-white" : "text-gray-900"}`}
+          >
             Project Request
           </a>
-          <a href="/company" className={`text-sm font-semibold leading-6 ${isActive() ? 'text-white' : 'text-gray-900'}`}>
+          <a
+            href="/company"
+            className={`text-sm font-semibold leading-6 ${isActive() ? "text-white" : "text-gray-900"}`}
+          >
             Company
           </a>
-          <a href="/contact-us" className={`text-sm font-semibold leading-6 ${isActive() ? 'text-white' : 'text-gray-900'}`}>
+          <a
+            href="/contact-us"
+            className={`text-sm font-semibold leading-6 ${isActive() ? "text-white" : "text-gray-900"}`}
+          >
             Contact Us
           </a>
         </Popover.Group>
       </nav>
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Agency nangman</span>
-              <Image src="/nangman_logo@4x.png" alt="Agency nangman" width={40} height={40} />
+              <Image
+                src="/nangman_logo@4x.png"
+                alt="Agency nangman"
+                width={40}
+                height={40}
+              />
               {/* <img
                 className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -180,7 +249,10 @@ export default function Header() {
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                         Product
                         <ChevronDownIcon
-                          className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
+                          className={classNames(
+                            open ? "rotate-180" : "",
+                            "h-5 w-5 flex-none",
+                          )}
                           aria-hidden="true"
                         />
                       </Disclosure.Button>
@@ -223,5 +295,5 @@ export default function Header() {
         </Dialog.Panel>
       </Dialog>
     </header>
-  )
+  );
 }

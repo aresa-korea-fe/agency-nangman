@@ -1,14 +1,17 @@
 "use client";
+
 import Link from "next/link";
 import styles from "./styles.module.css";
 
 import { useSelectedLayoutSegment } from "next/navigation";
+import { FC, ReactNode } from "react";
 
-export default function GrowthLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface GrowthLayoutProps {
+  children: ReactNode;
+  modal: ReactNode;
+}
+
+const GrowthLayout: FC<GrowthLayoutProps> = ({ children, modal }) => {
   const segment = useSelectedLayoutSegment();
   const items = [
     { name: "verbal branding", path: "verbal-branding" },
@@ -47,7 +50,9 @@ export default function GrowthLayout({
         </Link>
       </div>
       <div className="flex-1">{children}</div>
-      <div id="modal-root"></div>
+      {modal}
     </div>
   );
-}
+};
+
+export default GrowthLayout;

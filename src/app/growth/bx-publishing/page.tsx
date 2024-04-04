@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-interface bxItem {
+export interface BxItem {
   id: string;
   category: string;
   title: string;
@@ -11,17 +11,13 @@ interface bxItem {
 }
 
 export default function BxPublishing() {
-  const contents: bxItem[] = require("/public/data/bx-publishing.interface.json");
+  const contents: BxItem[] = require("/public/data/bx-publishing.interface.json");
 
   return (
     <section className="h-screen overflow-y-auto bg-white leading-none text-black">
       <div className="flex flex-col gap-40 pl-12 pr-24 pt-24">
         {contents.map((item, index) => (
-          <Link
-            href={`bx-publishing/detail/${index}`}
-            key={item.id}
-            className="flex"
-          >
+          <Link key={index} href={`bx-publishing/${item.id}`} className="flex">
             <div className="relative">
               <Image
                 key={item.headImage}
