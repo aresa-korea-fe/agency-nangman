@@ -1,48 +1,33 @@
-"use client";
-
-import Modal from "@/app/components/modal";
 import Image from "next/image";
-import BxPublishingDetailPage from "./detail/page";
-import { useState } from "react";
+import Link from "next/link";
+
+interface bxItem {
+  id: string;
+  category: string;
+  title: string;
+  content: string;
+  headImage: string;
+  contentImages: string[];
+}
 
 export default function BxPublishing() {
-  const [index, setIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const items = [
-    {
-      title: "agency NANGMAN",
-      category: "business identity design",
-      imageUrl: "/growth/bx-publishing/bx_detail_nangman_01.png",
-    },
-    {
-      title: "agency NANGMAN",
-      category: "business identity design",
-      imageUrl: "/growth/bx-publishing/bx_detail_nangman_01.png",
-    },
-    {
-      title: "agency NANGMAN",
-      category: "business identity design",
-      imageUrl: "/growth/bx-publishing/bx_detail_nangman_01.png",
-    },
-  ];
-
-  const isClick = (index: number) => {
-    setIndex(index);
-    setIsOpen(!isOpen);
-  };
+  const contents: bxItem[] = require("/public/data/bx-publishing.interface.json");
 
   return (
     <section className="h-screen overflow-y-auto bg-white leading-none text-black">
       <div className="flex flex-col gap-40 pl-12 pr-24 pt-24">
-        {items.map((item, index) => (
-          <div key={index} className="flex">
-            <div className="relative" onClick={() => isClick(index)}>
+        {contents.map((item, index) => (
+          <Link
+            href={`bx-publishing/detail/${index}`}
+            key={item.id}
+            className="flex"
+          >
+            <div className="relative">
               <Image
-                key={item.imageUrl}
+                key={item.headImage}
                 width={1020}
                 height={400}
-                src={item.imageUrl}
+                src={item.headImage}
                 className="hover:[animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite]"
                 alt=""
               />
@@ -51,11 +36,8 @@ export default function BxPublishing() {
                 <label className="text-sm text-black/50">{item.category}</label>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
-        <Modal onClose={() => setIsOpen(false)} isOpen={isOpen}>
-          <BxPublishingDetailPage></BxPublishingDetailPage>
-        </Modal>
       </div>
     </section>
   );

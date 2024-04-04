@@ -41,11 +41,13 @@ export default function GrowthLayout({
         <Link
           href="/"
           className="absolute bottom-24 rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
+          passHref
         >
           Go Nangman
         </Link>
       </div>
       <div className="flex-1">{children}</div>
+      <div id="modal-root"></div>
     </div>
   );
 }
