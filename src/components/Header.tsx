@@ -82,7 +82,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const segment = useSelectedLayoutSegment() || "";
-  const urls = ["", "company"];
+  const urls = ["", "company", "contact-us"];
   const hiddenUrls = ["growth"];
 
   const isActive = () => urls.includes(segment);
