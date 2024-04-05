@@ -15,9 +15,14 @@ export default function BxPublishing() {
 
   return (
     <section className="h-screen overflow-y-auto bg-white leading-none text-black">
-      <div className="flex flex-col gap-40 py-24 pl-12 pr-24">
+      <div className="flex flex-col gap-40 px-12 py-24">
         {contents.map((item, index) => (
-          <Link key={index} href={`bx-publishing/${item.id}`} scroll={false}>
+          <Link
+            key={index}
+            href={`bx-publishing/${item.id}`}
+            scroll={false}
+            className={`flex-1 ${index % 2 === 0 ? "mr-auto" : "ml-auto"}`}
+          >
             <div className="relative">
               <Image
                 key={item.headImage}
