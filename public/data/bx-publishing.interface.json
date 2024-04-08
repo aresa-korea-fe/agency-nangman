@@ -8,7 +8,8 @@
     "contentImages": [
       "/growth/bx-publishing/bx_detail_nangman_02.png",
       "/growth/bx-publishing/bx_detail_nangman_03.png"
-    ]
+    ],
+    "activeLighting": false
   },
   {
     "id": "000010002",
@@ -30,7 +31,8 @@
     "contentImages": [
       "/growth/bx-publishing/bx_detail_gop_02.png",
       "/growth/bx-publishing/bx_detail_gop_03.png"
-    ]
+    ],
+    "activeLighting": true
   },
   {
     "id": "000010004",
@@ -63,6 +65,19 @@
     "contentImages": [
       "/growth/bx-publishing/bx_detail_ieuro_02.png",
       "/growth/bx-publishing/bx_detail_ieuro_03.png"
-    ]
+    ],
+    "activeLighting": true
+  },
+  {
+    "id": "000010007",
+    "category": "business Card Design",
+    "title": "TOON KOI",
+    "content": "<p>\n툰코이는 색다른 매력과 트랜드를 추구하며 새로운 장르의 웹툰 서비스를 제공합니다.\n<br/>통통 튀는 폰트과 색감, 차별화된 레이아웃으로 컨텐츠 산업을 주도하고자 하는 \n<br/>젊은 기업의 무드를 한 눈에 파악할 수 있도록 디자인되었습니다.\n</p>",
+    "headImage": "/growth/bx-publishing/bx_detail_toonkoi_01.png",
+    "contentImages": [
+      "/growth/bx-publishing/bx_detail_toonkoi_02.png",
+      "/growth/bx-publishing/bx_detail_toonkoi_03.png"
+    ],
+    "activeLighting": true
   }
 ]
