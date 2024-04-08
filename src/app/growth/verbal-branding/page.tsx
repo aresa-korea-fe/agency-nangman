@@ -45,7 +45,7 @@ export default function VerbalBranding() {
       <div className="container pl-10">
         <div className="flex flex-wrap gap-3">
           {items.map((item) => (
-            <div key={item.src} className="relative w-72 h-72">
+            <div key={item.src} className="relative w-72 h-60">
               <Image
                 layout="fill"
                 objectFit="cover"
