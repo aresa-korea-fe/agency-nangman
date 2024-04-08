@@ -42,5 +42,27 @@
       "/growth/bx-publishing/bx_detail_coi_02.png",
       "/growth/bx-publishing/bx_detail_coi_03.png"
     ]
+  },
+  {
+    "id": "000010005",
+    "category": "business Card Design",
+    "title": "Arosred ",
+    "content": "<p>\nArt is the Road of Societ with revolutionary dreams.\n<br/>문화기획 컨설팅을 중심으로 글로벌 문화사업 시장에 적극적으로 활동 중인 Aosred의 명함 디자인입니다.\n</br>규격과 정보 전달에 중점을 두어 B2B 서비스를 중점으로 사업 확장을 유도하기 위한 디자인을 의도했습니다.\n",
+    "headImage": "/growth/bx-publishing/bx_detail_arosred_01.png",
+    "contentImages": [
+      "/growth/bx-publishing/bx_detail_arosred_02.png",
+      "/growth/bx-publishing/bx_detail_arosred_03.png"
+    ]
+  },
+  {
+    "id": "000010006",
+    "category": "business Card Design",
+    "title": "IEURO ",
+    "content": "<p>\nIEURO는 프랑스와 독일, 유럽 등 여러 국가를 대상으로 직구 서비스를 제공하는 기업입니다.\n<br/>다양한 국가로의 글로벌 시장 확대를 위해 한글과 영문 버전을 양면으로 제작했습니다.\n<br/>전세계의 공용어인 영문버전을 명함에 포함하여 다양한 국가에서 PR이 가능합니다.\n</p>",
+    "headImage": "/growth/bx-publishing/bx_detail_ieuro_01.png",
+    "contentImages": [
+      "/growth/bx-publishing/bx_detail_ieuro_02.png",
+      "/growth/bx-publishing/bx_detail_ieuro_03.png"
+    ]
   }
 ]
