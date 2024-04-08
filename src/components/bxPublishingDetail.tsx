@@ -9,12 +9,12 @@ export default function BxPublishingDetail({ id }: { id: string }) {
     <section className="top-4 flex flex-col gap-[7.5rem] overflow-y-auto bg-white text-black">
       <div className="relative">
         <Image
+          priority
           src={item?.headImage || ""}
           alt=""
           width={1440}
           height={780}
           className="w-full bg-gradient-to-b from-white/0 to-white/100"
-          priority
         ></Image>
         <div className="absolute bottom-0 h-[20rem] w-full bg-gradient-to-b from-white/0 to-white/100"></div>
       </div>
@@ -33,22 +33,22 @@ export default function BxPublishingDetail({ id }: { id: string }) {
           ></p>
         </div>
         <Image
+          priority
           src={item?.contentImages[0] || ""}
           alt=""
           width={1440}
           height={780}
           className="w-full"
-          priority
         ></Image>
       </div>
       <div>
         <Image
+          priority
           src={item?.contentImages[1] || ""}
           alt=""
           width={1440}
           height={780}
           className="w-full"
-          priority
         ></Image>
       </div>
     </section>

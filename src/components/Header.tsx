@@ -104,6 +104,7 @@ export default function Header() {
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">낭만</span>
             <Image
+              priority
               src="/nangman_logo@4x.png"
               alt="Your Company"
               width={40}
@@ -220,6 +221,7 @@ export default function Header() {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Agency nangman</span>
               <Image
+                priority
                 src="/nangman_logo@4x.png"
                 alt="Agency nangman"
                 width={40}

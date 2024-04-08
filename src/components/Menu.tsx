@@ -73,7 +73,13 @@ export default function Menu() {
             </div>
             <div>
               <div className="flex gap-4">
-                <Image src="/icons/i_map.png" width={24} height={24} alt={""} />
+                <Image
+                  priority
+                  src="/icons/i_map.png"
+                  width={24}
+                  height={24}
+                  alt={""}
+                />
                 찾아오시는 길
               </div>
             </div>
@@ -82,7 +88,7 @@ export default function Menu() {
               <div>
                 <Link
                   href="/project-request"
-                  className="hover:text-black flex w-min flex-row justify-between gap-16 border border-white bg-transparent px-5 py-3 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                  className="flex w-min flex-row justify-between gap-16 border border-white bg-transparent px-5 py-3 hover:bg-gray-50 hover:text-black sm:mt-0 sm:w-auto"
                 >
                   <span>프로젝트 외뢰</span>
                   <span>-</span>
