@@ -12,7 +12,7 @@ interface GrowthLayoutProps {
 const GrowthLayout: FC<GrowthLayoutProps> = ({ children, modal }) => {
   return (
     <div className="flex overflow-hidden bg-white">
-      <GrowthMenu></GrowthMenu>
+      {/* <GrowthMenu></GrowthMenu> */}
       <div className="flex-1">{children}</div>
       {modal}
     </div>

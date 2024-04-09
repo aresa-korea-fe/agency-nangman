@@ -82,8 +82,9 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const segment = useSelectedLayoutSegment() || "";
-  const urls = ["", "company", "contact-us"];
-  const hiddenUrls = ["growth"];
+  const urls: string[] = ["", "company", "contact-us"];
+  const hiddenUrls: string[] = [];
+  // const hiddenUrls = ["growth"];
 
   const isActive = () => urls.includes(segment);
   const isHide = () => hiddenUrls.includes(segment);
@@ -249,7 +250,7 @@ export default function Header() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        Product
+                        성장기록물
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
@@ -259,7 +260,8 @@ export default function Header() {
                         />
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...products, ...callsToAction].map((item) => (
+                        {/* {[...products, ...callsToAction].map((item) => ( */}
+                        {[...products].map((item) => (
                           <Disclosure.Button
                             key={item.name}
                             as="a"
@@ -274,22 +276,22 @@ export default function Header() {
                   )}
                 </Disclosure>
                 <a
-                  href="#"
+                  href="/project-request"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Features
+                  Project Request
                 </a>
                 <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
+                  href="/company"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Company
+                </a>
+                <a
+                  href="/contact-us"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Contact Us
                 </a>
               </div>
             </div>

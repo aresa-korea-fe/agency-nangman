@@ -81,10 +81,10 @@ export default function VerbalBranding() {
             <div key={item.src} className="relative h-60 w-72">
               <Image
                 priority
-                layout="fill"
-                objectFit="cover"
+                fill
                 src={item.src}
                 alt={item.alt}
+                style={{ objectFit: 'cover' }}
               />
             </div>
           ))}
