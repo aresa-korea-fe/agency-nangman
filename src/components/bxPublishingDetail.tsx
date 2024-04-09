@@ -10,7 +10,6 @@ export default function BxPublishingDetail({ id }: { id: string }) {
       <div className="relative">
         <Image
           src={item?.headImage || ""}
-          priority
           alt=""
           width={1440}
           height={780}
