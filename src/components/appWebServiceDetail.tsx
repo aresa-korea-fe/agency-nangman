@@ -21,7 +21,13 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   return (
     <div className="w-full">
       {menus.map((menu, index) => (
-        <div key={index}>{menu}</div>
+        <div className="w-full" onClick={() => setSelected(menu)} key={index}>
+          <p
+            className={`flex flex-col font-bold ${selected === menu ? "text-3xl" : "text-2xl"}`}
+          >
+            {menu}
+          </p>
+        </div>
       ))}
     </div>
   );
