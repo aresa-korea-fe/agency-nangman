@@ -21,25 +21,29 @@ import { Fragment, useEffect, useState } from "react";
 const products = [
   {
     name: "VERBAL BRANDING",
-    description: "Delivering powerful brand messages for products or services",
+    description: "제품이나 서비스를 위한 강력한 브랜드 메시지 전달",
+    // description: "Delivering powerful brand messages for products or services",
     href: "/growth/verbal-branding",
     icon: FaceSmileIcon,
   },
   {
     name: "APP/WEB SERVICE",
-    description: "User-friendly app/web service for seamless experiences",
+    // description: "User-friendly app/web service for seamless experiences",
+    description: '끊김없는 경험을 위한 사용자 친화적인 앱/웹 서비스',
     href: "/growth/app-web-service",
     icon: CursorArrowRippleIcon,
   },
   {
     name: "BX/PUBLISHING",
-    description: "Engaging BX/Publishing for impactful content",
+    // description: "Engaging BX/Publishing for impactful content",
+    description: "영향력 있는 콘텐츠를 위한 매력적인 BX/Publishing",
     href: "/growth/bx-publishing",
     icon: InboxIcon,
   },
   {
     name: "PROP-TECH",
-    description: "Innovative prop-tech solutions for real estate",
+    // description: "Innovative prop-tech solutions for real estate",
+    description: "부동산을 위한 혁신적인 프롭테크 솔루션",
     href: "/growth/prop-tech",
     icon: HomeModernIcon,
   },
