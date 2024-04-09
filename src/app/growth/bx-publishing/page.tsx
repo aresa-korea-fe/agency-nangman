@@ -8,6 +8,7 @@ export interface BxItem {
   content: string;
   headImage: string;
   contentImages: string[];
+  activeLighting?: boolean;
 }
 
 export default function BxPublishing() {
@@ -24,7 +25,11 @@ export default function BxPublishing() {
             className={`flex-1 ${index % 2 === 0 ? "mr-auto" : "ml-auto"}`}
           >
             <div className="relative">
+              {item.activeLighting && (
+                <div className="absolute bottom-0 h-[10rem] w-full bg-gradient-to-t from-white/60 to-white/0"></div>
+              )}
               <Image
+                priority
                 key={item.headImage}
                 width={1020}
                 height={400}
