@@ -68,7 +68,7 @@ function MiddleContent({
   breif: ProjectBrief[];
 }) {
   return (
-    <div className="mx-40 flex flex-col items-center gap-24">
+    <div className="mx-40 flex flex-col items-center gap-24 whitespace-pre-wrap">
       <Image
         src={contentImage || ""}
         alt="main"
@@ -117,7 +117,7 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
 
   return (
     <article
-      className="grid-flow-col-2 grid"
+      className="grid-flow-col-2 grid text-white"
       style={{ background: item[selected].background }}
     >
       <div className={`flex flex-col gap-10 pl-40 pt-32`}>
@@ -130,7 +130,7 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
             {menu}
           </p>
         ))}
-        <p>{item[selected].text}</p>
+        <p className="max-w-96">{item[selected].text}</p>
       </div>
       <div className="w-full">
         {item[selected].images.map((image, index) => (
