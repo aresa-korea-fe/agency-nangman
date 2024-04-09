@@ -116,33 +116,39 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   }, [item]);
 
   return (
-    <article
-      className="grid-flow-col-2 grid text-white"
-      style={{ background: item[selected].background }}
-    >
-      <div className={`flex flex-col gap-10 pl-40 pt-32`}>
-        {menus.map((menu, index) => (
-          <p
-            onClick={() => setSelected(index)}
-            key={index}
-            className={`flex flex-col font-bold leading-none ${selected === index ? "text-[3.125rem] text-white" : "text-[2.5rem] text-white/60"}`}
-          >
-            {menu}
-          </p>
-        ))}
-        <p className="max-w-96">{item[selected].text}</p>
-      </div>
-      <div className="w-full">
-        {item[selected].images.map((image, index) => (
-          <div key={index}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={375}
-              height={872}
-            ></Image>
-          </div>
-        ))}
+    <article className="relative h-full w-full text-white">
+      <div
+        className="grid max-h-[56.25rem] w-full grid-flow-col "
+        style={{ background: item[selected].background }}
+      >
+        <div className={`flex flex-col gap-10 pl-40 pt-32`}>
+          {menus.map((menu, index) => (
+            <p
+              onClick={() => setSelected(index)}
+              key={index}
+              className={`flex flex-col font-bold leading-none ${selected === index ? "text-[3.125rem] text-white" : "text-[2.5rem] text-white/60"}`}
+            >
+              {menu}
+            </p>
+          ))}
+          <p className="max-w-96">{item[selected].text}</p>
+        </div>
+        <div className="relative mt-40 grid h-full w-full grid-cols-2">
+          {item[selected].images.map((image, index) => (
+            <div key={index} className=" flex flex-col items-center gap-4">
+              <p className={`${index > 1 ? "text-navyBlue/60" : ""}`}>
+                {image.alt}
+              </p>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={370}
+                height={700}
+              ></Image>
+            </div>
+          ))}
+          <div className="absolute bottom-0 h-2/5 w-full bg-gradient-to-b from-white/0 to-white/100"></div>
+        </div>
       </div>
     </article>
   );
@@ -160,7 +166,7 @@ export default function AppWebServiceDetail({ id }: { id: string }) {
     intro: item!.intro,
   };
   return (
-    <article className="flex w-full flex-col gap-32 overflow-y-auto whitespace-pre-wrap text-navyBlue">
+    <article className="flex h-full w-full flex-col gap-32 overflow-y-auto whitespace-pre-wrap  text-navyBlue">
       <DetailHeader {...headerProps}></DetailHeader>
       <MiddleContent
         contentImage={item!.contentImage}
