@@ -16,6 +16,7 @@ export type ProjectSitemap = {
   menu: string;
   text: string;
   images: SitemapImage[];
+  blur: boolean;
   background: string;
 };
 

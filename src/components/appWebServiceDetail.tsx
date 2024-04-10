@@ -23,8 +23,17 @@ type DetailHeaderProps = {
 function DetailHeader(props: DetailHeaderProps) {
   const { mainImage, title, category, client, releaseDate, intro } = props;
   return (
-    <header className="relative flex h-screen w-full justify-center">
-      <div className="max-w-[calc(100% - 10rem)] absolute -bottom-60 left-20 right-20 flex flex-col gap-5 bg-white px-[6.25rem] py-[3.75rem]">
+    <header className="relative flex h-full justify-center">
+      <div className="h-full w-screen">
+        <Image
+          src={mainImage || ""}
+          alt="main"
+          priority
+          width={1920}
+          height={1200}
+        ></Image>
+      </div>
+      <div className="max-w-[calc(100% - 10rem)] absolute bottom-0 left-20 right-20 flex translate-y-1/3 flex-col gap-5 bg-white px-[6.25rem] py-[3.75rem]">
         <h1 className="text-[2.75rem] font-bold">{title}</h1>
         <div className="flex flex-col gap-10">
           <div className="flex gap-[3.75rem]">
@@ -48,14 +57,6 @@ function DetailHeader(props: DetailHeaderProps) {
           사이트 보기
         </p>
       </div>
-      <Image
-        src={mainImage || ""}
-        alt="main"
-        priority
-        width={1440}
-        height={780}
-        className="w-full bg-gradient-to-b from-white/0 to-white/100"
-      ></Image>
     </header>
   );
 }
@@ -118,7 +119,7 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   return (
     <article className="relative h-full w-full text-white">
       <div
-        className="grid max-h-[56.25rem] w-full grid-flow-col "
+        className="grid max-h-[50rem] w-full grid-flow-col gap-20 "
         style={{ background: item[selected].background }}
       >
         <div className={`flex flex-col gap-10 pl-40 pt-32`}>
@@ -133,21 +134,28 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
           ))}
           <p className="max-w-96">{item[selected].text}</p>
         </div>
-        <div className="relative mt-40 grid h-full w-full grid-cols-2">
+        <div className="relative mt-40 flex max-h-[125rem] max-w-[800px] flex-col flex-wrap justify-between gap-10 pb-40">
           {item[selected].images.map((image, index) => (
-            <div key={index} className=" flex flex-col items-center gap-4">
-              <p className={`${index > 1 ? "text-navyBlue/60" : ""}`}>
+            <div key={index} className="flex flex-col items-center gap-4">
+              <p
+                className={`${item[selected].images.length > 2 && index !== 0 && index !== 2 ? "text-navyBlue/60" : "text-white/60"}`}
+              >
                 {image.alt}
               </p>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={370}
-                height={700}
-              ></Image>
+              <div className="max-h-[125rem] overflow-hidden">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={370}
+                  height={700}
+                  className="object-cover"
+                ></Image>
+              </div>
             </div>
           ))}
-          <div className="absolute bottom-0 h-2/5 w-full bg-gradient-to-b from-white/0 to-white/100"></div>
+          {item[selected].blur && (
+            <div className="absolute -bottom-40 h-2/5 w-full bg-gradient-to-b from-white/0 to-white/100"></div>
+          )}
         </div>
       </div>
     </article>
