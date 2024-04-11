@@ -30,7 +30,7 @@ export type IProject = {
   link: string;
   mainImage: string;
   contentImage: string;
-  breif: ProjectBrief[];
+  brief: ProjectBrief[];
   sitemap: ProjectSitemap[];
 };
 
