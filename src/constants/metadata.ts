@@ -102,8 +102,8 @@ export const META = {
       alt: "ARESA App Logo - Real Estate Super App",
     },
     card: "summary_large_image",
-    site: "@aresa_io",
-    creator: "@aresa_io",
+    site: "@studioNM_co_kr",
+    creator: "@studioNM_co_kr",
   },
   openGraph: {
     type: "website",
