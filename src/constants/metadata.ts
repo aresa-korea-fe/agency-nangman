@@ -2,10 +2,25 @@ export const META = {
   url: "https://studio-nm.co.kr/",
   page_url: "https://studio-nm.co.kr/",
   metadataBase: new URL("https://studio-nm.co.kr/"),
-  title: "아리사 | 부동산을 간편하고 안전하게 ",
-  description: "아리사는 부동산 슈퍼앱입니다.",
+  title: "스튜디오 낭만, 모든 것을 가능하게 하다.",
+  description:
+    "서비스기획, BX 디자인, 상세디자인, 광고 디자인, 명함 디자인, 웹 개발, 앱 개발, 웹앱개발, 유지보수, 서비스 운영, 지원 사업 컨설팅 등 다양한 서비스를 낭만에서 제공합니다.",
   keywords: [
-    "부동산, 부동산 슈퍼앱, 아리사, ARESA, 거래, 매매, 전세, 월세, 경매, 도전 자산, 부동산 이슈, 부동산 계산기, 아리사코리아",
+    "서비스기획",
+    "서비스개발",
+    "디자인",
+    "웹개발",
+    "웹앱개발",
+    "앱개발",
+    "지원사업컨설팅",
+    "청창사",
+    "초창페",
+    "장충대",
+    "낭만",
+    "낭만이 있는 곳",
+    "낭만과 함께",
+    "서비스 런칭",
+    "컨설팅",
   ],
   icons: [
     {
@@ -109,9 +124,10 @@ export const META = {
     type: "website",
     locale: "ko_KR",
     url: "https://studio-nm.co.kr/",
-    siteName: "아리사 - 부동산을 간편하고 안전하게",
-    title: "ARESA",
-    description: "부동산을 더 간편하고 더 안전하게 거래하도록 도와드립니다.",
+    siteName: "스튜디오 낭만, 모든 것을 가능하게 하다.",
+    title: "Studio NM - 스튜디오 낭만, 모든 것을 가능하게 하다.",
+    description:
+      "서비스기획, BX 디자인, 상세디자인, 광고 디자인, 명함 디자인, 웹 개발, 앱 개발, 웹앱개발, 유지보수, 서비스 운영, 지원 사업 컨설팅 등 다양한 서비스를 낭만에서 제공합니다.",
     images: {
       url: "/openGraph-image.jpg",
       alt: "ARESA App Logo - Real Estate Super App",
