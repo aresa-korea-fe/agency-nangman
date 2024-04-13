@@ -74,9 +74,9 @@ export default function VerbalBranding() {
   ];
 
   return (
-    <section className="h-screen overflow-y-auto py-24">
-      <div className="container pl-10">
-        <div className="flex flex-wrap gap-3">
+    <section className="min-h-screen overflow-y-auto bg-gray-50 py-40 leading-none text-black">
+      <div className="mx-auto h-full max-w-[90vw] gap-40 xl:max-w-screen-xl">
+        <div className="flex flex-wrap justify-center gap-3">
           {items.map((item) => (
             <div key={item.src} className="relative h-60 w-72">
               <Image
@@ -84,7 +84,7 @@ export default function VerbalBranding() {
                 fill
                 src={item.src}
                 alt={item.alt}
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: "cover" }}
               />
             </div>
           ))}

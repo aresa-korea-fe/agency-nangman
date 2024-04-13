@@ -15,8 +15,8 @@ export default function BxPublishing() {
   const contents: BxItem[] = require("/public/data/bx-publishing.interface.json");
 
   return (
-    <section className="h-screen overflow-y-auto bg-white leading-none text-black">
-      <div className="flex flex-col gap-40 px-12 py-24">
+    <main className="min-h-screen overflow-y-auto bg-gray-50 py-40 leading-none text-black">
+      <div className=" mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
         {contents.map((item, index) => (
           <Link
             key={index}
@@ -26,7 +26,7 @@ export default function BxPublishing() {
           >
             <div className="relative">
               {item.activeLighting && (
-                <div className="absolute bottom-0 h-[10rem] w-full bg-gradient-to-t from-white/60 to-white/0"></div>
+                <div className="absolute bottom-0 h-[10rem] bg-gradient-to-t from-white/60 to-white/0"></div>
               )}
               <Image
                 priority
@@ -45,6 +45,6 @@ export default function BxPublishing() {
           </Link>
         ))}
       </div>
-    </section>
+    </main>
   );
 }

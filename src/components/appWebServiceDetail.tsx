@@ -117,7 +117,7 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   }, [item]);
 
   return (
-    <article className="relative h-full w-full text-white">
+    <article className="relative h-auto w-full text-white">
       <div
         className="grid max-h-[50rem] w-full grid-flow-col gap-20 "
         style={{ background: item[selected].background }}
@@ -174,7 +174,7 @@ export default function AppWebServiceDetail({ id }: { id: string }) {
     intro: item!.intro,
   };
   return (
-    <article className="flex h-full w-full flex-col gap-32 overflow-y-auto whitespace-pre-wrap  text-navyBlue">
+    <article className="flex h-full w-full flex-col gap-32 overflow-y-auto whitespace-pre-wrap text-navyBlue">
       <DetailHeader {...headerProps}></DetailHeader>
       <MiddleContent
         contentImage={item!.contentImage}

@@ -29,7 +29,7 @@ const products = [
   {
     name: "APP/WEB SERVICE",
     // description: "User-friendly app/web service for seamless experiences",
-    description: '끊김없는 경험을 위한 사용자 친화적인 앱/웹 서비스',
+    description: "끊김없는 경험을 위한 사용자 친화적인 앱/웹 서비스",
     href: "/growth/app-web-service",
     icon: CursorArrowRippleIcon,
   },
@@ -50,7 +50,11 @@ const products = [
 ];
 
 const callsToAction = [
-  { name: "Nangman Views", href: "#", icon: PlayCircleIcon },
+  {
+    name: "Nangman Views",
+    href: "https://www.youtube.com/watch?v=IgpogVJLmuM&list=PL2rkvs3P2EzuoVtrO39kEmjbhPB3pUmGB",
+    icon: PlayCircleIcon,
+  },
   { name: "Project Request", href: "/project-request", icon: EnvelopeOpenIcon },
 ];
 
