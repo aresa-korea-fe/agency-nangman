@@ -74,11 +74,11 @@ export default function VerbalBranding() {
   ];
 
   return (
-    <section className="h-screen overflow-y-auto py-24">
-      <div className="container pl-10">
-        <div className="flex flex-wrap gap-3">
+    <section className="h-screen overflow-y-auto py-16 sm:py-32">
+      <div className="container px-3 md:px-10 m-auto">
+        <div className="flex flex-wrap gap-2 md:gap-3 sm:justify-center">
           {items.map((item) => (
-            <div key={item.src} className="relative h-60 w-72">
+            <div key={item.src} className="relative h-60 w-[calc(50vw_-_26px)] sm:w-72">
               <Image
                 priority
                 fill

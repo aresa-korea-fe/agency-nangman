@@ -51,8 +51,8 @@ const products = [
 ];
 
 const callsToAction = [
-  { name: "Nangman Views", href: "https://www.youtube.com/watch?v=IgpogVJLmuM&list=PL2rkvs3P2EzuoVtrO39kEmjbhPB3pUmGB", icon: PlayCircleIcon },
-  { name: "Contact", href: "/project-request", icon: EnvelopeOpenIcon },
+  { name: "Nangman Views", href: "#", icon: PlayCircleIcon },
+  { name: "Project Request", href: "/project-request", icon: EnvelopeOpenIcon },
 ];
 
 function classNames(...classes: string[]) {
@@ -87,7 +87,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const segment = useSelectedLayoutSegment() || "";
-  const urls: string[] = ["", "company", "project-request", "growth"];
+  const urls: string[] = ["", "company", "project-request"];
   const hiddenUrls: string[] = [];
   // const hiddenUrls = ["growth"];
 
@@ -98,111 +98,12 @@ export default function Header() {
 
   return (
     <>
-      <nav className="sm:hidden fixed top-0 z-[2] right-0 p-6 px-8"
-        aria-label="Global">
-        <div className="flex">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <Dialog
-          as="div"
-          className="lg:hidden"
-          open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
-        >
-          <div className="fixed inset-0 z-10" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Agency nangman</span>
-                <Image
-                  priority
-                  src="/nangman_logo@4x.png"
-                  alt="Agency nangman"
-                  width={40}
-                  height={40}
-                />
-                {/* <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              /> */}
-              </a>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
-                  <Link
-                    href="/company"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    ABOUT US
-                  </Link>
-
-                  <Disclosure as="div" className="-mx-3">
-                    {({ open }) => (
-                      <>
-                        <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                          성장기록물
-                          <ChevronDownIcon
-                            className={classNames(
-                              open ? "rotate-180" : "",
-                              "h-5 w-5 flex-none",
-                            )}
-                            aria-hidden="true"
-                          />
-                        </Disclosure.Button>
-                        <Disclosure.Panel className="mt-2 space-y-2">
-                          {/* {[...products, ...callsToAction].map((item) => ( */}
-                          {[...products].map((item) => (
-                            <Disclosure.Button
-                              key={item.name}
-                              as="a"
-                              href={item.href}
-                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                            >
-                              {item.name}
-                            </Disclosure.Button>
-                          ))}
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
-
-                  <Link
-                    href="/project-request"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    CONTACT
-                  </Link>
-
-                </div>
-              </div>
-            </div>
-          </Dialog.Panel>
-        </Dialog>
-      </nav>
-
-      <div className="hidden sm:block fixed top-0 left-0 z-[11] w-full pointer-events-none">
+      <div className="fixed top-0 left-0 z-[11] w-full pointer-events-none">
         <header className="flex items-center justify-center pt-10 lg:pt-12 pb-0 py-12 w-full">
-          <Popover.Group className="flex rounded-[40px] px-4 pointer-events-auto bg-black gap-8">
+          <Popover.Group className="flex rounded-[40px] px-4 pointer-events-auto bg-black">
             <Link
               href="/"
-              className={`relative text-xs lg:text-sm px-6 py-4 uppercase font-semibold ${isActive() ? "text-white " : "text-gray-900"}
+              className={`relative text-xs lg:text-sm px-5 py-4 uppercase font-semibold ${isActive() ? "text-white " : "text-gray-900"}
               after:absolute after:w-[1px] after:h-1/3 after:top-1/3 after:bg-white/50 after:right-0`}
             >
               낭만.
@@ -210,14 +111,14 @@ export default function Header() {
 
             <Link
               href="/company"
-              className={`text-xs lg:text-sm py-4 uppercase font-semibold ${isActive() ? "text-white" : "text-gray-900"}`}
+              className={`text-xs lg:text-sm px-5 py-4 uppercase font-semibold ${isActive() ? "text-white" : "text-gray-900"}`}
             >
               about us
             </Link>
 
             <Popover className="relative">
               <Popover.Button
-                className={`flex items-center gap-x-1 text-xs lg:text-sm py-4 uppercase font-semibold ${isActive() ? "text-white" : "text-gray-900"}`}
+                className={`flex items-center gap-x-1 text-xs lg:text-sm px-5 py-4 uppercase font-semibold ${isActive() ? "text-white" : "text-gray-900"}`}
               >
                 성장기록물
                 {/* <ChevronDownIcon
@@ -235,7 +136,7 @@ export default function Header() {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute -left-60 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                   <div className="p-4">
                     {products.map((item) => (
                       <div
@@ -282,7 +183,7 @@ export default function Header() {
 
             <Link
               href="/project-request"
-              className={`text-xs lg:text-sm pr-5 py-4 uppercase font-semibold ${isActive() ? "text-white" : "text-gray-900"}`}
+              className={`text-xs lg:text-sm px-5 py-4 uppercase font-semibold ${isActive() ? "text-white" : "text-gray-900"}`}
             >
               contact
             </Link>
