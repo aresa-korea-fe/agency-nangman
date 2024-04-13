@@ -63,10 +63,10 @@ function DetailHeader(props: DetailHeaderProps) {
 
 function MiddleContent({
   contentImage,
-  breif,
+  brief,
 }: {
   contentImage: string;
-  breif: ProjectBrief[];
+  brief: ProjectBrief[];
 }) {
   return (
     <div className="mx-40 flex flex-col items-center gap-24 whitespace-pre-wrap">
@@ -81,13 +81,13 @@ function MiddleContent({
       <div className="flex flex-col items-center justify-center gap-10">
         <div className="relative px-5 pt-5">
           <div className="absolute -left-3 top-0 h-20 w-20 rounded-full bg-[#FF7C7C50]"></div>
-          <h2 className="relative z-10 font-bold">Project Breif</h2>
+          <h2 className="relative z-10 font-bold">Project brief</h2>
           <div className="absolute bottom-2 left-6 h-12 w-12 rounded-full bg-[#5F5CFF30]"></div>
           <div className="absolute left-[4.5rem] top-4 h-6 w-6 rounded-full bg-[#FFF509]"></div>
         </div>
 
         <div className="grid w-full grid-cols-2 items-center justify-center gap-4">
-          {breif.map((menu, index) => (
+          {brief.map((menu, index) => (
             <div
               key={index}
               className="flex flex-col gap-8 rounded-[1.875rem] bg-[#F5F4F6] p-[3.75rem]"
@@ -178,7 +178,7 @@ export default function AppWebServiceDetail({ id }: { id: string }) {
       <DetailHeader {...headerProps}></DetailHeader>
       <MiddleContent
         contentImage={item!.contentImage}
-        breif={item!.breif}
+        brief={item!.brief}
       ></MiddleContent>
       <SitemapSlide item={item!.sitemap}></SitemapSlide>
     </article>

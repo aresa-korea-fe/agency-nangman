@@ -135,7 +135,7 @@ export default function Company() {
             >
               nangman
             </p>
-            <h2>
+            <h2 className="leading-normal">
               크고 작은 서비스가 아닌
               <br />
               우리의 서비스라는 마음으로

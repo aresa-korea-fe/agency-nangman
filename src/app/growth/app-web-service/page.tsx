@@ -30,15 +30,15 @@ export type IProject = {
   link: string;
   mainImage: string;
   contentImage: string;
-  breif: ProjectBrief[];
+  brief: ProjectBrief[];
   sitemap: ProjectSitemap[];
 };
 
 export default function AppWebService() {
   const items: IProject[] = require("/public/data/app-web-service.interface.json");
   return (
-    <main className="min-h-screen overflow-y-auto bg-gray-50 py-40 leading-none text-black">
-      <div className="mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
+    <section className="h-screen overflow-y-auto bg-white leading-none text-black">
+      <div className="flex flex-col gap-40 px-12 py-24 sm:py-40">
         {items.map((item, index) => (
           <Link
             key={index}

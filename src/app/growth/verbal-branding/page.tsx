@@ -78,7 +78,10 @@ export default function VerbalBranding() {
       <div className="mx-auto h-full max-w-[90vw] gap-40 xl:max-w-screen-xl">
         <div className="flex flex-wrap justify-center gap-3">
           {items.map((item) => (
-            <div key={item.src} className="relative h-60 w-72">
+            <div
+              key={item.src}
+              className="relative h-60 w-[calc(50vw_-_26px)] sm:w-72"
+            >
               <Image
                 priority
                 fill
