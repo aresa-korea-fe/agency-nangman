@@ -37,7 +37,7 @@ export type IProject = {
 export default function AppWebService() {
   const items: IProject[] = require("/public/data/app-web-service.interface.json");
   return (
-    <main className="min-h-screen overflow-y-auto bg-gray-50 py-40 leading-none text-black">
+    <main className="min-h-screen overflow-y-auto whitespace-pre-wrap bg-gray-50 py-40 leading-none text-black">
       <div className="mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
         {items.map((item, index) => (
           <Link
@@ -57,9 +57,11 @@ export default function AppWebService() {
                 className="hover:[animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite]"
                 alt=""
               />
-              <div className="absolute -mt-6 ml-6 flex flex-col gap-4">
-                <p className="text-4xl font-bold">{item.title}</p>
-                <label className="text-sm text-black/50">{item.category}</label>
+              <div className="absolute mt-6 flex flex-col gap-4 lg:-mt-6 lg:ml-6 ">
+                <p className="text-2xl font-bold md:text-4xl">{item.title}</p>
+                <label className="text-xs text-black/50 md:text-sm">
+                  {item.category}
+                </label>
               </div>
             </div>
           </Link>

@@ -1,4 +1,4 @@
-import BxPublishingDetail from "@/components/bxPublishingDetail";
+import AppWebServiceDetail from "@/components/appWebServiceDetail";
 import Modal from "@/components/modal";
 
 interface PhotoModalPageProps {
@@ -12,9 +12,7 @@ export default function BxPublishingDetailPage({
 }: PhotoModalPageProps) {
   return (
     <Modal>
-      <div className="max-w-screen-xl">
-        <BxPublishingDetail id={params.id}></BxPublishingDetail>
-      </div>
+      <AppWebServiceDetail id={params.id}></AppWebServiceDetail>
     </Modal>
   );
 }

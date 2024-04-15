@@ -23,30 +23,30 @@ function DetailHeader(props: DetailHeaderProps) {
   const { mainImage, title, category, client, releaseDate, intro, link } =
     props;
   return (
-    <header className="h-auto w-screen justify-center">
+    <header className="h-auto w-full justify-center">
       <Image
         src={mainImage || ""}
         alt="main"
         priority
         width={1920}
         height={1200}
-        className="w-screen"
+        className="w-full"
       ></Image>
-      <div className="max-w-[calc(100% - 10rem)] content-xs:px-5 content-xs:py-3 content-xs:m-0  content-sm:m-0 content-sm:px-10 content-sm:py-8  relative z-30 mx-10 -mt-[10vw] flex flex-col gap-5 bg-white px-[6.25rem] py-[3.75rem]">
-        <h1 className="content-xs:text-2xl content-xs:leading-normal content-sm:text-3xl content-sm:leading-normal content-md:text-4xl content-md:leading-normal text-[2.75rem] font-bold">
+      <div className="max-w-[calc(100% - 10rem)] relative z-30 mx-10  -mt-[10vw] flex flex-col  gap-5 bg-white px-[6.25rem] py-[3.75rem] content-xs:m-0 content-xs:px-5 content-xs:py-3 content-sm:m-0 content-sm:px-10 content-sm:py-8">
+        <h1 className="text-[2.75rem] font-bold content-xs:text-2xl content-xs:leading-normal content-sm:text-3xl content-sm:leading-normal content-md:text-4xl content-md:leading-normal">
           {title}
         </h1>
         <div className="flex flex-col gap-10">
-          <div className="content-xs:flex-col content-sm:flex-col content-md:gap-[3.75rem] content-lg:gap-[3.75rem] flex gap-5">
-            <div className="content-xs:flex-col content-sm:flex-col content-md:flex-col flex gap-5">
+          <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:gap-[3.75rem] content-lg:gap-[3.75rem]">
+            <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:flex-col">
               <p className="text-navyBlue/50">Category.</p>
               <p>{category}</p>
             </div>
-            <div className="content-xs:flex-col content-sm:flex-col content-md:flex-col flex gap-5">
+            <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:flex-col">
               <p className="text-navyBlue/50">Client.</p>
               <p>{client}</p>
             </div>
-            <div className="content-xs:flex-col content-sm:flex-col content-md:flex-col flex gap-5">
+            <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:flex-col">
               <p className="text-navyBlue/50">Release Date.</p>
               <p>{releaseDate}</p>
             </div>
@@ -74,14 +74,14 @@ function MiddleContent({
   brief: ProjectBrief[];
 }) {
   return (
-    <div className="content-lg:mx-40 content-xs:mx-6 content-sm:mx-6 mx-20 flex flex-col items-center gap-24 whitespace-pre-wrap">
+    <div className="mx-20 flex flex-col items-center gap-24 whitespace-pre-wrap content-xs:mx-6 content-sm:mx-6 content-lg:mx-40">
       <Image
         src={contentImage || ""}
         alt="main"
         priority
         width={1334}
         height={1002}
-        className="w-screen"
+        className="w-auto"
       ></Image>
 
       <div className="flex flex-col items-center justify-center gap-10">
@@ -92,19 +92,19 @@ function MiddleContent({
           <div className="absolute left-[4.5rem] top-4 h-6 w-6 rounded-full bg-[#FFF509]"></div>
         </div>
 
-        <div className="content-lg:grid-cols-2 grid w-full items-center justify-center gap-4 whitespace-break-spaces">
+        <div className="grid w-full items-center justify-center gap-4 whitespace-break-spaces content-lg:grid-cols-2">
           {brief.map((menu, index) => (
             <div
               key={index}
-              className="content-xs:gap-3 content-sm:gap-4 content-lg:h-[20rem]  content-lg:p-[3.75rem] content-lg:text-sm content-xl:text-base flex flex-col gap-8 rounded-[1.875rem] bg-[#F5F4F6] p-10"
+              className="flex flex-col gap-8  rounded-[1.875rem] bg-[#F5F4F6] p-10 content-xs:gap-3 content-sm:gap-4 content-lg:h-[20rem] content-lg:p-[3.75rem] content-lg:text-sm content-xl:text-base"
             >
-              <div className="content-lg:gap-3 flex flex-col gap-1 ">
+              <div className="flex flex-col gap-1 content-lg:gap-3 ">
                 <p className="font-medium text-navyBlue/50">{menu.category}</p>
-                <p className="content-lg:text-3xl text-2xl font-bold">
+                <p className="text-2xl font-bold content-lg:text-3xl">
                   {menu.title}
                 </p>
               </div>
-              <p className="content-xs:text-sm content-xs:leading-normal content-sm:text-sm content-sm:leading-normal leading-8 tracking-tight">
+              <p className="leading-8 tracking-tight content-xs:text-sm content-xs:leading-normal content-sm:text-sm content-sm:leading-normal">
                 {menu.content}
               </p>
             </div>
@@ -127,19 +127,19 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   }, [item]);
 
   return (
-    <article className="w-screen overflow-x-hidden text-white">
+    <article className="overflow-x-hidden text-white">
       <div
-        className="content-xl:h-[50vw] content-lg:h-[46.25rem] absolute h-full w-screen"
+        className="absolute h-full w-full content-lg:h-[46.25rem] content-xl:h-[50vw]"
         style={{ background: item[selected].background }}
       ></div>
-      <div className="content-lg:mx-40 content-lg:flex-nowrap content-xs:mx-6 content-sm:mx-6 content-xs:mt-5 content-sm:mt-5 content-lg:mt-32 mx-20 mt-14 flex flex-wrap items-start justify-between gap-10">
-        <div className="relative flex w-full flex-col gap-10">
-          <div className="slider content-sm:flex-row content-xs:flex-row relative flex snap-x flex-col gap-6 overflow-x-auto">
+      <div className="mx-20 mt-14 flex flex-wrap items-start justify-between gap-10 content-xs:mx-6 content-xs:mt-5 content-sm:mx-6 content-sm:mt-5 content-lg:mx-40 content-lg:mt-32 content-lg:flex-nowrap">
+        <div className="relative flex flex-col gap-10 content-xs:w-full">
+          <div className="slider relative flex snap-x flex-col gap-6 overflow-x-auto content-xs:flex-row content-sm:flex-row">
             {menus.map((menu, index) => (
               <p
                 onClick={() => setSelected(index)}
                 key={index}
-                className={`flex flex-col font-bold leading-none ${selected === index ? "content-sm:snap-center text-white" : " text-white/60"} content-lg:text-3xl text-nowrap text-2xl `}
+                className={`flex flex-col font-bold leading-none ${selected === index ? "text-white content-sm:snap-center" : " text-white/60"} text-nowrap text-2xl content-lg:text-3xl `}
               >
                 {menu}
               </p>
@@ -147,7 +147,7 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
           </div>
           <p className="max-w-96">{item[selected].text}</p>
         </div>
-        <div className="content-xl:flex-wrap content-xl:max-h-[150rem] relative flex w-fit max-w-[800px] flex-col justify-between gap-10 pb-40 ">
+        <div className="relative flex w-fit max-w-[800px] flex-col justify-between gap-10 pb-40 content-xl:max-h-[150rem] content-xl:flex-wrap ">
           {item[selected].images.map((image, index) => (
             <div key={index} className="flex flex-col items-center gap-4">
               <p
@@ -183,13 +183,13 @@ export default function AppWebServiceDetail({ id }: { id: string }) {
     link: item!.link,
   };
   return (
-    <article className="flex h-auto w-full flex-col gap-32  overflow-x-hidden whitespace-pre-wrap text-navyBlue">
+    <main className="flex h-auto w-full flex-col gap-32 overflow-x-hidden whitespace-pre-wrap bg-white text-start text-navyBlue">
       <DetailHeader {...headerProps}></DetailHeader>
       <MiddleContent
         contentImage={item!.contentImage}
         brief={item!.brief}
       ></MiddleContent>
       <SitemapSlide item={item!.sitemap}></SitemapSlide>
-    </article>
+    </main>
   );
 }
