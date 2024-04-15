@@ -89,6 +89,7 @@ function useHandleScroll() {
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [onLogo, setOnLogo] = useState(false);
 
   const segment = useSelectedLayoutSegment() || "";
   const urls: string[] = ["", "company", "project-request", "growth"];
@@ -202,101 +203,127 @@ export default function Header() {
         </Dialog>
       </nav>
 
-      <div className="pointer-events-none fixed left-0 top-0 z-[11] hidden w-full sm:block">
-        <header className="flex w-full items-center justify-center py-12 pb-0 pt-10 lg:pt-12">
-          <Popover.Group className="pointer-events-auto flex gap-8 rounded-[40px] bg-black px-4">
-            <Link
-              href="/"
-              className={`relative px-6 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white " : "text-gray-900"}
+      {onLogo ? (
+        <div
+          className={`fixed right-1/2 top-0 z-[12] translate-x-1/2 transition-all duration-700 ease-out sm:block ${!onLogo ? "scale-100" : "scale-0"}`}
+          // onMouseOver={() => setOnLogo(true)}
+          // onMouseLeave={() => setOnLogo(false)}
+        >
+          <div
+            className={`pointer-events-auto mt-10 flex gap-8 rounded-full bg-black p-3 lg:mt-12 ${!onLogo ? "scale-100" : "scale-0"}`}
+          >
+            <Image
+              src="/nangman_logo@4x.png"
+              alt=""
+              width={25}
+              height={25}
+              className="h-full"
+            ></Image>
+          </div>
+        </div>
+      ) : (
+        <div className="pointer-events-none fixed left-0 top-0 z-[11] hidden w-full duration-700 ease-in sm:block">
+          <header className="flex w-full items-center justify-center py-12 pb-0 pt-10 lg:pt-12">
+            <Popover.Group className="pointer-events-auto flex gap-8 rounded-[40px] bg-black px-4">
+              <Link
+                href="/"
+                className={`relative px-6 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white " : "text-gray-900"}
               after:absolute after:right-0 after:top-1/3 after:h-1/3 after:w-[1px] after:bg-white/50`}
-            >
-              낭만.
-            </Link>
-
-            <Link
-              href="/company"
-              className={`py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
-            >
-              about us
-            </Link>
-
-            <Popover className="relative">
-              <Popover.Button
-                className={`flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+                // onMouseLeave={() => setOnLogo(false)}
               >
-                성장기록물
-                {/* <ChevronDownIcon
+                낭만.
+              </Link>
+
+              <Link
+                href="/company"
+                className={`py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+                // onMouseLeave={() => setOnLogo(false)}
+              >
+                about us
+              </Link>
+
+              <Popover className="relative">
+                <Popover.Button
+                  className={`flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+                >
+                  성장기록물
+                  {/* <ChevronDownIcon
                   className="h-5 w-5 flex-none text-gray-400"
                   aria-hidden="true"
                 /> */}
-              </Popover.Button>
+                </Popover.Button>
 
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-200"
-                enterFrom="opacity-0 translate-y-1"
-                enterTo="opacity-100 translate-y-0"
-                leave="transition ease-in duration-150"
-                leaveFrom="opacity-100 translate-y-0"
-                leaveTo="opacity-0 translate-y-1"
-              >
-                <Popover.Panel className="absolute -left-60 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                  <div className="p-4">
-                    {products.map((item) => (
-                      <div
-                        key={item.name}
-                        className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                      >
-                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-200"
+                  enterFrom="opacity-0 translate-y-1"
+                  enterTo="opacity-100 translate-y-0"
+                  leave="transition ease-in duration-150"
+                  leaveFrom="opacity-100 translate-y-0"
+                  leaveTo="opacity-0 translate-y-1"
+                >
+                  <Popover.Panel
+                    className="absolute -left-60 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
+                    // onMouseLeave={() => setOnLogo((onLogo) => !onLogo)}
+                  >
+                    <div className="p-4">
+                      {products.map((item) => (
+                        <div
+                          key={item.name}
+                          className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                        >
+                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                            <item.icon
+                              className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          <div className="flex-auto">
+                            <a
+                              href={item.href}
+                              className="block font-semibold text-gray-900"
+                            >
+                              {item.name}
+                              <span className="absolute inset-0" />
+                            </a>
+                            <p className="mt-1 text-gray-600">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                      {callsToAction.map((item, index) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                          target={index === 0 ? "_blank" : ""}
+                        >
                           <item.icon
-                            className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                            className="h-5 w-5 flex-none text-gray-400"
                             aria-hidden="true"
                           />
-                        </div>
-                        <div className="flex-auto">
-                          <a
-                            href={item.href}
-                            className="block font-semibold text-gray-900"
-                          >
-                            {item.name}
-                            <span className="absolute inset-0" />
-                          </a>
-                          <p className="mt-1 text-gray-600">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                    {callsToAction.map((item, index) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                        target={index === 0 ? "_blank" : ""}
-                      >
-                        <item.icon
-                          className="h-5 w-5 flex-none text-gray-400"
-                          aria-hidden="true"
-                        />
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </Popover.Panel>
-              </Transition>
-            </Popover>
+                          {item.name}
+                        </a>
+                      ))}
+                    </div>
+                  </Popover.Panel>
+                </Transition>
+              </Popover>
 
-            <Link
-              href="/project-request"
-              className={`py-4 pr-5 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
-            >
-              contact
-            </Link>
-          </Popover.Group>
-        </header>
-      </div>
+              <Link
+                href="/project-request"
+                className={`py-4 pr-5 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+                // onMouseLeave={() => setOnLogo((onLogo) => !onLogo)}
+              >
+                contact
+              </Link>
+            </Popover.Group>
+          </header>
+        </div>
+      )}
     </>
   );
 }
