@@ -7,9 +7,6 @@ import {
 } from "@/app/growth/app-web-service/page";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import Link from "next/link";
 
 type DetailHeaderProps = {
@@ -77,7 +74,7 @@ function MiddleContent({
   brief: ProjectBrief[];
 }) {
   return (
-    <div className="content-lg:mx-40 mx-20 flex flex-col items-center gap-24 whitespace-pre-wrap">
+    <div className="content-lg:mx-40 content-xs:mx-6 content-sm:mx-6 mx-20 flex flex-col items-center gap-24 whitespace-pre-wrap">
       <Image
         src={contentImage || ""}
         alt="main"
@@ -130,43 +127,44 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   }, [item]);
 
   return (
-    <article
-      className="relative grid h-fit grid-flow-col text-white"
-      // style={{ background: item[selected].background}}
-    >
+    <article className="w-screen overflow-x-hidden text-white">
       <div
-        className="absolute h-[50vw] w-screen"
+        className="content-xl:h-[50vw] content-lg:h-[46.25rem] absolute h-full w-screen"
         style={{ background: item[selected].background }}
       ></div>
-      <div className="relative flex flex-col gap-10 pl-40 pt-32">
-        {menus.map((menu, index) => (
-          <p
-            onClick={() => setSelected(index)}
-            key={index}
-            className={`flex flex-col font-bold leading-none ${selected === index ? "text-[3.125rem] text-white" : "text-[2.5rem] text-white/60"}`}
-          >
-            {menu}
-          </p>
-        ))}
-        <p className="max-w-96">{item[selected].text}</p>
-      </div>
-      <div className="content-xl:flex-wrap content-xl:max-h-[150rem] relative mt-40 flex max-w-[800px] flex-col justify-between gap-10 pb-40 ">
-        {item[selected].images.map((image, index) => (
-          <div key={index} className="flex flex-col items-center gap-4">
-            <p
-              className={`${item[selected].images.length > 2 ? (index === 0 || index === 2 ? "content-xl:text-white/60" : "content-xl:text-navyBlue/60") : "content-xl:text-white/60"} ${index === 0 ? "text-white/60" : "text-navyBlue/60"}`}
-            >
-              {image.alt}
-            </p>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={370}
-              height={700}
-              className="object-cover"
-            ></Image>
+      <div className="content-lg:mx-40 content-lg:flex-nowrap content-xs:mx-6 content-sm:mx-6 content-xs:mt-5 content-sm:mt-5 content-lg:mt-32 mx-20 mt-14 flex flex-wrap items-start justify-between gap-10">
+        <div className="relative flex w-full flex-col gap-10">
+          <div className="slider content-sm:flex-row content-xs:flex-row relative flex snap-x flex-col gap-6 overflow-x-auto">
+            {menus.map((menu, index) => (
+              <p
+                onClick={() => setSelected(index)}
+                key={index}
+                className={`flex flex-col font-bold leading-none ${selected === index ? "content-sm:snap-center text-white" : " text-white/60"} content-lg:text-3xl text-nowrap text-2xl `}
+              >
+                {menu}
+              </p>
+            ))}
           </div>
-        ))}
+          <p className="max-w-96">{item[selected].text}</p>
+        </div>
+        <div className="content-xl:flex-wrap content-xl:max-h-[150rem] relative flex w-fit max-w-[800px] flex-col justify-between gap-10 pb-40 ">
+          {item[selected].images.map((image, index) => (
+            <div key={index} className="flex flex-col items-center gap-4">
+              <p
+                className={`${item[selected].images.length > 2 ? (index === 0 || index === 2 ? "content-xl:text-white/60" : "content-xl:text-navyBlue/60") : "content-xl:text-white/60"} ${index === 0 ? "text-white/60" : "text-navyBlue/60"}`}
+              >
+                {image.alt}
+              </p>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={370}
+                height={700}
+                className="object-cover"
+              ></Image>
+            </div>
+          ))}
+        </div>
       </div>
     </article>
   );
@@ -185,7 +183,7 @@ export default function AppWebServiceDetail({ id }: { id: string }) {
     link: item!.link,
   };
   return (
-    <article className="flex h-auto w-screen flex-col gap-32 whitespace-pre-wrap text-navyBlue">
+    <article className="flex h-auto w-full flex-col gap-32  overflow-x-hidden whitespace-pre-wrap text-navyBlue">
       <DetailHeader {...headerProps}></DetailHeader>
       <MiddleContent
         contentImage={item!.contentImage}

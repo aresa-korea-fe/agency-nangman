@@ -181,4 +181,13 @@ body {
     0 0 100px rgba(50, 50, 50, 0.5);
 }
 
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider {
+  -ms-overflow-style: none; /* IE and 엣지 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+
 @import "./home.css";
