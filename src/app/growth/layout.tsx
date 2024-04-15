@@ -1,8 +1,7 @@
 "use client";
 
+import Breadcrumb from "@/components/breadcrumb";
 import { FC, ReactNode } from "react";
-
-import GrowthMenu from "@/components/growthMenu";
 
 interface GrowthLayoutProps {
   children: ReactNode;
@@ -11,9 +10,13 @@ interface GrowthLayoutProps {
 
 const GrowthLayout: FC<GrowthLayoutProps> = ({ children, modal }) => {
   return (
-    <div className="flex overflow-hidden bg-white">
+    <div className="overflow-hidden bg-white">
       {/* <GrowthMenu></GrowthMenu> */}
-      <div className="flex-1">{children}</div>
+
+      <div className="relative flex-1">
+        <Breadcrumb></Breadcrumb>
+        {children}
+      </div>
       {modal}
     </div>
   );
