@@ -1,5 +1,8 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export interface BxItem {
   id: string;
@@ -12,7 +15,27 @@ export interface BxItem {
 }
 
 export default function BxPublishing() {
-  const contents: BxItem[] = require("/public/data/bx-publishing.interface.json");
+  // page.tsx
+  const [contents, setContents] = useState<BxItem[]>([]);
+
+  useEffect(() => {
+    async function fetchContents() {
+      try {
+        const res = await fetch('/growth/bx-publishing/api');
+        console.log("Response received: ", res);
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const data = await res.json();
+        console.log("Data received: ", data); // 데이터 확인
+        setContents(data); // API에서 바로 items 배열을 반환한다고 가정
+      } catch (error) {
+        console.error("Fetching error: ", error);
+      }
+    }
+
+    fetchContents();
+  }, []);
 
   return (
     <main className="min-h-screen overflow-y-auto bg-gray-50 py-40 leading-none text-black">
