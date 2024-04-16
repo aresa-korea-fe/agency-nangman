@@ -39,7 +39,7 @@ export default function Home() {
                 팀입니다.
               </p>
 
-              <div className="my-6 h-[1px] bg-black/50"></div>
+              <div className="my-6 h-[1px] bg-white/40"></div>
 
               <p className="mb-7 text-xl">1. 기본정보를 입력해주세요.</p>
 
@@ -47,7 +47,7 @@ export default function Home() {
                 <div className="sm:col-span-3">
                   <label className="flex pl-1">
                     회사명
-                    <p className="ml-1 pt-1.5 text-xs font-semibold text-red-600">
+                    <p className="ml-1 pt-1.5 text-xs font-semibold text-red-500">
                       (필수)
                     </p>
                   </label>
@@ -64,7 +64,7 @@ export default function Home() {
                 <div className="sm:col-span-3">
                   <label className="flex pl-1">
                     담당자/직책(직함)
-                    <p className="ml-1 pt-1.5 text-xs font-semibold text-red-600">
+                    <p className="ml-1 pt-1.5 text-xs font-semibold text-red-500">
                       (필수)
                     </p>
                   </label>
@@ -81,7 +81,7 @@ export default function Home() {
                 <div className="sm:col-span-3">
                   <label className="flex pl-1">
                     연락처
-                    <p className="ml-1 pt-1.5 text-xs font-semibold text-red-600">
+                    <p className="ml-1 pt-1.5 text-xs font-semibold text-red-500">
                       (필수)
                     </p>
                   </label>
@@ -98,7 +98,7 @@ export default function Home() {
                 <div className="sm:col-span-3">
                   <label className="flex pl-1">
                     이메일
-                    <p className="ml-1 pt-1.5 text-xs font-semibold text-red-600">
+                    <p className="ml-1 pt-1.5 text-xs font-semibold text-red-500">
                       (필수)
                     </p>
                   </label>
@@ -138,7 +138,7 @@ export default function Home() {
               </div>
 
               {/* 원하시는 서비스 정보를 입력해주세요. */}
-              <div className="my-6 h-[1px] bg-black/50"></div>
+              <div className="my-6 h-[1px] bg-white/40"></div>
 
               <p className="mb-7 text-xl">
                 2. 원하시는 서비스 정보를 입력해주세요.
@@ -222,7 +222,7 @@ export default function Home() {
               </div>
 
               {/* 개인정보 취급방침 */}
-              <div className="my-6 h-[1px] bg-black/50"></div>
+              <div className="my-6 h-[1px] bg-white/40"></div>
 
               <p className="mb-7 text-xl">3. 개인정보 취급방침에 대한 동의</p>
 
@@ -241,14 +241,14 @@ export default function Home() {
                   <div className="text-sm leading-6">
                     <label
                       htmlFor="candidates"
-                      className="font-medium text-gray-900"
+                      className={`font-medium ${termsAgree ? " text-white" : "text-white/60"}`}
                     >
                       개인정보 취급방침 및 이용약관에 동의합니다.
                     </label>
                   </div>
                 </div>
-                <div className="mt-2 max-h-60 overflow-y-auto bg-black/10 p-8">
-                  <div className="h-full">
+                <div className="mt-2 max-h-60 overflow-y-auto bg-blue-100/10 p-8">
+                  <div className="h-full ">
                     &apos;낭만 에이전시&apos;는 (이하 &apos;회사&apos;는)
                     고객님의 개인정보를 중요시하며, &lsquo;정보통신망 이용촉진
                     및 정보보호&rsquo;에 관한 법률을 준수하고 있습니다.
@@ -458,7 +458,7 @@ export default function Home() {
               </div>
 
               {/* 문의 */}
-              <div className="my-6 h-[1px] bg-black/50"></div>
+              <div className="my-6 h-[1px] bg-white/40"></div>
 
               <div className="flex flex-row justify-center gap-x-2">
                 <a

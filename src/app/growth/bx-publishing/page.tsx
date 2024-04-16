@@ -34,7 +34,7 @@ export default function BxPublishing() {
                 width={1020}
                 height={400}
                 src={item.headImage}
-                className="hover:[animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite]"
+                className="hover:[animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite] h-auto w-auto"
                 alt=""
               />
               <div className="absolute mt-6 flex flex-col gap-4 lg:-mt-6 lg:ml-6 ">

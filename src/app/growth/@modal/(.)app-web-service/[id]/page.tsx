@@ -12,7 +12,9 @@ export default function BxPublishingDetailPage({
 }: PhotoModalPageProps) {
   return (
     <Modal>
-      <AppWebServiceDetail id={params.id}></AppWebServiceDetail>
+      <div className="h-full max-w-screen-xl">
+        <AppWebServiceDetail id={params.id}></AppWebServiceDetail>
+      </div>
     </Modal>
   );
 }

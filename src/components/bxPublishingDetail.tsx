@@ -13,7 +13,7 @@ export default function BxPublishingDetail({ id }: { id: string }) {
           alt=""
           width={1440}
           height={780}
-          className="w-full bg-gradient-to-b from-white/0 to-white/100"
+          className="h-auto w-full bg-gradient-to-b from-white/0 to-white/100"
           priority
         ></Image>
         <div className="absolute bottom-0 h-[20rem] w-full bg-gradient-to-b from-white/0 to-white/100"></div>
@@ -37,7 +37,7 @@ export default function BxPublishingDetail({ id }: { id: string }) {
           alt=""
           width={1440}
           height={780}
-          className="w-full"
+          className="h-auto w-full"
           priority
         ></Image>
       </div>
@@ -47,7 +47,7 @@ export default function BxPublishingDetail({ id }: { id: string }) {
           alt=""
           width={1440}
           height={780}
-          className="w-full"
+          className="h-auto w-full"
           priority
         ></Image>
       </div>

@@ -20,40 +20,49 @@ type DetailHeaderProps = {
 };
 
 function DetailHeader(props: DetailHeaderProps) {
+  const [isRender, setIsRender] = useState<boolean>(false);
+
   const { mainImage, title, category, client, releaseDate, intro, link } =
     props;
+
+  useEffect(() => {
+    setTimeout(() => setIsRender(true), 100);
+  }, []);
+
   return (
-    <header className="h-auto w-full justify-center">
+    <header className="h-full w-full justify-center">
       <Image
         src={mainImage || ""}
         alt="main"
         priority
         width={1920}
         height={1200}
-        className="w-full"
+        className="h-auto w-full"
       ></Image>
-      <div className="max-w-[calc(100% - 10rem)] relative z-30 mx-10  -mt-[10vw] flex flex-col  gap-5 bg-white px-[6.25rem] py-[3.75rem] content-xs:m-0 content-xs:px-5 content-xs:py-3 content-sm:m-0 content-sm:px-10 content-sm:py-8">
+      <div className="relative mx-10 -mt-[10vw] flex h-auto flex-col gap-5 bg-white px-[6.25rem] py-[3.75rem] content-xs:m-0 content-xs:px-5 content-xs:py-3 content-sm:m-0 content-sm:px-10 content-sm:py-8">
         <h1 className="text-[2.75rem] font-bold content-xs:text-2xl content-xs:leading-normal content-sm:text-3xl content-sm:leading-normal content-md:text-4xl content-md:leading-normal">
           {title}
         </h1>
-        <div className="flex flex-col gap-10">
-          <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:gap-[3.75rem] content-lg:gap-[3.75rem]">
-            <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:flex-col">
-              <p className="text-navyBlue/50">Category.</p>
-              <p>{category}</p>
+        {isRender && (
+          <div className="flex flex-col gap-10 delay-200 ease-in-out">
+            <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:gap-[3.75rem] content-lg:gap-[3.75rem]">
+              <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:flex-col">
+                <p className="text-navyBlue/50">Category.</p>
+                <p>{category}</p>
+              </div>
+              <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:flex-col">
+                <p className="text-navyBlue/50">Client.</p>
+                <p>{client}</p>
+              </div>
+              <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:flex-col">
+                <p className="text-navyBlue/50">Release Date.</p>
+                <p>{releaseDate}</p>
+              </div>
             </div>
-            <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:flex-col">
-              <p className="text-navyBlue/50">Client.</p>
-              <p>{client}</p>
-            </div>
-            <div className="flex gap-5 content-xs:flex-col content-sm:flex-col content-md:flex-col">
-              <p className="text-navyBlue/50">Release Date.</p>
-              <p>{releaseDate}</p>
-            </div>
+            <div className="w-full  border-b border-gray-200"></div>
+            <p className=" text-lg leading-9 tracking-tight">{intro}</p>
           </div>
-          <div className="w-full  border-b border-gray-200"></div>
-          <span className="r-5 text-lg leading-9 tracking-tight">{intro}</span>
-        </div>
+        )}
         <Link
           className="Link-0 w-28 rounded-full border border-gray-300 bg-white px-5 py-3 text-sm leading-none hover:bg-gray-100"
           href={link}
@@ -129,7 +138,7 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   return (
     <article className="overflow-x-hidden text-white">
       <div
-        className="absolute h-full w-full content-lg:h-[46.25rem] content-xl:h-[50vw]"
+        className="absolute h-[42.5rem] w-screen"
         style={{ background: item[selected].background }}
       ></div>
       <div className="mx-20 mt-14 flex flex-wrap items-start justify-between gap-10 content-xs:mx-6 content-xs:mt-5 content-sm:mx-6 content-sm:mt-5 content-lg:mx-40 content-lg:mt-32 content-lg:flex-nowrap">
@@ -158,8 +167,8 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
               <Image
                 src={image.src}
                 alt={image.alt}
-                width={370}
-                height={700}
+                width={300}
+                height={100}
                 className="object-cover"
               ></Image>
             </div>
@@ -182,6 +191,7 @@ export default function AppWebServiceDetail({ id }: { id: string }) {
     intro: item!.intro,
     link: item!.link,
   };
+
   return (
     <main className="flex h-auto w-full flex-col gap-32 overflow-x-hidden whitespace-pre-wrap bg-white text-start text-navyBlue">
       <DetailHeader {...headerProps}></DetailHeader>

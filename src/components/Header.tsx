@@ -99,6 +99,8 @@ export default function Header() {
   const isActive = () => urls.includes(segment);
   const isHide = () => hiddenUrls.includes(segment);
 
+  const closeModal = () => setMobileMenuOpen(false);
+
   useHandleScroll(); // 커스텀 훅 사용
 
   return (
@@ -154,6 +156,7 @@ export default function Header() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   <Link
+                    onClick={closeModal}
                     href="/company"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
@@ -191,6 +194,7 @@ export default function Header() {
                   </Disclosure>
 
                   <Link
+                    onClick={closeModal}
                     href="/project-request"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
