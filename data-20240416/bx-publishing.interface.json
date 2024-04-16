@@ -1,0 +1,86 @@
+{
+  "items": [
+    {
+      "id": "000010001",
+      "category": "business Card Design",
+      "title": "studio NAMGMAN",
+      "content": "<p>\n우리는 모던 웹과 서비스를 연결하여 사람과 제품이 공감으로 이어지는 것을 목표로 항해합니다.<br/>스튜디오 낭만의 시그니처인 돗단배는 다양한 리소스가 한데 각자의 자리에서 각자의 역할을 수행하며 조화를 이루는 상징입니다.<br/>\n스타 플레이어보다 팀 플레이어의 정신으로 서로를 존중하고 협력하는 낭만의 크리에이티브를 그대로 이어나가며 팀원의 아이덴티티를 명함에 녹였습니다.\n</p>",
+      "headImage": "/growth/bx-publishing/bx_detail_nangman_01.webp",
+      "contentImages": [
+        "/growth/bx-publishing/bx_detail_nangman_02.webp",
+        "/growth/bx-publishing/bx_detail_nangman_03.webp"
+      ],
+      "activeLighting": false
+    },
+    {
+      "id": "000010002",
+      "category": "business Card Design",
+      "title": "ARESA Korea",
+      "content": "<p>\n프롭테크 스타트업 아리사코리아의 정사면체의 심볼은 아리사코리아의 주요 가치인 공정성과 안전을 상징합니다.<br/>\n기업과 개인을 아우르는 비즈니스 모델 특성 상 정적이고 안정적인 시각적 가이드를 제시하고 수기 입력의 번거로움을 벗어나<br/>\nQR코드로 서비스 진입을 유도하여 고객과 서비스의 적극적인 접접을 추구합니다.\n</p>",
+      "headImage": "/growth/bx-publishing/bx_detail_aresa_01.webp",
+      "contentImages": [
+        "/growth/bx-publishing/bx_detail_aresa_02.webp",
+        "/growth/bx-publishing/bx_detail_aresa_03.webp"
+      ]
+    },
+    {
+      "id": "000010003",
+      "category": "business Card Design",
+      "title": "뉴런 GOP",
+      "content": "<p>\n육지거북과 각종 희귀애완동물 파충류 , 사육장 ,파충류용품을 전문으로 판매 ,분양하는<br/>\n 파충류샵 “뉴런 웹테일”을 운영하는 브랜드입니다.<br/>\n자연친화적이고 유니크한 포인트를 디자인으로 녹여 디자인된 뉴런 GOP의 명함입니다.\n</p>",
+      "headImage": "/growth/bx-publishing/bx_detail_gop_01.webp",
+      "contentImages": [
+        "/growth/bx-publishing/bx_detail_gop_02.webp",
+        "/growth/bx-publishing/bx_detail_gop_03.webp"
+      ],
+      "activeLighting": true
+    },
+    {
+      "id": "000010004",
+      "category": "business Card Design",
+      "title": "Webtoon Koicontent ",
+      "content": "<p>\n웹툰코이컨텐츠의 모티브는 즐거움과 감동을 선사하는 것입니다.<br/>\n대한민국의 경쟁력있는 컨텐츠사업의 한 분야인 웹툰의 자유롭고 다채로운 매력과 회사를 이끌어가는 원동력인 직원들의 개성을 고려하여<br/>\n 개별의 포인트 컬러를 적용하는 방안으로 디자인 컨셉을 구축하였습니다.\n</p>",
+      "headImage": "/growth/bx-publishing/bx_detail_coi_01.webp",
+      "contentImages": [
+        "/growth/bx-publishing/bx_detail_coi_02.webp",
+        "/growth/bx-publishing/bx_detail_coi_03.webp"
+      ]
+    },
+    {
+      "id": "000010005",
+      "category": "business Card Design",
+      "title": "Arosred ",
+      "content": "<p>\nArt is the Road of Societ with revolutionary dreams.\n<br/>문화기획 컨설팅을 중심으로 글로벌 문화사업 시장에 적극적으로 활동 중인 Aosred의 명함 디자인입니다.\n</br>규격과 정보 전달에 중점을 두어 B2B 서비스를 중점으로 사업 확장을 유도하기 위한 디자인을 의도했습니다.\n",
+      "headImage": "/growth/bx-publishing/bx_detail_arosred_01.webp",
+      "contentImages": [
+        "/growth/bx-publishing/bx_detail_arosred_02.webp",
+        "/growth/bx-publishing/bx_detail_arosred_03.webp"
+      ]
+    },
+    {
+      "id": "000010006",
+      "category": "business Card Design",
+      "title": "IEURO ",
+      "content": "<p>\nIEURO는 프랑스와 독일, 유럽 등 여러 국가를 대상으로 직구 서비스를 제공하는 기업입니다.\n<br/>다양한 국가로의 글로벌 시장 확대를 위해 한글과 영문 버전을 양면으로 제작했습니다.\n<br/>전세계의 공용어인 영문버전을 명함에 포함하여 다양한 국가에서 PR이 가능합니다.\n</p>",
+      "headImage": "/growth/bx-publishing/bx_detail_ieuro_01.webp",
+      "contentImages": [
+        "/growth/bx-publishing/bx_detail_ieuro_02.webp",
+        "/growth/bx-publishing/bx_detail_ieuro_03.webp"
+      ],
+      "activeLighting": true
+    },
+    {
+      "id": "000010007",
+      "category": "business Card Design",
+      "title": "TOON KOI",
+      "content": "<p>\n툰코이는 색다른 매력과 트랜드를 추구하며 새로운 장르의 웹툰 서비스를 제공합니다.\n<br/>통통 튀는 폰트과 색감, 차별화된 레이아웃으로 컨텐츠 산업을 주도하고자 하는 \n<br/>젊은 기업의 무드를 한 눈에 파악할 수 있도록 디자인되었습니다.\n</p>",
+      "headImage": "/growth/bx-publishing/bx_detail_toonkoi_01.webp",
+      "contentImages": [
+        "/growth/bx-publishing/bx_detail_toonkoi_02.webp",
+        "/growth/bx-publishing/bx_detail_toonkoi_03.webp"
+      ],
+      "activeLighting": true
+    },
+    {}
+  ]
+}

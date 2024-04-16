@@ -77,52 +77,26 @@ export async function PUT(req: NextApiRequest) {
 	}
 }
 
-// export default async function handler(req: NextApiRequest) {
-// 	// await loadDatabase();
-// 	await db.read();
-// 	let items = db.data?.items || [];
+export async function DELETE(req: NextApiRequest) {
+	await db.read();
+	let items = db.data?.items || [];
 
-// 	const { method } = req;
+	const id = req.query.id as string;
+	const filteredItems = items.filter(item => item.id !== id);
+	if (items.length > filteredItems.length) {
+		items = filteredItems;
+		await db.write();
+		return new Response(JSON.stringify({ id, message: 'Deleted successfully' }), {
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
 
-// 	console.log(req);
-
-// 	if (method === 'GET') {
-// 		return new Response(JSON.stringify(items), {
-// 			headers: {
-// 				'Content-Type': 'application/json'
-// 			}
-// 		});
-// 	} else if (method === 'POST') {
-// 		const newItem: Item = req.body;
-// 		items.push(newItem);
-// 		await db.write();
-// 		return new Response(JSON.stringify(items), {
-// 			headers: {
-// 				'Content-Type': 'application/json'
-// 			}
-// 		});
-// 	} else if (method === 'PUT') {
-// 		// const updateItem: Item = req.body;
-// 		// const index = db.data.items.findIndex(item => item.id === updateItem.id);
-// 		// if (index !== -1) {
-// 		// 	db.data.items[index] = updateItem;
-// 		// 	await db.write();
-// 		// 	res.status(200).json(updateItem);
-// 		// } else {
-// 		// 	res.status(404).json({ message: "Item not found" });
-// 		// }
-// 	} else if (method === 'DELETE') {
-// 		// const id = req.query.id as string;
-// 		// const filteredItems = db.data.items.filter(item => item.id !== id);
-// 		// if (db.data.items.length > filteredItems.length) {
-// 		// 	db.data.items = filteredItems;
-// 		// 	await db.write();
-// 		// 	res.status(200).json({ id, message: 'Deleted successfully' });
-// 		// } else {
-// 		// 	res.status(404).json({ message: "Item not found" });
-// 		// }
-// 	} else {
-// 		// res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
-// 		// res.status(405).end(`Method ${method} Not Allowed`);
-// 	}
-// }
+	} else {
+		return new Response(JSON.stringify({ message: "Item not found" }), {
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+	}
+}

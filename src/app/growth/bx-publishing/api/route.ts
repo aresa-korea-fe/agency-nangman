@@ -23,8 +23,6 @@ const db = new Low<Data>(adapter);
 export async function GET() {
 	await db.read();
 	let items = db.data?.items || [];
-	// console.log("DB Data: ", items); // 로그로 데이터 확인
-	console.log("DB Data: ", JSON.stringify(items)); // 로그로 데이터 확인
 
 	return new Response(JSON.stringify(items), {
 		headers: {

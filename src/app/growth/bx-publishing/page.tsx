@@ -22,12 +22,10 @@ export default function BxPublishing() {
     async function fetchContents() {
       try {
         const res = await fetch('/growth/bx-publishing/api');
-        console.log("Response received: ", res);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
         const data = await res.json();
-        console.log("Data received: ", data); // 데이터 확인
         setContents(data); // API에서 바로 items 배열을 반환한다고 가정
       } catch (error) {
         console.error("Fetching error: ", error);
