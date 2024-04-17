@@ -136,9 +136,9 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   }, [item]);
 
   return (
-    <article className="overflow-x-hidden text-white">
+    <article className="w-full overflow-x-hidden text-white">
       <div
-        className="absolute h-[42.5rem] w-screen"
+        className="absolute h-[42.5rem] w-full"
         style={{ background: item[selected].background }}
       ></div>
       <div className="mx-20 mt-14 flex flex-wrap items-start justify-between gap-10 content-xs:mx-6 content-xs:mt-5 content-sm:mx-6 content-sm:mt-5 content-lg:mx-40 content-lg:mt-32 content-lg:flex-nowrap">
@@ -156,7 +156,9 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
           </div>
           <p className="max-w-96">{item[selected].text}</p>
         </div>
-        <div className="relative flex w-fit max-w-[800px] flex-col justify-between gap-10 pb-40 content-xl:max-h-[150rem] content-xl:flex-wrap ">
+        <div
+          className={`relative grid w-full items-start justify-center gap-10 pb-10 ${item[selected].images[0].fill ? "content-xl:grid-cols-1" : "content-xl:grid-cols-2"}`}
+        >
           {item[selected].images.map((image, index) => (
             <div key={index} className="flex flex-col items-center gap-4">
               <p
@@ -167,9 +169,9 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
               <Image
                 src={image.src}
                 alt={image.alt}
-                width={330}
-                height={100}
-                className="object-cover drop-shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]"
+                width={400}
+                height={400}
+                className={`object-cover drop-shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] ${image.fill ? "w-full max-w-[37.5rem]" : ""}`}
               ></Image>
             </div>
           ))}
@@ -193,7 +195,9 @@ export default function AppWebServiceDetail({ id }: { id: string }) {
   };
 
   return (
-    <main className="flex h-auto w-full flex-col gap-32 overflow-x-hidden whitespace-pre-wrap bg-white text-start text-navyBlue">
+    <main
+      className={`flex h-auto w-full flex-col gap-32 overflow-x-hidden whitespace-pre-wrap bg-white text-start text-navyBlue`}
+    >
       <DetailHeader {...headerProps}></DetailHeader>
       <MiddleContent
         contentImage={item!.contentImage}

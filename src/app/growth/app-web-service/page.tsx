@@ -11,6 +11,7 @@ export type ProjectBrief = {
 export type SitemapImage = {
   src: string;
   alt: string;
+  fill: boolean;
 };
 export type ProjectSitemap = {
   menu: string;

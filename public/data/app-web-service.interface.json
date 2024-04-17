@@ -40,11 +40,13 @@
         "images": [
           {
             "src": "/growth/app-web-service/aresa/sub1-1.png",
-            "alt": "부동산맵 지도 화면 / Inner Window UI"
+            "alt": "부동산맵 지도 화면 / Inner Window UI",
+            "fill": false
           },
           {
             "src": "/growth/app-web-service/aresa/sub1-2.png",
-            "alt": "부동산맵 상세 화면"
+            "alt": "부동산맵 상세 화면",
+            "fill": false
           }
         ]
       },
@@ -56,15 +58,13 @@
         "images": [
           {
             "src": "/growth/app-web-service/aresa/sub2-1.png",
-            "alt": "안전진단 검색 화면"
+            "alt": "안전진단 검색/결과 화면",
+            "fill": false
           },
           {
             "src": "/growth/app-web-service/aresa/sub2-2.png",
-            "alt": "안전진단 소개 화면"
-          },
-          {
-            "src": "/growth/app-web-service/aresa/sub2-3.png",
-            "alt": "안전진단 결과 화면"
+            "alt": "안전진단 소개 화면",
+            "fill": false
           }
         ]
       },
@@ -76,27 +76,31 @@
         "images": [
           {
             "src": "/growth/app-web-service/aresa/sub3-1.png",
-            "alt": "대출체크 대출 입력 화면"
+            "alt": "대출체크 대출 입력 화면",
+            "fill": false
           },
           {
             "src": "/growth/app-web-service/aresa/sub3-2.png",
-            "alt": "대출 정보 입력 / 결과 화면"
+            "alt": "대출 정보 입력 / 결과 화면",
+            "fill": false
           }
         ]
       },
       {
-        "menu": "사용자 흐름",
-        "text": "사용자 친화적인 설계로 모든 연령대가 쉽게 접근할 수 있는 직관적이고 간편한 유저 플로우를 제공합니다. 단 몇 번의 클릭으로 필요한 정보를 입력하고, 신속하게 결과를 확인할 수 있는 구조로 되어 있어, 사용자는 복잡한 절차 없이 원하는 서비스를 이용할 수 있습니다. 시작부터 끝까지 명확하고 직관적인 안내를 통해 사용자는 어떤 정보를 어디에 입력해야 하는지 쉽게 이해할 수 있으며 혼란을 최소화하고 사용자의 만족도를 높입니다.",
+        "menu": "유저 플로우",
+        "text": "사용자 친화적인 설계로 모든 연령대가 쉽게 접근할 수 있는 직관적이고 간편한 유저 플로우를 제공합니다. 단 몇 번의 클릭으로 필요한 정보를 입력하고, 신속하게 결과를 확인할 수 있는 구조로 되어 있어, 사용자는 복잡한 절차 없이 원하는 서비스를 이용할 수 있습니다. ",
         "background": "#8430ED",
         "blur": false,
         "images": [
           {
             "src": "/growth/app-web-service/aresa/sub4-1.png",
-            "alt": "비회원 메뉴 / 인증 유도 화면"
+            "alt": "비회원 메뉴 / 인증 유도 화면",
+            "fill": false
           },
           {
             "src": "/growth/app-web-service/aresa/sub4-2.png",
-            "alt": "로그인 / 회원 정보 찾기 화면"
+            "alt": "로그인 / 회원 정보 찾기 화면",
+            "fill": false
           }
         ]
       }
@@ -143,11 +147,13 @@
         "images": [
           {
             "src": "/growth/app-web-service/wisesoftec/sub1-1.png",
-            "alt": "대기질 측정 소개 화면 (상단)"
+            "alt": "대기질 측정 소개 화면 (상단)",
+            "fill": true
           },
           {
             "src": "/growth/app-web-service/wisesoftec/sub1-2.png",
-            "alt": "대기질 측정 소개 화면 (하단)"
+            "alt": "대기질 측정 소개 화면 (하단)",
+            "fill": true
           }
         ]
       },
@@ -159,7 +165,8 @@
         "images": [
           {
             "src": "/growth/app-web-service/wisesoftec/sub2-1.png",
-            "alt": "보안 솔루션 소개 화면"
+            "alt": "보안 솔루션 소개 화면",
+            "fill": true
           }
         ]
       },
@@ -171,7 +178,8 @@
         "images": [
           {
             "src": "/growth/app-web-service/wisesoftec/sub3-1.png",
-            "alt": "소프트웨어 소개 화면"
+            "alt": "소프트웨어 소개 화면",
+            "fill": true
           }
         ]
       },
@@ -183,7 +191,95 @@
         "images": [
           {
             "src": "/growth/app-web-service/wisesoftec/sub4-1.png",
-            "alt": "견적요청 / 게시판 화면"
+            "alt": "견적요청 / 게시판 화면",
+            "fill": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0101003",
+    "title": "공문서 간편 열람 서비스\nO-DOCS",
+    "category": "Relative Web Application",
+    "client": "Aresa korea",
+    "releaseDate": "2024. 01",
+    "intro": "오독스(O-DOCS)는  등기부등본, 토지대장, 건축물대장 등 부동산 관련 정보를 한 곳에서 조회하고 발급할 수 있는 통합 플랫폼입니다. 다양한 분야에서 활용 가능한 부동산 공문서류 플랫폼 오독스를 통해 사용자는 반드시 확인해야 할 정보를 제공받을 수 있습니다.온라인으로 편리하게 필요한 서류를 확인하고 발급받을 수 있어 부동산 거래 시 유용하게 활용할 수 있습니다.",
+    "link": "http://odocs.io/",
+    "mainImage": "/growth/app-web-service/odocs/main.png",
+    "contentImage": "/growth/app-web-service/odocs/mid.png",
+    "brief": [
+      {
+        "category": "indicator",
+        "title": "Anytime,\nAnywhere",
+        "content": "휴대폰이나 컴퓨터를 사용할 때, 갑자기 부동산 공문서가 필요하다면 언제 어디서나 사용 가능하도록 반응형 웹앱으로 설계되었습니다. "
+      },
+      {
+        "category": "Core Value",
+        "title": "Essential\nOnly",
+        "content": "불필요한 요소는 모두 제거하고 필요한 기능만을 서비스에 담아 사용자의 이탈율을 줄이고 집중도를 높였습니다. "
+      },
+      {
+        "category": "Experience",
+        "title": "Customized\nSolutions",
+        "content": "다양한 채널링으로 소통하고 온라인으로 서류를 전달받는 과정을 필요에 따라 공문서를 수령할 수 있게끔  다원화하였습니다. "
+      },
+      {
+        "category": "Identity",
+        "title": "Multiple\n Paths",
+        "content": "여러가지 소통 채널을 통해 판매에서 끝나지 않고 유지보수가 결합된 통합 서비스를 제공합니다."
+      }
+    ],
+    "sitemap": [
+      {
+        "menu": "주소 검색",
+        "text": "지번 주소 혹은 도로명 주소를 입력하면 특정 건물명과 함께 정확한 주소가 조회됩니다. 또한 표제부 데이터를 기반으로 정확한 층 및 호실의 정보를 시각적으로 노출시켜 UX를 고려한 인터페이스를 설계했습니다.",
+        "background": "#292A35",
+        "blur": false,
+        "images": [
+          {
+            "src": "/growth/app-web-service/odocs/sub1-1.png",
+            "alt": "",
+            "fill": true
+          }
+        ]
+      },
+      {
+        "menu": "결과 조회",
+        "text": "입력된 주소를 토대로 결과를 조회하고 해당 주소의 공문서류를 열람할 수 있습니다.",
+        "background": "#292A35",
+        "blur": true,
+        "images": [
+          {
+            "src": "/growth/app-web-service/odocs/sub2-1.png",
+            "alt": "",
+            "fill": true
+          }
+        ]
+      },
+      {
+        "menu": "오독스 머니",
+        "text": "다날의 결제 서비스와 연동하여 안정적으로 카드 및 계좌 결제를 진행하고 환불이나 취소 등의 금융 서비스를 제공합니다. 이벤트 혹은 관리자 지급 유료 재화를 통해서도 동일하게  부동산 공문서 조회 서비스를 이용할 수 있습니다.",
+        "background": "#292A35",
+        "blur": false,
+        "images": [
+          {
+            "src": "/growth/app-web-service/odocs/sub3-1.png",
+            "alt": "",
+            "fill": true
+          }
+        ]
+      },
+      {
+        "menu": "유저 플로우",
+        "text": "시작부터 끝까지 명확하고 직관적인 안내를 통해 사용자는 어떤 정보를 어디에 입력해야 하는지 쉽게 이해할 수 있으며 혼란을 최소화하고 사용자의 만족도를 높입니다.",
+        "background": "#292A35",
+        "blur": false,
+        "images": [
+          {
+            "src": "/growth/app-web-service/odocs/sub4-1.png",
+            "alt": "",
+            "fill": true
           }
         ]
       }
