@@ -1,0 +1,128 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:focus {
+  outline: 0;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ececec;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html.index > body,
+html.index {
+  -ms-scroll-chaining: none;
+  overscroll-behavior: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  line-height: 1.5;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 400;
+  color: #000;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 750px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+body > span {
+  display: none;
+}
+
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre {
+  margin: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a img {
+  border: none;
+}
+
+a:focus {
+  outline: 0;
+}
+
+hr {
+  margin: 0;
+  border: none;
+}
+
+main {
+  display: block;
+}
+
+li,
+ul {
+  list-style-type: none;
+}
+
+::selection {
+  background: #d19675;
+  color: #ececec;
+}
+
+::-moz-selection {
+  background: #d19675;
+  color: #ececec;
+}
+
+@font-face {
+  font-family: "ROEHOE-CHAN";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/ROEHOE-CHAN.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,5 +1,5 @@
 // app/growth/bx-publishing/api/route.ts
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest } from 'next';
 import { JSONFile, Low } from 'lowdb';
 import { join } from 'path';
 
@@ -20,13 +20,6 @@ type Data = {
 const file = join(process.cwd(), 'data', 'bx-publishing.interface.json');
 const adapter = new JSONFile<Data>(file);
 const db = new Low<Data>(adapter);
-
-// Initialize and load the database
-async function loadDatabase() {
-	await db.read();
-	db.data ||= { items: [] };
-	await db.write();
-}
 
 // GET 요청 처리
 export async function GET() {
