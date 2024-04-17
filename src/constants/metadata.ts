@@ -108,13 +108,13 @@ export const META = {
       rel: "icon",
     },
   ],
-  manifest: "/manifest.json",
+  // manifest: "/manifest.json",
   twitter: {
     images: {
       url: "/twitter-image.jpg",
       width: 1200,
       height: 630,
-      alt: "ARESA App Logo - Real Estate Super App",
+      alt: "Studio Nangman Twitter Image - 서비스 기획, UXUI 디자인, 브랜딩, 앱 개발, 웹 개발, 앱웹개발, 유지보수, 서비스 운영, 지원 사업 컨설팅 등 다양한 서비스를 낭만에서 제공합니다.",
     },
     card: "summary_large_image",
     site: "@studioNM_co_kr",
@@ -130,7 +130,7 @@ export const META = {
       "서비스기획, BX 디자인, 상세디자인, 광고 디자인, 명함 디자인, 웹 개발, 앱 개발, 웹앱개발, 유지보수, 서비스 운영, 지원 사업 컨설팅 등 다양한 서비스를 낭만에서 제공합니다.",
     images: {
       url: "/openGraph-image.jpg",
-      alt: "ARESA App Logo - Real Estate Super App",
+      alt: "Studio Nangman OpenGraph Image - 서비스 기획, UXUI 디자인, 브랜딩, 앱 개발, 웹 개발, 앱웹개발, 유지보수, 서비스 운영, 지원 사업 컨설팅 등 다양한 서비스를 낭만에서 제공합니다.",
       width: 1200,
       height: 630,
     },

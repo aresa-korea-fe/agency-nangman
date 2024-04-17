@@ -1,6 +1,6 @@
 export const metadata = {
   url: "https://studio-nm.co.kr",
-  metadataBase: new URL("https://www.aresa.io"),
+  metadataBase: new URL("https://studio-nm.co.kr"),
   title: "아리사 | 부동산을 간편하고 안전하게 ",
   description: "아리사는 부동산 슈퍼앱입니다.",
   keywords:
@@ -94,7 +94,7 @@ export const metadata = {
   manifest: "/manifest.json",
   twitter: {
     images: {
-      url: "https://www.aresa.io/twitter-image.jpg",
+      url: "https://studio-nm.co.kr/twitter-image.jpg",
       width: 1200,
       height: 630,
       alt: "ARESA App Logo - Real Estate Super App",
@@ -106,12 +106,12 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    url: "https://www.aresa.io/",
+    url: "https://studio-nm.co.kr/",
     siteName: "아리사 - 부동산을 간편하고 안전하게",
     title: "ARESA",
     description: "부동산을 더 간편하고 더 안전하게 거래하도록 도와드립니다.",
     images: {
-      url: "https://www.aresa.io/openGraph-image.jpg",
+      url: "https://studio-nm.co.kr/openGraph-image.jpg",
       alt: "ARESA App Logo - Real Estate Super App",
       width: 1200,
       height: 630,
