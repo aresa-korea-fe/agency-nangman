@@ -76,19 +76,11 @@
         "images": [
           {
             "src": "/growth/app-web-service/aresa/sub3-1.png",
-            "alt": "대출체크 대출 입력 전 화면"
+            "alt": "대출체크 대출 입력 화면"
           },
           {
             "src": "/growth/app-web-service/aresa/sub3-2.png",
-            "alt": "대출체크 대출 입력 후 화면"
-          },
-          {
-            "src": "/growth/app-web-service/aresa/sub3-3.png",
-            "alt": "대출 정보 입력 화면"
-          },
-          {
-            "src": "/growth/app-web-service/aresa/sub3-4.png",
-            "alt": "대출입력 결과 화면"
+            "alt": "대출 정보 입력 / 결과 화면"
           }
         ]
       },
@@ -100,19 +92,98 @@
         "images": [
           {
             "src": "/growth/app-web-service/aresa/sub4-1.png",
-            "alt": "비회원 화면 / 메뉴"
+            "alt": "비회원 메뉴 / 인증 유도 화면"
           },
           {
             "src": "/growth/app-web-service/aresa/sub4-2.png",
-            "alt": "가입유도 화면"
+            "alt": "로그인 / 회원 정보 찾기 화면"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0101002",
+    "title": "Believe It, You Will!!, \nWise Softec",
+    "category": "Web Application",
+    "client": "Wise Softec",
+    "releaseDate": "2019. 08",
+    "intro": "와이즈소프택은 대기질 측정과 소프트웨어, 보안솔루션를 전문으로 하는 IT 소프트웨어 기업입니다.\n기업의 경쟁력 강화를 위해 전문가에 의한 진단과 분석을 통해 최적화된 라이선스 취득과 관리, 맞춤형 솔루션제안과 공급, 유지보수가 결합된 통합 서비스를 제공합니다.\n세계 최초 드론을 이용한 대기 질 평가 솔루션에 대한 자부심과 소프트웨어 기술 경쟁력을 웹 어플리케이션을 통해 표현했습니다.",
+    "link": "http://wisesoftec.com/",
+    "mainImage": "/growth/app-web-service/wisesoftec/main.png",
+    "contentImage": "/growth/app-web-service/wisesoftec/mid.png",
+    "brief": [
+      {
+        "category": "indicator",
+        "title": "Competitiveness\nEnhancement",
+        "content": "기업의 경쟁력 강화를 위해 전문가에 의한 진단과 분석을 실시합니다. "
+      },
+      {
+        "category": "Core Value",
+        "title": "Optimized\nLicensing",
+        "content": "최적화된 라이선스 취득을 위해 리소스를 아끼지 않고 결함이 없도록 철저하게 관리합니다. "
+      },
+      {
+        "category": "Experience",
+        "title": "Customized\nSolutions",
+        "content": "고객 니즈에 맞는 맞춤형 솔루션을 제안하고 신속하게 공급합니다. "
+      },
+      {
+        "category": "Identity",
+        "title": "Integrated\nServices",
+        "content": "여러가지 소통 채널을 통해 판매에서 끝나지 않고 유지보수가 결합된 통합 서비스를 제공합니다."
+      }
+    ],
+    "sitemap": [
+      {
+        "menu": "대기질 측정",
+        "text": "드론을 활용한 대기질 평가 솔루션 스니퍼4D의 재원과 동작원리,타 상품과의 차별화된 특장점과  사양을 흐름에 맞게 배치하고 제품 신뢰와 적용 사례를 통해 사용자가 주력 상품을 충분히 이해하고 인지할 수 있도록 의도하였습니다.",
+        "background": "#86415C",
+        "blur": false,
+        "images": [
+          {
+            "src": "/growth/app-web-service/wisesoftec/sub1-1.png",
+            "alt": "대기질 측정 소개 화면 (상단)"
           },
           {
-            "src": "/growth/app-web-service/aresa/sub4-3.png",
-            "alt": "로그인 화면"
-          },
+            "src": "/growth/app-web-service/wisesoftec/sub1-2.png",
+            "alt": "대기질 측정 소개 화면 (하단)"
+          }
+        ]
+      },
+      {
+        "menu": "보안 솔루션",
+        "text": "카드 형식의 디자인을 통해 보안 솔루션의 여러가지 카테고리를 정돈된 레이아웃으로 담았습니다. 각 솔루션 별 특징을 요약하여 시각화하고 로고를 통해 솔루션 별로 사용되는 프로그램인지 인지할 수 있도록 설계했습니다.",
+        "background": "#0F213F",
+        "blur": true,
+        "images": [
           {
-            "src": "/growth/app-web-service/aresa/sub4-4.png",
-            "alt": "회원 정보 찾기 화면"
+            "src": "/growth/app-web-service/wisesoftec/sub2-1.png",
+            "alt": "보안 솔루션 소개 화면"
+          }
+        ]
+      },
+      {
+        "menu": "소프트웨어",
+        "text": "업무용 범용소프트웨어에서 디자인/설계에 이르는 전문가용 소프트웨어까지 와이즈소프텍의 합리적 구매를 위한 라이선스 컨설팅을 제공합니다. 톤앤매너를 유지하고 시각적 흐름에 맞춰서 중요도 순으로 가용할 우 있는 소프트웨어 서비스를 나열했습니다. ",
+        "background": "#4A495A",
+        "blur": false,
+        "images": [
+          {
+            "src": "/growth/app-web-service/wisesoftec/sub3-1.png",
+            "alt": "소프트웨어 소개 화면"
+          }
+        ]
+      },
+      {
+        "menu": "양방향 플랫폼",
+        "text": "고객의 이름, 연락처, 요청사항 등을 수집할 수 있어 맞춤형 서비스 제공이 가능합니다. 또한 견적 요청 후 지속적인 소통을 통해 고객의 니즈를 파악하고 만족도 높은 서비스를 제공할 수 있습니다.  게시판을 통해 고객의 다양한 의견과 요구사항을 수렴할 수 있어 서비스 개선에 활용할 수 있습니다. 종합적으로 견적 요청과 게시판 페이지를 통해 고객과의 지속적인 소통이 가능하며, 이를 통해 고객 맞춤형 서비스를 제공할 수 있습니다",
+        "background": "#A66039",
+        "blur": false,
+        "images": [
+          {
+            "src": "/growth/app-web-service/aresa/sub4-1.png",
+            "alt": "견적요청 / 게시판 화면"
           }
         ]
       }

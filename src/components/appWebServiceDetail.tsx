@@ -167,9 +167,9 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
               <Image
                 src={image.src}
                 alt={image.alt}
-                width={300}
+                width={330}
                 height={100}
-                className="object-cover"
+                className="object-cover drop-shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]"
               ></Image>
             </div>
           ))}
