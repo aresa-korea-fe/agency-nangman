@@ -108,7 +108,7 @@ export const META = {
       rel: "icon",
     },
   ],
-  // manifest: "/manifest.json",
+  manifest: "/manifest.json",
   twitter: {
     images: {
       url: "/twitter-image.jpg",

@@ -33,11 +33,11 @@ export async function GET() {
 	});
 }
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: Request) {
 	await db.read();
 	let items = db.data?.items || [];
 
-	const newItem: Item = req.body;
+	const newItem: Item = JSON.parse(await req.text()).body;
 	items.push(newItem);
 	await db.write();
 	return new Response(JSON.stringify(items), {
@@ -47,11 +47,11 @@ export async function POST(req: NextApiRequest) {
 	});
 }
 
-export async function PUT(req: NextApiRequest) {
+export async function PUT(req: Request) {
 	await db.read();
 	let items = db.data?.items || [];
 
-	const updateItem: Item = req.body;
+	const updateItem: Item = JSON.parse(await req.text()).body;
 	const index = items.findIndex(item => item.id === updateItem.id);
 	if (index !== -1) {
 		items[index] = updateItem;
@@ -70,11 +70,11 @@ export async function PUT(req: NextApiRequest) {
 	}
 }
 
-export async function DELETE(req: NextApiRequest) {
+export async function DELETE(req: Request) {
 	await db.read();
 	let items = db.data?.items || [];
 
-	const id = req.query.id as string;
+	const id = JSON.parse(await req.text()).query.id as string;
 	const filteredItems = items.filter(item => item.id !== id);
 	if (items.length > filteredItems.length) {
 		items = filteredItems;
