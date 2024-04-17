@@ -7,8 +7,8 @@
     "releaseDate": "2023.12",
     "intro": "아리사코리아는 부동산 전문가의 노하우와 빅데이터를 인공지능에 도입하여 부동산과 관련한 의사결정을 돕는 프롭테크 스타트업입니다.\n빅데이터와 인공지능 기술을 활용하여 안정적이고 효율적인 부동산 서비스를 제공하고 있으며 신용보증기금 혁신 R&D 스타트업 선정, 전북창조 금융빅데이터 지원사업,\n한국지능정보사회진흥원 빅데이터분석사업 및 광주광역시와 AI 육성사업에 대한 MOU를 체결하여 프롭테크 시장의 새로운 도약을 시도하고 있습니다.",
     "link": "https://ncp.aresa.io",
-    "mainImage": "/growth/app-web-service/aresa/main.png",
-    "contentImage": "/growth/app-web-service/aresa/mid.png",
+    "mainImage": "/growth/app-web-service/aresa/main.webp",
+    "contentImage": "/growth/app-web-service/aresa/mid.webp",
     "brief": [
       {
         "category": "indicator",
@@ -39,12 +39,12 @@
         "blur": true,
         "images": [
           {
-            "src": "/growth/app-web-service/aresa/sub1-1.png",
+            "src": "/growth/app-web-service/aresa/sub1-1.webp",
             "alt": "부동산맵 지도 화면 / Inner Window UI",
             "fill": false
           },
           {
-            "src": "/growth/app-web-service/aresa/sub1-2.png",
+            "src": "/growth/app-web-service/aresa/sub1-2.webp",
             "alt": "부동산맵 상세 화면",
             "fill": false
           }
@@ -57,12 +57,12 @@
         "blur": true,
         "images": [
           {
-            "src": "/growth/app-web-service/aresa/sub2-1.png",
+            "src": "/growth/app-web-service/aresa/sub2-1.webp",
             "alt": "안전진단 검색/결과 화면",
             "fill": false
           },
           {
-            "src": "/growth/app-web-service/aresa/sub2-2.png",
+            "src": "/growth/app-web-service/aresa/sub2-2.webp",
             "alt": "안전진단 소개 화면",
             "fill": false
           }
@@ -75,12 +75,12 @@
         "blur": false,
         "images": [
           {
-            "src": "/growth/app-web-service/aresa/sub3-1.png",
+            "src": "/growth/app-web-service/aresa/sub3-1.webp",
             "alt": "대출체크 대출 입력 화면",
             "fill": false
           },
           {
-            "src": "/growth/app-web-service/aresa/sub3-2.png",
+            "src": "/growth/app-web-service/aresa/sub3-2.webp",
             "alt": "대출 정보 입력 / 결과 화면",
             "fill": false
           }
@@ -93,12 +93,12 @@
         "blur": false,
         "images": [
           {
-            "src": "/growth/app-web-service/aresa/sub4-1.png",
+            "src": "/growth/app-web-service/aresa/sub4-1.webp",
             "alt": "비회원 메뉴 / 인증 유도 화면",
             "fill": false
           },
           {
-            "src": "/growth/app-web-service/aresa/sub4-2.png",
+            "src": "/growth/app-web-service/aresa/sub4-2.webp",
             "alt": "로그인 / 회원 정보 찾기 화면",
             "fill": false
           }
@@ -114,8 +114,8 @@
     "releaseDate": "2019. 08",
     "intro": "와이즈소프택은 대기질 측정과 소프트웨어, 보안솔루션를 전문으로 하는 IT 소프트웨어 기업입니다.\n기업의 경쟁력 강화를 위해 전문가에 의한 진단과 분석을 통해 최적화된 라이선스 취득과 관리, 맞춤형 솔루션제안과 공급, 유지보수가 결합된 통합 서비스를 제공합니다.\n세계 최초 드론을 이용한 대기 질 평가 솔루션에 대한 자부심과 소프트웨어 기술 경쟁력을 웹 어플리케이션을 통해 표현했습니다.",
     "link": "http://wisesoftec.com/",
-    "mainImage": "/growth/app-web-service/wisesoftec/main.png",
-    "contentImage": "/growth/app-web-service/wisesoftec/mid.png",
+    "mainImage": "/growth/app-web-service/wisesoftec/main.webp",
+    "contentImage": "/growth/app-web-service/wisesoftec/mid.webp",
     "brief": [
       {
         "category": "indicator",
@@ -146,12 +146,12 @@
         "blur": false,
         "images": [
           {
-            "src": "/growth/app-web-service/wisesoftec/sub1-1.png",
+            "src": "/growth/app-web-service/wisesoftec/sub1-1.webp",
             "alt": "대기질 측정 소개 화면 (상단)",
             "fill": true
           },
           {
-            "src": "/growth/app-web-service/wisesoftec/sub1-2.png",
+            "src": "/growth/app-web-service/wisesoftec/sub1-2.webp",
             "alt": "대기질 측정 소개 화면 (하단)",
             "fill": true
           }
@@ -164,7 +164,7 @@
         "blur": true,
         "images": [
           {
-            "src": "/growth/app-web-service/wisesoftec/sub2-1.png",
+            "src": "/growth/app-web-service/wisesoftec/sub2-1.webp",
             "alt": "보안 솔루션 소개 화면",
             "fill": true
           }
@@ -177,7 +177,7 @@
         "blur": false,
         "images": [
           {
-            "src": "/growth/app-web-service/wisesoftec/sub3-1.png",
+            "src": "/growth/app-web-service/wisesoftec/sub3-1.webp",
             "alt": "소프트웨어 소개 화면",
             "fill": true
           }
@@ -190,7 +190,7 @@
         "blur": false,
         "images": [
           {
-            "src": "/growth/app-web-service/wisesoftec/sub4-1.png",
+            "src": "/growth/app-web-service/wisesoftec/sub4-1.webp",
             "alt": "견적요청 / 게시판 화면",
             "fill": true
           }
@@ -206,8 +206,8 @@
     "releaseDate": "2024. 01",
     "intro": "오독스(O-DOCS)는  등기부등본, 토지대장, 건축물대장 등 부동산 관련 정보를 한 곳에서 조회하고 발급할 수 있는 통합 플랫폼입니다. 다양한 분야에서 활용 가능한 부동산 공문서류 플랫폼 오독스를 통해 사용자는 반드시 확인해야 할 정보를 제공받을 수 있습니다.온라인으로 편리하게 필요한 서류를 확인하고 발급받을 수 있어 부동산 거래 시 유용하게 활용할 수 있습니다.",
     "link": "http://odocs.io/",
-    "mainImage": "/growth/app-web-service/odocs/main.png",
-    "contentImage": "/growth/app-web-service/odocs/mid.png",
+    "mainImage": "/growth/app-web-service/odocs/main.webp",
+    "contentImage": "/growth/app-web-service/odocs/mid.webp",
     "brief": [
       {
         "category": "indicator",
@@ -238,7 +238,7 @@
         "blur": false,
         "images": [
           {
-            "src": "/growth/app-web-service/odocs/sub1-1.png",
+            "src": "/growth/app-web-service/odocs/sub1-1.webp",
             "alt": "",
             "fill": true
           }
@@ -251,7 +251,7 @@
         "blur": true,
         "images": [
           {
-            "src": "/growth/app-web-service/odocs/sub2-1.png",
+            "src": "/growth/app-web-service/odocs/sub2-1.webp",
             "alt": "",
             "fill": true
           }
@@ -264,7 +264,7 @@
         "blur": false,
         "images": [
           {
-            "src": "/growth/app-web-service/odocs/sub3-1.png",
+            "src": "/growth/app-web-service/odocs/sub3-1.webp",
             "alt": "",
             "fill": true
           }
@@ -277,7 +277,7 @@
         "blur": false,
         "images": [
           {
-            "src": "/growth/app-web-service/odocs/sub4-1.png",
+            "src": "/growth/app-web-service/odocs/sub4-1.webp",
             "alt": "",
             "fill": true
           }
