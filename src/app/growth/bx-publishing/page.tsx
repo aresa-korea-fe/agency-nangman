@@ -39,7 +39,7 @@ export default function BxPublishing() {
     <main className="min-h-screen overflow-y-auto bg-gray-50 py-40 leading-none text-black">
       <div className=" mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
         {contents.map((item, index) => (
-          <Link
+          item.headImage && (<Link
             key={index}
             href={`bx-publishing/${item.id}`}
             scroll={false}
@@ -65,7 +65,7 @@ export default function BxPublishing() {
                 </label>
               </div>
             </div>
-          </Link>
+          </Link>)
         ))}
       </div>
     </main>
