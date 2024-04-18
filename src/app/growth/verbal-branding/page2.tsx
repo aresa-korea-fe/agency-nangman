@@ -26,7 +26,7 @@ export default function Home() {
   // Function to handle animations
   const animateSlide = (direction: number) => {
     // You might add class-based animations or other effects here
-    console.log(`Animating slide ${direction > 0 ? 'up' : 'down'}`);
+    // console.log(`Animating slide ${direction > 0 ? 'up' : 'down'}`);
   };
 
   // Function to handle Swiper slide changes
