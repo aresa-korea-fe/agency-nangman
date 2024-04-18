@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { Renderer, Geometry, Program, Mesh, Texture, Vec2, Vec4 } from 'ogl';
 
 interface Particle {
   size: number;
@@ -16,7 +15,6 @@ interface Particle {
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const webglRef = useRef<HTMLDivElement>(null); // WebGL 애니메이션을 위한 ref 추가
 
   useEffect(() => {
     if (!canvasRef.current) return; // Check if canvas is not null

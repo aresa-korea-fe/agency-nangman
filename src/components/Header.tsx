@@ -23,27 +23,23 @@ const products = [
   {
     name: "VERBAL BRANDING",
     description: "제품이나 서비스를 위한 강력한 브랜드 메시지 전달",
-    // description: "Delivering powerful brand messages for products or services",
     href: "/growth/verbal-branding",
     icon: FaceSmileIcon,
   },
   {
     name: "APP/WEB SERVICE",
-    // description: "User-friendly app/web service for seamless experiences",
     description: "끊김없는 경험을 위한 사용자 친화적인 앱/웹 서비스",
     href: "/growth/app-web-service",
     icon: CursorArrowRippleIcon,
   },
   {
     name: "BX/PUBLISHING",
-    // description: "Engaging BX/Publishing for impactful content",
     description: "영향력 있는 콘텐츠를 위한 매력적인 BX/Publishing",
     href: "/growth/bx-publishing",
     icon: InboxIcon,
   },
   {
     name: "PROP-TECH",
-    // description: "Innovative prop-tech solutions for real estate",
     description: "부동산을 위한 혁신적인 프롭테크 솔루션",
     href: "/growth/prop-tech",
     icon: HomeModernIcon,
@@ -128,7 +124,7 @@ export default function Header() {
           <div className="fixed inset-0 z-10" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+              <a href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Agency nangman</span>
                 <Image
                   priority
@@ -137,11 +133,6 @@ export default function Header() {
                   width={40}
                   height={40}
                 />
-                {/* <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              /> */}
               </a>
               <button
                 type="button"
@@ -210,8 +201,6 @@ export default function Header() {
       {onLogo ? (
         <div
           className={`fixed right-1/2 top-0 z-[12] translate-x-1/2 transition-all duration-700 ease-out sm:block ${!onLogo ? "scale-100" : "scale-0"}`}
-          // onMouseOver={() => setOnLogo(true)}
-          // onMouseLeave={() => setOnLogo(false)}
         >
           <div
             className={`pointer-events-auto mt-10 flex gap-8 rounded-full bg-black p-3 lg:mt-12 ${!onLogo ? "scale-100" : "scale-0"}`}
@@ -233,7 +222,6 @@ export default function Header() {
                 href="/"
                 className={`relative px-6 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white " : "text-gray-900"}
               after:absolute after:right-0 after:top-1/3 after:h-1/3 after:w-[1px] after:bg-white/50`}
-                // onMouseLeave={() => setOnLogo(false)}
               >
                 낭만.
               </Link>
@@ -241,7 +229,6 @@ export default function Header() {
               <Link
                 href="/company"
                 className={`py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
-                // onMouseLeave={() => setOnLogo(false)}
               >
                 about us
               </Link>
@@ -251,10 +238,6 @@ export default function Header() {
                   className={`flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
                 >
                   성장기록물
-                  {/* <ChevronDownIcon
-                  className="h-5 w-5 flex-none text-gray-400"
-                  aria-hidden="true"
-                /> */}
                 </Popover.Button>
 
                 <Transition
@@ -268,7 +251,6 @@ export default function Header() {
                 >
                   <Popover.Panel
                     className="absolute -left-60 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
-                    // onMouseLeave={() => setOnLogo((onLogo) => !onLogo)}
                   >
                     <div className="p-4">
                       {products.map((item) => (
@@ -320,7 +302,6 @@ export default function Header() {
               <Link
                 href="/project-request"
                 className={`py-4 pr-5 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
-                // onMouseLeave={() => setOnLogo((onLogo) => !onLogo)}
               >
                 contact
               </Link>
