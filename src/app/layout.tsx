@@ -13,7 +13,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log("RootLayout");
+  // console.log("RootLayout");
   return (
     <>
       <html lang="ko" >
