@@ -23,7 +23,8 @@ const config: Config = {
       screens: {
         "content-xs": { max: "389px" },
         "content-sm": { min: "390px", max: "819px" },
-        "content-md": { min: "820px", max: "1023px" },
+        "content-md-xs": { max: "1079px" },
+        "content-md": { min: "820px", max: "1079px" },
         "content-lg": { min: "1080px" },
         "content-xl": { min: "1440px" },
       },
