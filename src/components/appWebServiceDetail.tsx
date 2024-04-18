@@ -128,24 +128,25 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   const [menus, setMenus] = useState<string[]>([]);
   const [selected, setSelected] = useState<number>(0);
 
-  const navRef = useRef(null);
-  const [isPoint, setIsPoint] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+  const [isTop, setIsTop] = useState(false);
 
-  // const setPointHeader = useMemo(() => {
-  //   if (navRef.current) {
-  //     const isReachPoint =
-  //       window.scrollY > navRef.current.offsetTop - HEADER_HEIGHT;
-  //     if (isReachPoint !== isPoint) setIsPoint(isReachPoint);
-  //   }
-  // }, [isPoint]);
+  useEffect(() => {
+    let offsetTop = 0;
+    const handleScroll = () => {
+      if (navRef.current) {
+        if (navRef.current.offsetTop !== 0)
+          offsetTop = navRef.current.offsetTop;
+        setIsTop(window.scrollY >= offsetTop);
+      }
+    };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", setPointHeader);
+    window.addEventListener("scroll", handleScroll);
 
-  //   return () => {
-  //     window.removeEventListener("scroll", setPointHeader);
-  //   };
-  // }, [isPoint, setPointHeader, navRef]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (item.length > 0) {
@@ -155,65 +156,65 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   }, [item]);
 
   return (
-    <article className="relative w-full overflow-x-hidden text-white">
-      <div
-        className="absolute h-[42.5rem] w-full"
-        style={{ background: item[selected].background }}
+    <>
+      <nav
+        ref={navRef}
+        className={`slider z-10 hidden w-screen snap-x gap-5 overflow-x-auto text-nowrap border bg-white px-4 content-xs:-mb-32 content-xs:flex content-sm:-mb-32 content-sm:flex content-md:-mb-32 content-md:flex content-md:px-20 ${isTop ? "fixed" : "block"}`}
       >
-        <nav
-          id="nav"
-          className="z-10 hidden w-screen gap-5 overflow-x-auto text-nowrap border bg-white px-4 content-xs:flex content-sm:flex content-md:flex"
-        >
-          {menus.map((menu, index) => (
-            <p
-              onClick={() => setSelected(index)}
-              key={index}
-              className={`px-4 py-4 leading-none ${selected === index ? "font-bold text-navyBlue content-sm:snap-center" : " text-navyBlue/60"}`}
-            >
-              {menu}
-            </p>
-          ))}
-        </nav>
-      </div>
-      <div className="mx-20 mt-5 flex flex-wrap items-start justify-center gap-10 content-xs:mx-6 content-xs:mt-5 content-sm:mx-6 content-sm:mt-5 content-lg:mx-40 content-lg:mt-32 content-lg:flex-nowrap">
-        <div className="relative flex flex-col gap-10 content-xs:w-full">
-          <div className="slider relative flex snap-x flex-col gap-6 overflow-x-auto content-xs:hidden content-sm:hidden content-md:hidden">
-            {menus.map((menu, index) => (
-              <p
-                onClick={() => setSelected(index)}
-                key={index}
-                className={`flex w-full flex-col font-bold leading-none ${selected === index ? "text-white content-sm:snap-center" : " text-white/60"} text-nowrap text-2xl content-lg:text-3xl `}
-              >
-                {menu}
-              </p>
+        {menus.map((menu, index) => (
+          <p
+            onClick={() => setSelected(index)}
+            key={index}
+            className={`px-4 py-4 leading-none ${selected === index ? "font-bold text-navyBlue content-sm:snap-center" : " text-navyBlue/60"}`}
+          >
+            {menu}
+          </p>
+        ))}
+      </nav>
+
+      <div className="relative w-full overflow-x-hidden text-white">
+        <div
+          className="absolute h-[42.5rem] w-full"
+          style={{ background: item[selected].background }}
+        ></div>
+        <div className="mx-20 mt-5 flex flex-wrap items-start justify-center gap-10 content-xs:mx-6 content-xs:mt-5 content-sm:mx-6 content-sm:mt-5 content-lg:mx-40 content-lg:mt-32 content-lg:flex-nowrap">
+          <div className="relative flex flex-col gap-10 content-xs:w-full">
+            <div className="slider relative flex snap-x flex-col gap-6 overflow-x-auto content-xs:hidden content-sm:hidden content-md:hidden">
+              {menus.map((menu, index) => (
+                <p
+                  onClick={() => setSelected(index)}
+                  key={index}
+                  className={`flex w-full flex-col font-bold leading-none ${selected === index ? "text-white content-sm:snap-center" : " text-white/60"} text-nowrap text-2xl content-lg:text-3xl `}
+                >
+                  {menu}
+                </p>
+              ))}
+            </div>
+            <p className=" max-w-96 content-lg:mt-0">{item[selected].text}</p>
+          </div>
+          <div
+            className={`relative grid w-full items-start justify-center gap-10 pb-10 ${item[selected].images[0].fill ? "content-xl:grid-cols-1" : "content-xl:grid-cols-2"}`}
+          >
+            {item[selected].images.map((image, index) => (
+              <div key={index} className="flex flex-col items-center gap-4">
+                <p
+                  className={`${item[selected].images.length > 2 ? (index === 0 || index === 2 ? "content-xl:text-white/60" : "content-xl:text-navyBlue/60") : "content-xl:text-white/60"} ${index === 0 ? "text-white/60" : "text-navyBlue/60"}`}
+                >
+                  {image.alt}
+                </p>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={400}
+                  height={400}
+                  className={`object-cover drop-shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] ${image.fill ? "w-full max-w-[37.5rem]" : ""}`}
+                ></Image>
+              </div>
             ))}
           </div>
-          <p className="mt-[3.125rem] max-w-96 content-lg:mt-0">
-            {item[selected].text}
-          </p>
-        </div>
-        <div
-          className={`relative grid w-full items-start justify-center gap-10 pb-10 ${item[selected].images[0].fill ? "content-xl:grid-cols-1" : "content-xl:grid-cols-2"}`}
-        >
-          {item[selected].images.map((image, index) => (
-            <div key={index} className="flex flex-col items-center gap-4">
-              <p
-                className={`${item[selected].images.length > 2 ? (index === 0 || index === 2 ? "content-xl:text-white/60" : "content-xl:text-navyBlue/60") : "content-xl:text-white/60"} ${index === 0 ? "text-white/60" : "text-navyBlue/60"}`}
-              >
-                {image.alt}
-              </p>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={400}
-                height={400}
-                className={`object-cover drop-shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] ${image.fill ? "w-full max-w-[37.5rem]" : ""}`}
-              ></Image>
-            </div>
-          ))}
         </div>
       </div>
-    </article>
+    </>
   );
 }
 
