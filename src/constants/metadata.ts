@@ -141,12 +141,4 @@ export const META = {
     "msapplication-TileImage": "/ms-icon-144x144.png",
     "msapplication-config": "/browserconfig.xml",
   },
-  verification: {
-    google: "XDsQmHVNCX7z6U7I9MaV7_FxZC14zqOuWd9dSw6t4Ic",
-    yandex: "yandex",
-    yahoo: "yahoo",
-    other: {
-      me: ["my-email", "my-link"],
-    },
-  },
 };
