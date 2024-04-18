@@ -6,7 +6,7 @@ import {
   ProjectSitemap,
 } from "@/app/growth/app-web-service/page";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 
 type DetailHeaderProps = {
@@ -128,6 +128,25 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   const [menus, setMenus] = useState<string[]>([]);
   const [selected, setSelected] = useState<number>(0);
 
+  const navRef = useRef(null);
+  const [isPoint, setIsPoint] = useState(false);
+
+  // const setPointHeader = useMemo(() => {
+  //   if (navRef.current) {
+  //     const isReachPoint =
+  //       window.scrollY > navRef.current.offsetTop - HEADER_HEIGHT;
+  //     if (isReachPoint !== isPoint) setIsPoint(isReachPoint);
+  //   }
+  // }, [isPoint]);
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", setPointHeader);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", setPointHeader);
+  //   };
+  // }, [isPoint, setPointHeader, navRef]);
+
   useEffect(() => {
     if (item.length > 0) {
       const newMenus = item.map((item) => item.menu);
@@ -136,25 +155,42 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   }, [item]);
 
   return (
-    <article className="w-full overflow-x-hidden text-white">
+    <article className="relative w-full overflow-x-hidden text-white">
       <div
         className="absolute h-[42.5rem] w-full"
         style={{ background: item[selected].background }}
-      ></div>
-      <div className="mx-20 mt-14 flex flex-wrap items-start justify-between gap-10 content-xs:mx-6 content-xs:mt-5 content-sm:mx-6 content-sm:mt-5 content-lg:mx-40 content-lg:mt-32 content-lg:flex-nowrap">
+      >
+        <nav
+          id="nav"
+          className="z-10 hidden w-screen gap-5 overflow-x-auto text-nowrap border bg-white px-4 content-xs:flex content-sm:flex content-md:flex"
+        >
+          {menus.map((menu, index) => (
+            <p
+              onClick={() => setSelected(index)}
+              key={index}
+              className={`px-4 py-4 leading-none ${selected === index ? "font-bold text-navyBlue content-sm:snap-center" : " text-navyBlue/60"}`}
+            >
+              {menu}
+            </p>
+          ))}
+        </nav>
+      </div>
+      <div className="mx-20 mt-5 flex flex-wrap items-start justify-center gap-10 content-xs:mx-6 content-xs:mt-5 content-sm:mx-6 content-sm:mt-5 content-lg:mx-40 content-lg:mt-32 content-lg:flex-nowrap">
         <div className="relative flex flex-col gap-10 content-xs:w-full">
-          <div className="slider relative flex snap-x flex-col gap-6 overflow-x-auto content-xs:flex-row content-sm:flex-row">
+          <div className="slider relative flex snap-x flex-col gap-6 overflow-x-auto content-xs:hidden content-sm:hidden content-md:hidden">
             {menus.map((menu, index) => (
               <p
                 onClick={() => setSelected(index)}
                 key={index}
-                className={`flex flex-col font-bold leading-none ${selected === index ? "text-white content-sm:snap-center" : " text-white/60"} text-nowrap text-2xl content-lg:text-3xl `}
+                className={`flex w-full flex-col font-bold leading-none ${selected === index ? "text-white content-sm:snap-center" : " text-white/60"} text-nowrap text-2xl content-lg:text-3xl `}
               >
                 {menu}
               </p>
             ))}
           </div>
-          <p className="max-w-96">{item[selected].text}</p>
+          <p className="mt-[3.125rem] max-w-96 content-lg:mt-0">
+            {item[selected].text}
+          </p>
         </div>
         <div
           className={`relative grid w-full items-start justify-center gap-10 pb-10 ${item[selected].images[0].fill ? "content-xl:grid-cols-1" : "content-xl:grid-cols-2"}`}
