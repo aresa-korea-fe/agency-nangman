@@ -7,6 +7,13 @@ const nextConfig = {
   images: {
     deviceSizes: [640, 1080],
   },
+  redirects: async () => [
+    {
+      source: "/growth",
+      destination: "/growth/verbal-branding",
+      permanent: true,
+    },
+  ],
 };
 
 export default nextConfig;
