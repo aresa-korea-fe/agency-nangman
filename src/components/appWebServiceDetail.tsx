@@ -32,6 +32,8 @@ function DetailHeader(props: DetailHeaderProps) {
   return (
     <header className="h-full w-full justify-center">
       <Image
+        placeholder="blur"
+        blurDataURL="/public/blur.png"
         src={mainImage || ""}
         alt="main"
         priority
@@ -85,6 +87,8 @@ function MiddleContent({
   return (
     <div className="mx-20 flex flex-col items-center gap-24 whitespace-pre-wrap content-xs:mx-6 content-sm:mx-6 content-lg:mx-40">
       <Image
+        placeholder="blur"
+        blurDataURL="/public/blur.png"
         src={contentImage || ""}
         alt="main"
         priority
@@ -203,6 +207,8 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
                   {image.alt}
                 </p>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/public/blur.png"
                   src={image.src}
                   alt={image.alt}
                   width={400}

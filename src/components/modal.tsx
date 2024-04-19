@@ -14,11 +14,8 @@ export default function Modal({ children }: props) {
 
   const router = useRouter();
 
-  const isClose = (open: boolean) => {
-    isOpen(!open);
-    if (!open) {
-      router.back();
-    }
+  const isClose = () => {
+    router.back();
   };
 
   return (
@@ -42,7 +39,7 @@ export default function Modal({ children }: props) {
         </Transition.Child>
 
         <div className="fixed inset-0 w-screen overflow-y-auto">
-          <div className="fixed right-10 z-50 my-5 flex w-full justify-end">
+          <div className="fixed right-10 z-50 my-5 flex justify-end">
             <div className="inline-flex items-center justify-center rounded-full bg-black/30 p-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <svg
                 className="h-5 w-5"
@@ -62,6 +59,7 @@ export default function Modal({ children }: props) {
               </svg>
             </div>
           </div>
+
           <div className="flex min-h-full items-end justify-center p-0 sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}
