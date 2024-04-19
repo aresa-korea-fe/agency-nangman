@@ -1,25 +1,20 @@
-import "./globals.css";
-import Header from "../components/Header";
 import ClientSideComponent from "@/components/ClientSideComponent";
-
-import type { Metadata } from 'next'
 import { META } from "@/constants/metadata";
-import Loader from "@/components/loader";
+import type { Metadata } from "next";
+import Header from "../components/Header";
+import "./globals.css";
 
-
-export const metadata: Metadata = META
+export const metadata: Metadata = META;
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // console.log("RootLayout");
   return (
     <>
-      <html lang="ko" >
-        <body className='cursor-none'>
-          <Loader />
+      <html lang="ko">
+        <body className="cursor-none">
           <Header />
           <ClientSideComponent />
           {children}

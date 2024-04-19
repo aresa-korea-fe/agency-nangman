@@ -10,10 +10,10 @@ export default function ClientSideComponent() {
       setXY({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener('mousemove', xyHandler);
+    window.addEventListener("mousemove", xyHandler);
 
     return () => {
-      window.removeEventListener('mousemove', xyHandler);
+      window.removeEventListener("mousemove", xyHandler);
     };
   }, []);
 

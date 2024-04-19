@@ -7,16 +7,15 @@ interface GrowthLayoutProps {
 }
 
 const GrowthLayout: FC<GrowthLayoutProps> = ({ children, modal }) => {
-  // console.log("GrowthLayout");
-
-  return <div className="overflow-hidden bg-white">
-    <div className="relative flex-1">
-      <Breadcrumb></Breadcrumb>
-      {children}
+  return (
+    <div className="overflow-hidden bg-white">
+      <div className="relative flex-1">
+        <Breadcrumb></Breadcrumb>
+        {children}
+      </div>
+      {modal}
     </div>
-    {modal}
-  </div>
-    ;
+  );
 };
 
 export default GrowthLayout;
