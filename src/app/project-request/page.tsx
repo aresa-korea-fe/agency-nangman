@@ -1,9 +1,26 @@
 "use client";
 
 // import { Metadata } from "next"
-import { Fragment, useState } from "react";
-import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
+
+interface IFormInput {
+  company: string;
+  position: string;
+  email: string;
+  phone: string;
+  homepage: string;
+  adress: string;
+  category: string;
+  accessways: string;
+  releasedate: Date;
+  amount: string;
+  reference: string;
+  message: string;
+  termsAgree: boolean;
+}
 
 // export const metadata: Metadata = {
 //   title: 'Project Request | Nangman Agency',
@@ -16,14 +33,72 @@ function classNames(...classes: string[]) {
 
 export default function Home() {
   const [termsAgree, setTermsAgree] = useState(true);
+  const [amount, setAmount] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const handlePhoneNumberValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const regex = /^[0-9\b -]{0,13}$/;
+    if (regex.test(e.target.value)) {
+      setPhoneNumber(e.target.value);
+    }
+  };
+
+  const handleAmountValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const numbers = e.target.value.replace(/[^0-9]/g, "");
+    setAmount(numbers);
+  };
+
+  useEffect(() => {
+    if (phoneNumber.length === 10) {
+      setPhoneNumber(phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3"));
+    }
+    if (phoneNumber.length === 13) {
+      setPhoneNumber(
+        phoneNumber
+          .replace(/-/g, "")
+          .replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3"),
+      );
+    }
+  }, [phoneNumber]);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<IFormInput>();
+
+  const onSubmit = async (data: IFormInput) => {
+    setLoading(true);
+
+    const templateParams = {
+      ...data,
+    };
+
+    emailjs
+      .send(
+        "service_znk7lyo",
+        "template_ad8uslk",
+        templateParams,
+        "YDuGXRL5L4H9qvB-Z",
+      )
+      .then(() => {
+        reset();
+        setLoading(false);
+        alert("문의가 정상적으로 등록되었습니다.");
+      })
+      .catch((error) => {
+        alert("문의 등록에 실패했습니다. 다시 시도해주세요.");
+      });
+  };
   return (
     // bg-[#04070B] text-white
     <main className="min-h-screen py-80">
       <div className=" mx-auto h-full max-w-[90vw] xl:max-w-screen-xl">
         <div className="flex h-full flex-row">
           <div className="flex w-full flex-col">
-            <form className="">
+            <form className="" onSubmit={handleSubmit(onSubmit)}>
               {/* <h2 className="font-tenada leading-[1.1] pb-2">당신이 아닌 우리의<br />서비스를 만듭니다.</h2>
               <p>사용자 친화적인 서비스를 가장 중요하게 생각하는,</p>
               <p>저희는 진짜 서비스에 집중하는 낭만팀입니다.</p> */}
@@ -54,10 +129,14 @@ export default function Home() {
                   <div className="mt-2">
                     <input
                       type="text"
-                      name="last-name"
-                      id="last-name"
                       className="block size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
+                      {...register("company", { required: true })}
                     />
+                    {errors.company && (
+                      <p className="mt-2 text-sm text-red-500">
+                        회사명을 입력해 주세요.
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -71,10 +150,14 @@ export default function Home() {
                   <div className="mt-2">
                     <input
                       type="text"
-                      name="last-name"
-                      id="last-name"
                       className="block size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
+                      {...register("position", { required: true })}
                     />
+                    {errors.position && (
+                      <p className="mt-2 text-sm text-red-500">
+                        담당자/직책(직함)을 입력해 주세요.
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -88,10 +171,18 @@ export default function Home() {
                   <div className="mt-2">
                     <input
                       type="text"
-                      name="last-name"
-                      id="last-name"
                       className="block size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
+                      value={phoneNumber}
+                      {...register("phone", {
+                        required: true,
+                        onChange: handlePhoneNumberValue,
+                      })}
                     />
+                    {errors.phone && (
+                      <p className="mt-2 text-sm text-red-500">
+                        연락처를 입력해 주세요.
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -105,10 +196,14 @@ export default function Home() {
                   <div className="mt-2">
                     <input
                       type="text"
-                      name="last-name"
-                      id="last-name"
+                      {...register("email", { required: true })}
                       className="block size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
                     />
+                    {errors.email && (
+                      <p className="mt-2 text-sm text-red-500">
+                        이메일을 입력해 주세요.
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -117,8 +212,7 @@ export default function Home() {
                   <div className="mt-2">
                     <input
                       type="text"
-                      name="last-name"
-                      id="last-name"
+                      {...register("homepage", { required: false })}
                       className="block size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
                     />
                   </div>
@@ -129,8 +223,7 @@ export default function Home() {
                   <div className="mt-2">
                     <input
                       type="text"
-                      name="last-name"
-                      id="last-name"
+                      {...register("adress", { required: false })}
                       className="block size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
                     />
                   </div>
@@ -150,8 +243,7 @@ export default function Home() {
                   <div className="mt-2">
                     {/* <input type="text" name="last-name" id="last-name" className="block w-full size-12 rounded-md border py-1.5 px-3 text-gray-900 shadow-sm sm:leading-6" /> */}
                     <select
-                      id="currency"
-                      name="currency"
+                      {...register("category", { required: false })}
                       className="size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
                     >
                       <option>PROP-TECH</option>
@@ -167,8 +259,7 @@ export default function Home() {
                   <div className="mt-2">
                     <input
                       type="text"
-                      name="last-name"
-                      id="last-name"
+                      {...register("accessways", { required: false })}
                       className="block size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
                     />
                   </div>
@@ -178,9 +269,8 @@ export default function Home() {
                   <label className="pl-1">예상 오픈일</label>
                   <div className="mt-2">
                     <input
-                      type="text"
-                      name="last-name"
-                      id="last-name"
+                      type="date"
+                      {...register("releasedate", { required: false })}
                       className="block size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
                     />
                   </div>
@@ -191,8 +281,11 @@ export default function Home() {
                   <div className="mt-2">
                     <input
                       type="text"
-                      name="last-name"
-                      id="last-name"
+                      {...register("amount", {
+                        required: false,
+                        onChange: handleAmountValue,
+                      })}
+                      value={Number((+amount).toLocaleString("ko-KR"))}
                       className="block size-12 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
                     />
                   </div>
@@ -202,8 +295,7 @@ export default function Home() {
                   <label className="pl-1">참고사이트 (레퍼런스)</label>
                   <div className="mt-2">
                     <textarea
-                      name="last-name"
-                      id="last-name"
+                      {...register("reference", { required: false })}
                       className="block size-36 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
                     />
                   </div>
@@ -213,8 +305,7 @@ export default function Home() {
                   <label className="pl-1">기타 요구사항</label>
                   <div className="mt-2">
                     <textarea
-                      name="last-name"
-                      id="last-name"
+                      {...register("message", { required: false })}
                       className="block size-36 w-full rounded-md border px-3 py-1.5 text-gray-900 shadow-sm sm:leading-6"
                     />
                   </div>
@@ -231,7 +322,7 @@ export default function Home() {
                   <div className="flex h-6 items-center">
                     <input
                       id="candidates"
-                      name="candidates"
+                      {...register("termsAgree", { required: false })}
                       type="checkbox"
                       checked={termsAgree}
                       onChange={(e) => setTermsAgree(e.target.checked)}
@@ -461,12 +552,13 @@ export default function Home() {
               <div className="my-6 h-[1px] bg-white/40"></div>
 
               <div className="flex flex-row justify-center gap-x-2">
-                <a
-                  href="#"
+                <button
+                  disabled={loading}
+                  type="submit"
                   className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
                 >
                   프로젝트 문의하기
-                </a>
+                </button>
                 <Link
                   href="/"
                   className="inline-block rounded-md border border-transparent bg-gray-300 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"

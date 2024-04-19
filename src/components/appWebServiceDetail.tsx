@@ -65,13 +65,15 @@ function DetailHeader(props: DetailHeaderProps) {
             <p className=" text-lg leading-9 tracking-tight">{intro}</p>
           </div>
         )}
-        <Link
-          className="Link-0 w-28 rounded-full border border-gray-300 bg-white px-5 py-3 text-sm leading-none hover:bg-gray-100"
-          href={link}
-          target="_blank"
-        >
-          사이트 보기
-        </Link>
+        {link && (
+          <Link
+            className="Link-0 w-28 rounded-full border border-gray-300 bg-white px-5 py-3 text-sm leading-none hover:bg-gray-100"
+            href={link}
+            target="_blank"
+          >
+            사이트 보기
+          </Link>
+        )}
       </div>
     </header>
   );
@@ -188,7 +190,7 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
                 <p
                   onClick={() => setSelected(index)}
                   key={index}
-                  className={`flex w-full flex-col font-bold leading-none ${selected === index ? "text-white content-sm:snap-center" : " text-white/60"} text-nowrap text-2xl content-lg:text-3xl `}
+                  className={`flex w-full flex-col font-bold leading-none ${selected === index ? "text-white underline content-sm:snap-center" : " text-white/60"} text-nowrap text-2xl content-lg:text-3xl `}
                 >
                   {menu}
                 </p>
