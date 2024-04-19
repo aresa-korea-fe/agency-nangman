@@ -1,8 +1,12 @@
 "use client";
 
 import Loader from "@/components/loader";
-import Particle from "@/components/particle";
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
+
+const Particle = dynamic(() => import("@/components/particle"), {
+  loading: () => <Loader />,
+});
 
 export default function Home() {
   return (
