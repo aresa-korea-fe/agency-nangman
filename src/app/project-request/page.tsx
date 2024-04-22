@@ -50,6 +50,14 @@ export default function Home() {
   };
 
   useEffect(() => {
+    async () => {
+      await new Promise((resolve) => {
+        setTimeout(resolve, 3000);
+      });
+    };
+  }, []);
+
+  useEffect(() => {
     if (phoneNumber.length === 10) {
       setPhoneNumber(phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3"));
     }
