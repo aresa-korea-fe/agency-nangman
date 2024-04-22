@@ -1,6 +1,5 @@
 import Breadcrumb from "@/components/breadcrumb";
-import { FC, ReactNode, Suspense, lazy } from "react";
-import Loading from "./loading";
+import { FC, ReactNode } from "react";
 
 interface GrowthLayoutProps {
   children: ReactNode;
@@ -10,13 +9,11 @@ interface GrowthLayoutProps {
 const GrowthLayout: FC<GrowthLayoutProps> = ({ children, modal }) => {
   return (
     <div className="overflow-hidden bg-white">
-      <Suspense fallback={<Loading />}>
-        <div className="relative flex-1">
-          <Breadcrumb></Breadcrumb>
-          {children}
-        </div>
-        {modal}
-      </Suspense>
+      <div className="relative flex-1">
+        <Breadcrumb></Breadcrumb>
+        {children}
+      </div>
+      {modal}
     </div>
   );
 };

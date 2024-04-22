@@ -1,3 +1,5 @@
+import Loader from "@/components/loader";
+
 export default function Loading() {
-  return <div>로딩 중...</div>;
+  return <Loader />;
 }

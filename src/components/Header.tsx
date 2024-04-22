@@ -170,14 +170,9 @@ export default function Header() {
                         <Disclosure.Panel className="mt-2 space-y-2">
                           {/* {[...products, ...callsToAction].map((item) => ( */}
                           {[...products].map((item) => (
-                            <Disclosure.Button
-                              key={item.name}
-                              as="a"
-                              href={item.href}
-                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                            >
-                              {item.name}
-                            </Disclosure.Button>
+                            <Link key={item.name} href={item.href}>
+                              <Disclosure.Button>{item.name}</Disclosure.Button>
+                            </Link>
                           ))}
                         </Disclosure.Panel>
                       </>
@@ -234,69 +229,72 @@ export default function Header() {
               </Link>
 
               <Popover className="relative">
-                <Popover.Button
-                  className={`flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
-                >
-                  성장기록물
-                </Popover.Button>
+                {({ open, close }) => (
+                  <>
+                    <Popover.Button
+                      className={`flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+                    >
+                      성장기록물
+                    </Popover.Button>
 
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-out duration-200"
-                  enterFrom="opacity-0 translate-y-1"
-                  enterTo="opacity-100 translate-y-0"
-                  leave="transition ease-in duration-150"
-                  leaveFrom="opacity-100 translate-y-0"
-                  leaveTo="opacity-0 translate-y-1"
-                >
-                  <Popover.Panel
-                    className="absolute -left-60 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
-                  >
-                    <div className="p-4">
-                      {products.map((item) => (
-                        <div
-                          key={item.name}
-                          className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                        >
-                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                            <item.icon
-                              className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-                              aria-hidden="true"
-                            />
-                          </div>
-                          <div className="flex-auto">
-                            <a
-                              href={item.href}
-                              className="block font-semibold text-gray-900"
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-200"
+                      enterFrom="opacity-0 translate-y-1"
+                      enterTo="opacity-100 translate-y-0"
+                      leave="transition ease-in duration-150"
+                      leaveFrom="opacity-100 translate-y-0"
+                      leaveTo="opacity-0 translate-y-1"
+                    >
+                      <Popover.Panel className="absolute -left-60 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                        <div className="p-4">
+                          {products.map((item) => (
+                            <div
+                              key={item.name}
+                              onClick={close}
+                              className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                             >
-                              {item.name}
-                              <span className="absolute inset-0" />
-                            </a>
-                            <p className="mt-1 text-gray-600">
-                              {item.description}
-                            </p>
-                          </div>
+                              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <item.icon
+                                  className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                                  aria-hidden="true"
+                                />
+                              </div>
+                              <div className="flex-auto">
+                                <Link
+                                  href={item.href}
+                                  className="block font-semibold text-gray-900"
+                                >
+                                  {item.name}
+                                  <span className="absolute inset-0" />
+                                </Link>
+                                <p className="mt-1 text-gray-600">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                      {callsToAction.map((item, index) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                          target={index === 0 ? "_blank" : ""}
-                        >
-                          <item.icon
-                            className="h-5 w-5 flex-none text-gray-400"
-                            aria-hidden="true"
-                          />
-                          {item.name}
-                        </a>
-                      ))}
-                    </div>
-                  </Popover.Panel>
-                </Transition>
+                        <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                          {callsToAction.map((item, index) => (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                              target={index === 0 ? "_blank" : ""}
+                            >
+                              <item.icon
+                                className="h-5 w-5 flex-none text-gray-400"
+                                aria-hidden="true"
+                              />
+                              {item.name}
+                            </a>
+                          ))}
+                        </div>
+                      </Popover.Panel>
+                    </Transition>
+                  </>
+                )}
               </Popover>
 
               <Link
