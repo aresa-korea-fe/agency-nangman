@@ -11,7 +11,7 @@ export default function Loader() {
     const fadeOutLoader = () => {
       setTimeout(() => {
         // 로더를 페이드 아웃하는데 3초를 줌
-        const loader = document.querySelector(".page-loader") as HTMLElement;
+        const loader = document.querySelector(".hero_area") as HTMLElement;
         if (loader) {
           loader.style.transition = "opacity 1s";
           loader.style.opacity = "0";
@@ -21,9 +21,7 @@ export default function Loader() {
         }
       }, 3500); // 3500 밀리초 (3.5초)
     };
-
     window.addEventListener("load", fadeOutLoader);
-
     return () => window.removeEventListener("load", fadeOutLoader);
   }, []); // 빈 배열을 전달하여 한 번만 실행되도록 함
 
@@ -31,6 +29,7 @@ export default function Loader() {
     <div className="hero_area">
       <div className="mb-4 h-2.5 w-full rounded-full bg-white/50 dark:bg-white/50">
         <div
+          id="myBar"
           className="h-2.5 rounded-full bg-gray-600 dark:bg-white"
           style={{ width: "45%" }}
         ></div>
@@ -38,7 +37,6 @@ export default function Loader() {
 
       <div className="flex flex-col items-center gap-5">
         <Image
-          priority
           src="/nangman_logo@4x.png"
           alt="Agency nangman"
           width={100}
@@ -53,7 +51,7 @@ export default function Loader() {
         xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 24 150 28"
         preserveAspectRatio="none"
-        shape-rendering="auto"
+        shapeRendering="auto"
       >
         <defs>
           <path

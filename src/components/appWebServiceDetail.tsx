@@ -33,7 +33,7 @@ function DetailHeader(props: DetailHeaderProps) {
     <header className="h-full w-full justify-center">
       <Image
         placeholder="blur"
-        blurDataURL="/public/blur.png"
+        blurDataURL="/blur.png"
         src={mainImage || ""}
         alt="main"
         priority
@@ -90,7 +90,7 @@ function MiddleContent({
     <div className="mx-20 flex flex-col items-center gap-24 whitespace-pre-wrap content-xs:mx-6 content-sm:mx-6 content-lg:mx-40">
       <Image
         placeholder="blur"
-        blurDataURL="/public/blur.png"
+        blurDataURL="/blur.png"
         src={contentImage || ""}
         alt="main"
         priority
@@ -133,7 +133,6 @@ function MiddleContent({
 function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
   const [menus, setMenus] = useState<string[]>([]);
   const [selected, setSelected] = useState<number>(0);
-
   const navRef = useRef<HTMLDivElement>(null);
   const [isTop, setIsTop] = useState(false);
 
@@ -165,13 +164,13 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
     <>
       <nav
         ref={navRef}
-        className={`slider z-10 hidden w-screen snap-x gap-5 overflow-x-auto text-nowrap border bg-white px-4 content-xs:-mb-32 content-xs:flex content-sm:-mb-32 content-sm:flex content-md:-mb-32 content-md:flex content-md:px-20 ${isTop ? "fixed" : "block"}`}
+        className={`slider top-0 z-50 hidden w-screen items-center justify-center bg-white content-xs:-mb-32 content-xs:grid content-xs:grid-cols-2 content-sm:-mb-32 content-sm:grid content-sm:grid-cols-2 content-md:-mb-32 content-md:flex content-md:px-20 ${isTop ? "fixed" : "block"}`}
       >
         {menus.map((menu, index) => (
           <p
             onClick={() => setSelected(index)}
             key={index}
-            className={`px-4 py-4 leading-none ${selected === index ? "font-bold text-navyBlue content-sm:snap-center" : " text-navyBlue/60"}`}
+            className={`px-4 py-4 leading-none ${selected === index ? "font-bold text-navyBlue underline content-sm:snap-center" : " text-navyBlue/60"}`}
           >
             {menu}
           </p>
@@ -210,7 +209,7 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
                 </p>
                 <Image
                   placeholder="blur"
-                  blurDataURL="/public/blur.png"
+                  blurDataURL="/blur.png"
                   src={image.src}
                   alt={image.alt}
                   width={400}
@@ -241,6 +240,7 @@ export default function AppWebServiceDetail({ id }: { id: string }) {
 
   return (
     <main
+      id="detailWrapper"
       className={`flex h-auto w-full flex-col gap-32 overflow-x-hidden whitespace-pre-wrap bg-white text-start text-navyBlue`}
     >
       <DetailHeader {...headerProps}></DetailHeader>
