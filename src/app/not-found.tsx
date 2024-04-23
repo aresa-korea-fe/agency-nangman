@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: '낭만이 없는 곳 | Nangman Agency',
-  description: 'Maybe you are lost. This is a place without NANGMAN. I will guide you. go NANGMAN!! | Nangman Agency',
+  description: 'Maybe you are lost. This is a place without NANGMAN. I will guide you. go NANGMAN!! | Studio Nangman',
 }
 export default function NotFound() {
   return (

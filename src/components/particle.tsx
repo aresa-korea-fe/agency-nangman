@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, Suspense } from "react";
+import React, { useEffect, useRef, Suspense, useState } from "react";
 
 interface Particle {
   size: number;
@@ -189,9 +189,24 @@ export default function Particle() {
       clearInterval(intervalId);
     };
   }, []);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // 3초 후 로딩 상태를 false로 설정
+    }, 30000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isLoading) {
+    return null; // 로딩 상태가 아니면 아무것도 렌더링하지 않음
+  }
+
   return (
     <>
-      <canvas id="world" className="absolute" ref={canvasRef}></canvas>
+      <canvas id="world" className={`absolute ${isLoading ? "" : "hidden"}`} ref={canvasRef}></canvas>
       <div className="flex h-full flex-col items-center justify-center">
         <h3 className="font-inklipquid z-[1] mb-0 scale-[1] text-white transition-all md:mb-8 md:scale-[2] lg:mb-12 xl:mb-16">
           STUDIO

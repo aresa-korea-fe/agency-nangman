@@ -1,39 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "VERBAL-BRANDING | PORTFOLIO | Nangman Agency",
+  title: "VERBAL-BRANDING | 제품이나 서비스를 위한 강력한 브랜드 메시지 전달 | PORTFOLIO | Studio Nangman",
   description:
     "각종 브랜딩 작업을 공유합니다. 낭만 에이전시의 포트폴리오입니다.",
 };
 
 const items = [
-  { src: "/growth/verbal-branding/001_BLUEEYE.webp", alt: "001_BLUEEYE" },
-  {
-    src: "/growth/verbal-branding/002_CAFEBANBAN.webp",
-    alt: "002_CAFEBANBAN",
-  },
+
   { src: "/growth/verbal-branding/003_CLUBGDA.webp", alt: "003_CLUBGDA" },
-  { src: "/growth/verbal-branding/004_cubebox.webp", alt: "004_cubebox" },
-  { src: "/growth/verbal-branding/005_da.webp", alt: "005_da" },
-  { src: "/growth/verbal-branding/006_DOLPHIN.webp", alt: "006_DOLPHIN" },
-  {
-    src: "/growth/verbal-branding/007_DURA-STOVE.webp",
-    alt: "007_DURA-STOVE",
-  },
-  { src: "/growth/verbal-branding/008_F6HOUSE.webp", alt: "008_F6HOUSE" },
-  { src: "/growth/verbal-branding/009_GHOSKIDS.webp", alt: "009_GHOSKIDS" },
-  { src: "/growth/verbal-branding/010_HEE'STORY.webp", alt: "010_HEE'STORY" },
-  { src: "/growth/verbal-branding/011_LABES.webp", alt: "011_LABES" },
-  { src: "/growth/verbal-branding/012_NaxioLab.webp", alt: "012_NaxioLab" },
-  { src: "/growth/verbal-branding/013_OM-PLACE.webp", alt: "013_OM" },
-  { src: "/growth/verbal-branding/014_perpet.webp", alt: "014_perpet" },
-  { src: "/growth/verbal-branding/015_REDMOVIE.webp", alt: "015_REDMOVIE" },
-  {
-    src: "/growth/verbal-branding/016_고아권익연대.webp",
-    alt: "016_고아권익연대",
-  },
-  { src: "/growth/verbal-branding/017_길로_b_bg.webp", alt: "017_길로_b_bg" },
   {
     src: "/growth/verbal-branding/018_대한건축연합회.webp",
     alt: "018_대한건축연합회",
@@ -70,6 +45,31 @@ const items = [
     alt: "028_한국문화산업진흥원",
   },
   { src: "/growth/verbal-branding/029_한오름빛.webp", alt: "029_한오름빛" },
+  { src: "/growth/verbal-branding/005_da.webp", alt: "005_da" },
+  { src: "/growth/verbal-branding/006_DOLPHIN.webp", alt: "006_DOLPHIN" },
+  { src: "/growth/verbal-branding/011_LABES.webp", alt: "011_LABES" },
+  { src: "/growth/verbal-branding/001_BLUEEYE.webp", alt: "001_BLUEEYE" },
+  { src: "/growth/verbal-branding/004_cubebox.webp", alt: "004_cubebox" },
+  {
+    src: "/growth/verbal-branding/007_DURA-STOVE.webp",
+    alt: "007_DURA-STOVE",
+  },
+  { src: "/growth/verbal-branding/008_F6HOUSE.webp", alt: "008_F6HOUSE" },
+  { src: "/growth/verbal-branding/009_GHOSKIDS.webp", alt: "009_GHOSKIDS" },
+  { src: "/growth/verbal-branding/010_HEE'STORY.webp", alt: "010_HEE'STORY" },
+  { src: "/growth/verbal-branding/012_NaxioLab.webp", alt: "012_NaxioLab" },
+  // { src: "/growth/verbal-branding/013_OM-PLACE.webp", alt: "013_OM" },
+  { src: "/growth/verbal-branding/014_perpet.webp", alt: "014_perpet" },
+  { src: "/growth/verbal-branding/015_REDMOVIE.webp", alt: "015_REDMOVIE" },
+  {
+    src: "/growth/verbal-branding/016_고아권익연대.webp",
+    alt: "016_고아권익연대",
+  },
+  { src: "/growth/verbal-branding/017_길로_b_bg.webp", alt: "017_길로_b_bg" },
+  {
+    src: "/growth/verbal-branding/002_CAFEBANBAN.webp",
+    alt: "002_CAFEBANBAN",
+  },
 ];
 
 export default function VerbalBranding() {
@@ -83,20 +83,13 @@ export default function VerbalBranding() {
               key={item.src}
               className="relative h-60 w-[calc(50vw_-_26px)] sm:w-72"
             >
-              {/* <Image
-                priority
-                fill
-                src={item.src}
-                alt={item.alt}
-                style={{ objectFit: "cover" }}
-              /> */}
               <img
                 src={item.src}
                 alt={item.alt}
                 style={{
-                  width: '100%', // 가로 폭을 부모 요소에 맞춥니다.
-                  height: '100%', // 높이를 부모 요소에 맞춥니다.
-                  objectFit: 'cover' // 이미지가 컨테이너를 꽉 채우도록 설정합니다.
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
                 }}
               />
             </div>
