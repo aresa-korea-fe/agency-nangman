@@ -83,13 +83,21 @@ export default function VerbalBranding() {
               key={item.src}
               className="relative h-60 w-[calc(50vw_-_26px)] sm:w-72"
             >
-              <Image
+              {/* <Image
                 priority
                 fill
                 src={item.src}
                 alt={item.alt}
                 style={{ objectFit: "cover" }}
-                sizes="auto"
+              /> */}
+              <img
+                src={item.src}
+                alt={item.alt}
+                style={{
+                  width: '100%', // 가로 폭을 부모 요소에 맞춥니다.
+                  height: '100%', // 높이를 부모 요소에 맞춥니다.
+                  objectFit: 'cover' // 이미지가 컨테이너를 꽉 채우도록 설정합니다.
+                }}
               />
             </div>
           ))}

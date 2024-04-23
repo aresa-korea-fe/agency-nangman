@@ -5,7 +5,8 @@ const nextConfig = {
     dirs: ["app", "components", "lib"],
   },
   images: {
-    deviceSizes: [640, 1080, 1440,2304],
+    deviceSizes: [1080, 1440],
+    imageSizes: [64],
   },
   redirects: async () => [
     {
