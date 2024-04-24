@@ -6,6 +6,7 @@ import Typed from "typed.js";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Link from "next/link";
 
 export default function Company() {
   const [shouldDisplay, setShouldDisplay] = useState(true);
@@ -76,31 +77,253 @@ export default function Company() {
           autoPlay
           muted
           loop
-          className="m-auto w-4/5 w-full h-full object-cover"
+          className="m-auto h-full  w-full object-cover"
         >
           <source src="/second.mp4" type="video/mp4" />
         </video>
       </div>
 
       <div className="relative flex h-screen items-center justify-center tracking-normal">
-        <div className="text-center text-6xl font-bold leading-none">
-          {/* <span className='font-medium text-7xl'>NangMan</span>
-          <br /> */}
+        <div className="absolute top-1/3 text-center text-8xl font-bold leading-none content-md-xs:top-40">
           <span
             ref={justforyou}
             className="font-tenada neon-effect-blue tracking-tight"
           ></span>
         </div>
-        <p
-          className="absolute bottom-8"
+        <div
+          className="absolute bottom-16 flex gap-10 px-10 "
           data-aos="fade-up"
           data-aos-duration="1000"
         >
-          낭만은 오롯히 당신을 위해 존재합니다.
-        </p>
+          <div className="flex max-w-[25rem] flex-col gap-5">
+            <p className="text-xl font-medium">about us</p>
+            <div className="w-full border-b border-white/80"></div>
+            <p className="text-lg text-white/60">
+              스튜디오 낭만은 디지털 아티스트들이 모여 브랜드와 사람을 잇는
+              여정을 시작했습니다.
+              <br /> 빠르게 변화하는 웹 트렌드 속에서 우리는 중심을 잃지 않고
+              항해합니다.
+            </p>
+          </div>
+          <div className="flex max-w-[25rem] flex-col gap-5">
+            <p className="text-xl font-medium">our philosophy</p>
+            <div className="w-full border-b border-white/80"></div>
+            <p className="text-lg text-white/60">
+              우리는 서비스의 가치를 알아내고 본질을 찾아내기 위해 노력합니다.
+              <br />
+              전략적인 시각과 창의적인 아이디어에 세련된 디자인을 더하여 최적의
+              솔루션을 제공합니다.
+            </p>
+          </div>
+          <div className="flex max-w-[25rem] flex-col gap-5">
+            <p className="text-xl font-medium">Focused</p>
+            <div className="w-full border-b border-white/80"></div>
+            <p className="text-lg text-white/60">
+              우리는 혼자 모든걸 해내는 슈퍼플레이어보다 다 함께 항해하는
+              선원으로 이뤄져 있습니다.
+              <br /> 새로운 브랜드 가치와 웹 서비스로 고객만족의 목표를 완성하는
+              것. 그것이 우리의 낭만입니다.
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col gap-32 py-40 backdrop-blur-2xl">
+
+      <div className="flex w-screen flex-col gap-32 py-[120px] backdrop-blur-2xl">
         <section className="mx-auto h-full w-full max-w-screen-2xl">
+          <div className="mx-96 w-full">
+            <h1
+              className="font-tenada text-[5.125rem] leading-tight"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              Planning <br />& design
+            </h1>
+            <div
+              className="-my-[6vw] -ml-[16vw] w-fit text-[31.25rem] font-medium leading-none tracking-tighter text-white/10"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              01
+            </div>
+            <p
+              className="text-2xl font-normal leading-[1.8]"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              우리는 서비스를 새로운 관점으로 분석 후<br /> 웹에 적합한 형태로
+              조립하여 <br />
+              누구나 만족하는 결과물을 창출합니다.
+            </p>
+            <div className="mt-20 flex w-full gap-[9.125rem]">
+              <Link
+                href={"/growth/bx-publishing"}
+                className="flex flex-col gap-5"
+              >
+                <svg
+                  width="346"
+                  height="15"
+                  viewBox="0 0 346 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                </svg>
+                <div className="flex flex-1 justify-between">
+                  <p className="text-xl">01</p>
+                  <p className="text-2xl">
+                    성장 작업물
+                    <br /> BX Design
+                  </p>
+                </div>
+              </Link>
+              <Link
+                href={"/growth/design-planning"}
+                className="flex flex-col gap-5"
+              >
+                <svg
+                  width="346"
+                  height="15"
+                  viewBox="0 0 346 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                </svg>
+                <div className="flex flex-1 justify-between">
+                  <p className="text-xl">02</p>
+                  <p className="text-2xl">
+                    성장 작업물
+                    <br /> Design-planning
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+        <section className="mx-auto h-full w-full max-w-screen-2xl">
+          <div className="mr-96 flex flex-col items-end">
+            <h1
+              className="font-tenada text-end text-[5.125rem] leading-tight"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              Publishing & <br />
+              Development
+            </h1>
+            <div
+              className="-my-[6vw] -mr-[16vw] w-fit text-[31.25rem] font-medium leading-none tracking-tighter text-white/10"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              02
+            </div>
+            <p
+              className="text-2xl font-normal leading-[1.8]"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              새롭게 탄생한 디자인을 코드로 구현하고
+              <br />
+              서비스의 흐름에 따라 적절히 동작하도록
+              <br />
+              생명력을 부여합니다.
+            </p>
+            <div className="mt-20 flex w-full justify-end gap-[9.125rem]">
+              <Link
+                href={"/growth/bx-publishing"}
+                className="flex flex-col gap-5"
+              >
+                <svg
+                  width="346"
+                  height="15"
+                  viewBox="0 0 346 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                </svg>
+                <div className="flex flex-1 justify-between">
+                  <p className="text-xl">01</p>
+                  <p className="text-2xl">
+                    성장 작업물
+                    <br /> BX Publishing
+                  </p>
+                </div>
+              </Link>
+              <Link
+                href={"/growth/app-web-service"}
+                className="flex flex-col gap-5"
+              >
+                <svg
+                  width="346"
+                  height="15"
+                  viewBox="0 0 346 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                </svg>
+                <div className="flex flex-1 justify-between">
+                  <p className="text-xl">02</p>
+                  <p className="text-2xl">
+                    성장 작업물
+                    <br /> APP/WEB Service
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+        <section className="mx-auto h-full w-full max-w-screen-2xl">
+          <div className="mx-96 w-full">
+            <h1
+              className="font-tenada text-[5.125rem] leading-tight"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              Support Business <br />
+              Consulting
+            </h1>
+            <div
+              className="-my-[6vw] -ml-[16vw] w-fit text-[31.25rem] font-medium leading-none tracking-tighter text-white/10"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              03
+            </div>
+            <p
+              className="text-2xl font-normal leading-[1.8]"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              정부의 지원사업은 활력과 성장력을 부여하는
+              <br /> 진통제의 역할을 하지만 과용은 언제나 금물입니다.
+              <br />
+              스튜디오 낭만은 다년 간의 노하우로 함께 항해합니다.
+            </p>
+            <div className="mt-20 flex w-full gap-[9.125rem]">
+              <Link href={"/project-request"} className="flex flex-col gap-5">
+                <svg
+                  width="346"
+                  height="15"
+                  viewBox="0 0 346 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                </svg>
+                <div className="flex flex-1 justify-between">
+                  <p className="text-xl">01</p>
+                  <p className="text-2xl">
+                    스튜디오 낭만
+                    <br /> Contact us
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+        {/* <section className="mx-auto h-full w-full max-w-screen-2xl">
           <div className="h-full text-center text-3xl font-bold text-white">
             <h2
               className="leading-snug"
@@ -125,9 +348,9 @@ export default function Company() {
             </h2>
           </div>
           <div className="relative left-2/4 top-0 mt-32 h-32 w-[1px] bg-white"></div>
-        </section>
+        </section> */}
 
-        <section className="mx-auto h-full min-h-screen w-full max-w-screen-2xl">
+        {/* <section className="mx-auto h-full min-h-screen w-full max-w-screen-2xl">
           <div className="h-full pt-32 text-center text-3xl font-bold text-white">
             <p
               id="chapterName"
@@ -185,7 +408,7 @@ export default function Company() {
               가득합니다.
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="mx-auto h-full w-full max-w-screen-2xl">
           <div className="h-full pt-32 text-center text-[40px] font-bold text-white">
