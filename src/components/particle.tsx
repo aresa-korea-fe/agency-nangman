@@ -198,8 +198,10 @@ export default function Particle() {
           STUDIO
         </h3>
         <div className="font-cwdangam z-[1] scale-[1.3] text-5xl tracking-[-2px] text-white transition-all ease-linear md:scale-[2] lg:scale-[3] xl:scale-[4]">
-          <span className="font-cwdangam text-[#87c7d9]">N</span>ANG
-          <span className="font-cwdangam text-[#feeffa]">M</span>AN
+          {/* <span className="font-cwdangam text-[#87c7d9]">N</span>ANG
+          <span className="font-cwdangam text-[#feeffa]">M</span>AN */}
+          <span className="font-cwdangam">N</span>ANG
+          <span className="font-cwdangam">M</span>AN
         </div>
       </div>
     </>
