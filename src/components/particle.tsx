@@ -190,23 +190,19 @@ export default function Particle() {
     };
   }, []);
 
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false); // 3초 후 로딩 상태를 false로 설정
-    }, 30000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (!isLoading) {
-    return null; // 로딩 상태가 아니면 아무것도 렌더링하지 않음
-  }
 
   return (
     <>
-      <canvas id="world" className={`absolute ${isLoading ? "" : "hidden"}`} ref={canvasRef}></canvas>
+      <canvas id="world" className='absolute' ref={canvasRef}></canvas>
+      <video
+        id="videoBackground"
+        autoPlay
+        muted
+        loop
+        className="hidden"  // 화면에서 비디오를 숨깁니다.
+      >
+        <source src="/first.mp4" type="video/mp4" />
+      </video>
       <div className="flex h-full flex-col items-center justify-center">
         <h3 className="font-inklipquid z-[1] mb-0 scale-[1] text-white transition-all md:mb-8 md:scale-[2] lg:mb-12 xl:mb-16">
           STUDIO

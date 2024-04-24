@@ -71,14 +71,14 @@ export default function Company() {
     <main className="h-screen bg-[#040002] text-white">
       <div className="fixed left-0 top-0 flex h-full w-full bg-[#040002]">
         <video
-          width="320"
-          height="240"
+          // width="320"
+          // height="240"
           autoPlay
           muted
           loop
-          className="m-auto w-4/5"
+          className="m-auto w-4/5 w-full h-full object-cover"
         >
-          <source src="/third.mp4" type="video/mp4" />
+          <source src="/second.mp4" type="video/mp4" />
         </video>
       </div>
 
