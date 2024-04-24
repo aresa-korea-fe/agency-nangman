@@ -134,8 +134,8 @@ export default function Company() {
         </div>
       </div>
 
-      <div className="flex w-screen flex-col gap-32 py-[120px] backdrop-blur-2xl">
-        <section className="mx-auto h-full w-full max-w-screen-2xl">
+      <div className="flex w-screen flex-col gap-32 px-10 py-[120px] backdrop-blur-2xl">
+        <section className="mx-auto h-full w-full max-w-screen-2xl ">
           <div className="flex w-full flex-col items-center justify-center content-lg:mx-[20vw] content-lg:block">
             <h1
               className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
@@ -289,7 +289,7 @@ export default function Company() {
         <section className="mx-auto h-full w-full max-w-screen-2xl">
           <div className="flex w-full flex-col items-center justify-center content-lg:mx-[20vw] content-lg:block">
             <h1
-              className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
+              className="font-tenada mobile:text-center text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
