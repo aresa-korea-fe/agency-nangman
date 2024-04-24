@@ -84,21 +84,23 @@ export default function Company() {
       </div>
 
       <div className="relative flex h-screen items-center justify-center tracking-normal">
-        <div className="absolute top-1/3 text-center text-8xl font-bold leading-none content-md-xs:top-40">
+        <div className="absolute top-1/3 text-center text-8xl font-bold leading-none content-xs:text-3xl content-sm:text-5xl content-md-xs:top-24 content-md:text-6xl">
           <span
             ref={justforyou}
-            className="font-tenada neon-effect-blue tracking-tight"
+            className="font-tenada neon-effect-blue tracking-tight "
           ></span>
         </div>
         <div
-          className="absolute bottom-16 flex gap-10 px-10 "
+          className="absolute bottom-16 flex gap-10 px-10 content-xs:top-40 content-sm:top-60 content-md-xs:flex-col"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
-          <div className="flex max-w-[25rem] flex-col gap-5">
-            <p className="text-xl font-medium">about us</p>
+          <div className="flex max-w-[25rem] flex-col gap-5 content-xs:gap-3 content-sm:gap-3">
+            <p className="text-xl font-medium content-xs:text-base content-sm:text-xl">
+              about us
+            </p>
             <div className="w-full border-b border-white/80"></div>
-            <p className="text-lg text-white/60">
+            <p className="text-lg text-white/60 content-xs:text-sm content-sm:text-lg">
               스튜디오 낭만은 디지털 아티스트들이 모여 브랜드와 사람을 잇는
               여정을 시작했습니다.
               <br /> 빠르게 변화하는 웹 트렌드 속에서 우리는 중심을 잃지 않고
@@ -106,9 +108,11 @@ export default function Company() {
             </p>
           </div>
           <div className="flex max-w-[25rem] flex-col gap-5">
-            <p className="text-xl font-medium">our philosophy</p>
+            <p className="text-xl font-medium content-xs:text-base content-sm:text-xl">
+              our philosophy
+            </p>
             <div className="w-full border-b border-white/80"></div>
-            <p className="text-lg text-white/60">
+            <p className="text-lg text-white/60 content-xs:text-sm content-sm:text-lg">
               우리는 서비스의 가치를 알아내고 본질을 찾아내기 위해 노력합니다.
               <br />
               전략적인 시각과 창의적인 아이디어에 세련된 디자인을 더하여 최적의
@@ -116,9 +120,11 @@ export default function Company() {
             </p>
           </div>
           <div className="flex max-w-[25rem] flex-col gap-5">
-            <p className="text-xl font-medium">Focused</p>
+            <p className="text-xl font-medium content-xs:text-base content-sm:text-xl">
+              Focused
+            </p>
             <div className="w-full border-b border-white/80"></div>
-            <p className="text-lg text-white/60">
+            <p className="text-lg text-white/60 content-xs:text-sm content-sm:text-lg">
               우리는 혼자 모든걸 해내는 슈퍼플레이어보다 다 함께 항해하는
               선원으로 이뤄져 있습니다.
               <br /> 새로운 브랜드 가치와 웹 서비스로 고객만족의 목표를 완성하는
@@ -130,23 +136,23 @@ export default function Company() {
 
       <div className="flex w-screen flex-col gap-32 py-[120px] backdrop-blur-2xl">
         <section className="mx-auto h-full w-full max-w-screen-2xl">
-          <div className="mx-96 w-full">
+          <div className="flex w-full flex-col items-center justify-center content-lg:mx-[20vw] content-lg:block">
             <h1
-              className="font-tenada text-[5.125rem] leading-tight"
+              className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
               Planning <br />& design
             </h1>
             <div
-              className="-my-[6vw] -ml-[16vw] w-fit text-[31.25rem] font-medium leading-none tracking-tighter text-white/10"
+              className="-my-[6vw] -ml-[16vw] w-fit text-[31.25rem] font-medium leading-none tracking-tighter text-white/10 content-xs:-ml-40 content-xs:text-8xl content-sm:text-8xl"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
               01
             </div>
             <p
-              className="text-2xl font-normal leading-[1.8]"
+              className="text-2xl font-normal leading-[1.8] content-xs:text-base"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
@@ -154,7 +160,7 @@ export default function Company() {
               조립하여 <br />
               누구나 만족하는 결과물을 창출합니다.
             </p>
-            <div className="mt-20 flex w-full gap-[9.125rem]">
+            <div className="mobile:gap-20 mt-20 flex flex-col gap-[9.125rem] content-lg:flex-row">
               <Link
                 href={"/growth/bx-publishing"}
                 className="flex flex-col gap-5"
@@ -165,12 +171,13 @@ export default function Company() {
                   viewBox="0 0 346 15"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="mobile:w-screen mobile:px-10 "
                 >
                   <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
                 </svg>
-                <div className="flex flex-1 justify-between">
-                  <p className="text-xl">01</p>
-                  <p className="text-2xl">
+                <div className="mobile:mx-10 flex justify-between gap-20">
+                  <p className="mobile:text-lg text-xl">01</p>
+                  <p className="mobile:text-lg mobile:text-end text-2xl ">
                     성장 작업물
                     <br /> BX Design
                   </p>
@@ -186,12 +193,13 @@ export default function Company() {
                   viewBox="0 0 346 15"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="mobile:w-screen mobile:px-10"
                 >
                   <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
                 </svg>
-                <div className="flex flex-1 justify-between">
-                  <p className="text-xl">02</p>
-                  <p className="text-2xl">
+                <div className="mobile:mx-10 flex justify-between gap-20">
+                  <p className="mobile:text-lg text-xl">02</p>
+                  <p className="mobile:text-lg mobile:text-end text-2xl">
                     성장 작업물
                     <br /> Design-planning
                   </p>
@@ -200,10 +208,11 @@ export default function Company() {
             </div>
           </div>
         </section>
+
         <section className="mx-auto h-full w-full max-w-screen-2xl">
-          <div className="mr-96 flex flex-col items-end">
+          <div className="flex flex-col items-center justify-center content-lg:mx-[20vw] content-lg:items-end">
             <h1
-              className="font-tenada text-end text-[5.125rem] leading-tight"
+              className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
@@ -211,14 +220,14 @@ export default function Company() {
               Development
             </h1>
             <div
-              className="-my-[6vw] -mr-[16vw] w-fit text-[31.25rem] font-medium leading-none tracking-tighter text-white/10"
+              className="-my-[6vw] -mr-[16vw] w-fit text-[31.25rem] font-medium leading-none tracking-tighter text-white/10 content-xs:-ml-40 content-xs:text-8xl content-sm:text-8xl"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
               02
             </div>
             <p
-              className="text-2xl font-normal leading-[1.8]"
+              className="text-2xl font-normal leading-[1.8] content-xs:text-base"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
@@ -228,7 +237,7 @@ export default function Company() {
               <br />
               생명력을 부여합니다.
             </p>
-            <div className="mt-20 flex w-full justify-end gap-[9.125rem]">
+            <div className="mobile:gap-20 mt-20 flex flex-col gap-[9.125rem] content-lg:flex-row">
               <Link
                 href={"/growth/bx-publishing"}
                 className="flex flex-col gap-5"
@@ -239,12 +248,13 @@ export default function Company() {
                   viewBox="0 0 346 15"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="mobile:w-screen mobile:px-10 "
                 >
                   <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
                 </svg>
-                <div className="flex flex-1 justify-between">
-                  <p className="text-xl">01</p>
-                  <p className="text-2xl">
+                <div className="mobile:mx-10 flex justify-between gap-20">
+                  <p className="mobile:text-lg text-xl">01</p>
+                  <p className="mobile:text-lg mobile:text-end text-2xl">
                     성장 작업물
                     <br /> BX Publishing
                   </p>
@@ -260,12 +270,13 @@ export default function Company() {
                   viewBox="0 0 346 15"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="mobile:w-screen mobile:px-10"
                 >
                   <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
                 </svg>
-                <div className="flex flex-1 justify-between">
-                  <p className="text-xl">02</p>
-                  <p className="text-2xl">
+                <div className="mobile:mx-10 flex justify-between gap-20">
+                  <p className="mobile:text-lg text-xl">02</p>
+                  <p className="mobile:text-lg mobile:text-end text-2xl">
                     성장 작업물
                     <br /> APP/WEB Service
                   </p>
@@ -274,10 +285,11 @@ export default function Company() {
             </div>
           </div>
         </section>
+
         <section className="mx-auto h-full w-full max-w-screen-2xl">
-          <div className="mx-96 w-full">
+          <div className="flex w-full flex-col items-center justify-center content-lg:mx-[20vw] content-lg:block">
             <h1
-              className="font-tenada text-[5.125rem] leading-tight"
+              className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
@@ -285,23 +297,23 @@ export default function Company() {
               Consulting
             </h1>
             <div
-              className="-my-[6vw] -ml-[16vw] w-fit text-[31.25rem] font-medium leading-none tracking-tighter text-white/10"
+              className="-my-[6vw] -ml-[16vw] w-fit text-[31.25rem] font-medium leading-none tracking-tighter text-white/10 content-xs:-ml-40 content-xs:text-8xl content-sm:text-8xl"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
               03
             </div>
             <p
-              className="text-2xl font-normal leading-[1.8]"
+              className="text-2xl font-normal leading-[1.8] content-xs:text-base"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
-              정부의 지원사업은 활력과 성장력을 부여하는
-              <br /> 진통제의 역할을 하지만 과용은 언제나 금물입니다.
+              정부의 지원사업 컨설팅은
+              <br /> 스타트업의 활력과 성장력을 부여합니다.
               <br />
-              스튜디오 낭만은 다년 간의 노하우로 함께 항해합니다.
+              스튜디오 낭만의 노하우로 함께 항해합니다.
             </p>
-            <div className="mt-20 flex w-full gap-[9.125rem]">
+            <div className="mobile:gap-20 mt-20 flex flex-col gap-[9.125rem] content-lg:flex-row">
               <Link href={"/project-request"} className="flex flex-col gap-5">
                 <svg
                   width="346"
@@ -309,12 +321,13 @@ export default function Company() {
                   viewBox="0 0 346 15"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="mobile:w-screen mobile:px-10 "
                 >
                   <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
                 </svg>
-                <div className="flex flex-1 justify-between">
-                  <p className="text-xl">01</p>
-                  <p className="text-2xl">
+                <div className="mobile:mx-10 flex justify-between gap-20">
+                  <p className="mobile:text-lg text-xl">01</p>
+                  <p className="mobile:text-lg mobile:text-end text-2xl">
                     스튜디오 낭만
                     <br /> Contact us
                   </p>
@@ -364,7 +377,7 @@ export default function Company() {
               우리의 서비스라는 마음으로
             </h2>
             <div className="mt-28 text-2xl font-normal leading-[1.8]">
-              모든 서비스는{" "}
+              모든 서비스는
               <span
                 style={{
                   display: shouldDisplay ? "inline" : "none",
@@ -391,7 +404,7 @@ export default function Company() {
                 }}
               >
                 단지,
-              </span>{" "}
+              </span>
               성장의 과정을 거치고 있는 것 뿐입니다.
               <br />
               그렇기에 낭만
@@ -404,7 +417,7 @@ export default function Company() {
                 }}
               >
                 은 그러한 성장을 함께하고 싶은 생각으로
-              </span>{" "}
+              </span>
               가득합니다.
             </div>
           </div>
@@ -412,15 +425,15 @@ export default function Company() {
 
         <section className="mx-auto h-full w-full max-w-screen-2xl">
           <div className="h-full pt-32 text-center text-[40px] font-bold text-white">
-            <p className="mb-10 text-xl font-normal uppercase text-white/50">
+            <p className="mb-10 text-xl font-normal uppercase text-white/50 ">
               process
             </p>
-            <h2>
+            <h2 className=" mobile:text-3xl">
               어떤 서비스를 만들더라도
               <br />
               같은 방향을 바라보는 것부터
             </h2>
-            <div className="mt-28 text-2xl font-normal leading-[1.8]">
+            <div className="mobile:text-base mt-28 text-2xl font-normal leading-[1.8]">
               낭만이 있다면{" "}
               <span className="opacity-50">사업 계획서와 방향성 수립부터</span>
               <br />
