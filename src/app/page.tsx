@@ -11,7 +11,16 @@ const Particle = dynamic(() => import("@/components/particle"), {
 export default function Home() {
   return (
     <Suspense fallback={<Loader />}>
-      <section className="h-screen">
+      <section id="nangmanBg" className="h-screen relative">
+        <video
+          autoPlay
+          muted
+          loop
+          preload="metadata"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/second.mp4" type="video/mp4" />
+        </video>
         <Particle />
       </section>
     </Suspense>
