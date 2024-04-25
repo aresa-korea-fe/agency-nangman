@@ -38,7 +38,7 @@ export type IProject = {
 export default function AppWebService() {
   const items: IProject[] = require("/public/data/app-web-service.interface.json");
   return (
-    <main className="min-h-screen overflow-y-auto whitespace-pre-wrap bg-gray-50 py-40 leading-none text-black">
+    <main className="min-h-screen whitespace-pre-wrap bg-gray-50 leading-none text-black">
       <div className="mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
         {items.map((item, index) => (
           <Link

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "VERBAL-BRANDING | 제품이나 서비스를 위한 강력한 브랜드 메시지 전달 | PORTFOLIO | Studio Nangman",
+  title:
+    "VERBAL-BRANDING | 제품이나 서비스를 위한 강력한 브랜드 메시지 전달 | PORTFOLIO | Studio Nangman",
   description:
     "각종 브랜딩 작업을 공유합니다. 낭만 에이전시의 포트폴리오입니다.",
 };
 
 const items = [
-
   { src: "/growth/verbal-branding/003_CLUBGDA.webp", alt: "003_CLUBGDA" },
   {
     src: "/growth/verbal-branding/018_대한건축연합회.webp",
@@ -73,9 +74,8 @@ const items = [
 ];
 
 export default function VerbalBranding() {
-
   return (
-    <section className="min-h-screen overflow-y-auto bg-gray-50 py-40 leading-none text-black">
+    <section className="min-h-screen leading-none text-black">
       <div className="mx-auto h-full max-w-[100vw] gap-40 xl:max-w-screen-xl">
         <div className="flex flex-wrap justify-center gap-3">
           {items.map((item) => (
@@ -83,13 +83,15 @@ export default function VerbalBranding() {
               key={item.src}
               className="relative h-60 w-[calc(50vw_-_26px)] sm:w-72"
             >
-              <img
+              <Image
                 src={item.src}
                 alt={item.alt}
+                width={500}
+                height={500}
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
                 }}
               />
             </div>

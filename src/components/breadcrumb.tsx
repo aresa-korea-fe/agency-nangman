@@ -9,9 +9,9 @@ export default function Breadcrumb() {
   const pathNames = paths.split("/").filter((path) => path);
 
   return (
-    <div className="absolute min-h-screen w-screen py-28 leading-none text-black">
+    <div className="leading-none text-black">
       {pathNames.length < 3 && (
-        <ul className="mx-auto flex h-full max-w-[90vw] xl:max-w-screen-xl">
+        <ul className="mx-auto flex max-w-[90vw] xl:max-w-screen-xl">
           {pathNames.map((link, index) => (
             <Fragment key={index}>
               <li

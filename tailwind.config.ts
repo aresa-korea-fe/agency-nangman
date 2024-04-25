@@ -11,6 +11,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        innerOn: "inset 0 0 0 4px #5B89FF",
+        innerOff: "inset 0 0 0 4px #CECECE",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

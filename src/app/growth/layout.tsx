@@ -8,8 +8,8 @@ interface GrowthLayoutProps {
 
 const GrowthLayout: FC<GrowthLayoutProps> = ({ children, modal }) => {
   return (
-    <div className="overflow-hidden bg-white">
-      <div className="relative flex-1">
+    <div className="overflow-hidden bg-gray-50">
+      <div className="relative flex flex-col gap-5 py-40">
         <Breadcrumb></Breadcrumb>
         {children}
       </div>
