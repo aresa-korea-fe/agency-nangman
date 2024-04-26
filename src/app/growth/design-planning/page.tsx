@@ -7,12 +7,27 @@ import { processes } from "@/constants/designPlanningMenu";
 
 export default function DesignPlanning() {
   const items: IDesignPlanning.IDto[] = require("/public/data/design-planning.interface.json");
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const toggleActiveIndex = (index: number) => {
+    if (activeIndex === index) {
+      setActiveIndex(null); // 이미 활성화된 항목을 다시 클릭하면 모두 비활성화
+    } else {
+      setActiveIndex(index);
+    }
+  };
+
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden bg-slate-50 text-black">
       <div className="mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
         <div className="">
-          {items.map((item, key) => (
-            <DesignPlanningThread key={key} {...item} />
+          {items.map((item, index) => (
+            <DesignPlanningThread
+              key={index}
+              {...item}
+              active={index === activeIndex}
+              onClick={() => toggleActiveIndex(index)}
+            />
           ))}
         </div>
       </div>
@@ -26,8 +41,9 @@ const DesignPlanningThread = ({
   process01,
   process02,
   process03,
-}: IDesignPlanning.IDto) => {
-  const [expanded, setExpanded] = useState<boolean>(false);
+  active,
+  onClick,
+}: IDesignPlanning.IDto & { active: boolean; onClick: () => void }) => {
   const [isHovering, setIsHovering] = useState({
     process01: false,
     process02: false,
@@ -49,14 +65,12 @@ const DesignPlanningThread = ({
     setSelected(name);
   };
 
-  // Local variable for processes
-
   return (
     <div className="border-t py-2 tracking-tight last:border-b">
       <div
         className="flex w-full items-center justify-between py-2 text-left font-semibold"
-        onClick={() => setExpanded(!expanded)}
-        aria-expanded={expanded}
+        onClick={onClick}
+        aria-expanded={active}
       >
         <div className="my-10 flex flex-col gap-4 px-2">
           <div>
@@ -65,13 +79,13 @@ const DesignPlanningThread = ({
           <p className="pb-3">{subString}</p>
         </div>
         <div
-          className={`ml-8 shrink-0 transform text-6xl  ${expanded ? "rotate-90" : "grayscale"}`}
+          className={`ml-8 shrink-0 transform text-6xl  ${active ? "rotate-90" : "grayscale"}`}
         >
           🚀
         </div>
       </div>
       <div
-        className={`grid overflow-hidden text-sm text-slate-600 transition-all duration-300 ease-in-out ${expanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+        className={`grid overflow-hidden text-sm text-slate-600 transition-all duration-300 ease-in-out ${active ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
       >
         <div className="overflow-hidden">
           <section className="mb-10 flex min-h-screen w-full flex-col gap-[7.5rem] pt-20 text-[#464646] mobile:gap-10">
@@ -258,7 +272,7 @@ function WireframeProcess({ data }: { data: any }) {
         {/* content */}
         <div className="flex flex-col justify-between">
           <div className="flex  gap-5 sm:flex-row sm:gap-[14vw]">
-            <div className="flex h-full flex-col gap-[7.5rem] sm:max-w-[calc(100%/2)] mobile:gap-0">
+            <div className="flex h-full flex-col sm:max-w-[calc(100%/2)]">
               {data.map(
                 (
                   {
@@ -268,8 +282,13 @@ function WireframeProcess({ data }: { data: any }) {
                   }: { title: string; text: string; image: string },
                   index: number,
                 ) => (
-                  <div key={index} className="group relative py-6 pl-8 sm:pl-8">
-                    <div className="mb-1 flex flex-col items-start before:absolute before:left-2 before:h-screen before:-translate-x-1/2 before:translate-y-3 before:self-start before:bg-slate-300 before:px-px after:absolute after:left-2 after:box-content after:h-2 after:w-2 after:-translate-x-1/2 after:translate-y-1.5 after:rounded-full after:bg-gray-300 group-last:before:hidden sm:flex-row sm:before:left-0 sm:before:ml-2 sm:after:left-0 sm:after:ml-2 mobile:before:h-full">
+                  <div
+                    key={index}
+                    className={`group relative pl-8 sm:pl-8 ${index >= data.length - 1 ? "pb-0" : "pb-20 mobile:pb-10"}`}
+                  >
+                    <div
+                      className={`mb-1 flex flex-col items-start before:absolute before:left-2 before:h-full before:-translate-x-1/2 before:self-start before:bg-slate-300 before:px-px after:absolute after:left-2 after:box-content after:h-2 after:w-2 after:-translate-x-1/2 after:translate-y-1.5 after:rounded-full after:bg-gray-300 group-last:before:hidden sm:flex-row sm:before:left-0 sm:before:ml-2 sm:after:left-0 sm:after:ml-2 mobile:before:h-full ${index >= data.length - 1 ? " before:translate-y-0" : " before:translate-y-3"}`}
+                    >
                       <div className="w-full pb-5 sm:hidden mobile:w-1/2 ">
                         <Image
                           src={image}
@@ -290,9 +309,7 @@ function WireframeProcess({ data }: { data: any }) {
                   </div>
                 ),
               )}
-              <div className="group relative bottom-0 py-6 pl-8 sm:pl-8">
-                <div className="mb-1 flex flex-col items-start before:absolute before:left-2 before:h-full before:-translate-x-1/2 before:translate-y-3 before:self-start before:bg-slate-300 before:px-px after:absolute after:left-2 after:box-content after:-translate-x-1/2 after:translate-y-1.5 after:rounded-full after:bg-gray-300 group-last:before:hidden sm:flex-row sm:before:left-0 sm:before:ml-2 sm:after:left-0 sm:after:ml-2"></div>
-              </div>
+              <div className="group relative bottom-0"></div>
             </div>
             <div className=" hidden w-full justify-between gap-5 sm:flex">
               {data.map(({ image }: { image: string }, index: number) => (

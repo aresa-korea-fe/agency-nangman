@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      spacing: {
+        "120-full": "120%",
+      },
       boxShadow: {
         innerOn: "inset 0 0 0 2px #5B89FF",
         innerOff: "inset 0 0 0 2px #eaeaea",

@@ -8,8 +8,8 @@ export default function Footer() {
   const tel = "080-8798-0110";
   return (
     <footer className="relative z-10 w-screen bg-[#234098]">
-      <div className="flex justify-between  bg-black/80  px-20 py-10 mobile:flex-col mobile:gap-10">
-        <div className="flex flex-col items-start gap-4 mobile:w-full">
+      <div className="mx-auto flex items-center  justify-between bg-black/80 px-20 py-10 mobile:flex-col mobile:gap-10 mobile:px-0">
+        <div className="flex flex-col items-start gap-4 mobile:w-full mobile:items-center">
           <div className="flex gap-3">
             <Image
               src="/nangman_logo@4x.png"
