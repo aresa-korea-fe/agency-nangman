@@ -7,7 +7,7 @@ import React from "react";
 export default function Footer() {
   const tel = "080-8798-0110";
   return (
-    <footer className="w-screen bg-[#234098]">
+    <footer className="relative z-10 w-screen bg-[#234098]">
       <div className="flex justify-between  bg-black/80  px-20 py-10 mobile:flex-col mobile:gap-10">
         <div className="flex flex-col items-start gap-4 mobile:w-full">
           <div className="flex gap-3">

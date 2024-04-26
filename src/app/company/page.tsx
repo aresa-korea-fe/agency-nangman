@@ -69,17 +69,15 @@ export default function Company() {
   }, [shouldDisplay]);
 
   return (
-    <main className="h-screen bg-[#040002] text-white">
+    <main className="relative bg-[#040002] text-white">
       <div className="fixed left-0 top-0 flex h-full w-full bg-[#040002]">
         <video
-          // width="320"
-          // height="240"
           autoPlay
           muted
           loop
-          className="m-auto h-full  w-full object-cover"
+          className="-z-10 m-auto h-full w-full object-cover"
         >
-          <source src="/second.mp4" type="video/mp4" />
+          <source src="/second.webm" type="video/webm" />
         </video>
       </div>
 
@@ -160,7 +158,7 @@ export default function Company() {
               조립하여 <br />
               누구나 만족하는 결과물을 창출합니다.
             </p>
-            <div className="mobile:gap-20 mt-20 flex flex-col gap-[9.125rem] content-lg:flex-row">
+            <div className="mt-20 flex flex-col gap-[9.125rem] mobile:gap-20 content-lg:flex-row">
               <Link
                 href={"/growth/bx-publishing"}
                 className="flex flex-col gap-5"
@@ -173,11 +171,11 @@ export default function Company() {
                   xmlns="http://www.w3.org/2000/svg"
                   className="mobile:w-screen mobile:px-10 "
                 >
-                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" strokeWidth="3" />
                 </svg>
-                <div className="mobile:mx-10 flex justify-between gap-20">
-                  <p className="mobile:text-lg text-xl">01</p>
-                  <p className="mobile:text-lg mobile:text-end text-2xl ">
+                <div className="flex justify-between gap-20 mobile:mx-10">
+                  <p className="text-xl mobile:text-lg">01</p>
+                  <p className="text-2xl mobile:text-end mobile:text-lg ">
                     성장 작업물
                     <br /> BX Design
                   </p>
@@ -195,11 +193,11 @@ export default function Company() {
                   xmlns="http://www.w3.org/2000/svg"
                   className="mobile:w-screen mobile:px-10"
                 >
-                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" strokeWidth="3" />
                 </svg>
-                <div className="mobile:mx-10 flex justify-between gap-20">
-                  <p className="mobile:text-lg text-xl">02</p>
-                  <p className="mobile:text-lg mobile:text-end text-2xl">
+                <div className="flex justify-between gap-20 mobile:mx-10">
+                  <p className="text-xl mobile:text-lg">02</p>
+                  <p className="text-2xl mobile:text-end mobile:text-lg">
                     성장 작업물
                     <br /> Design-planning
                   </p>
@@ -237,7 +235,7 @@ export default function Company() {
               <br />
               생명력을 부여합니다.
             </p>
-            <div className="mobile:gap-20 mt-20 flex flex-col gap-[9.125rem] content-lg:flex-row">
+            <div className="mt-20 flex flex-col gap-[9.125rem] mobile:gap-20 content-lg:flex-row">
               <Link
                 href={"/growth/bx-publishing"}
                 className="flex flex-col gap-5"
@@ -250,11 +248,11 @@ export default function Company() {
                   xmlns="http://www.w3.org/2000/svg"
                   className="mobile:w-screen mobile:px-10 "
                 >
-                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" strokeWidth="3" />
                 </svg>
-                <div className="mobile:mx-10 flex justify-between gap-20">
-                  <p className="mobile:text-lg text-xl">01</p>
-                  <p className="mobile:text-lg mobile:text-end text-2xl">
+                <div className="flex justify-between gap-20 mobile:mx-10">
+                  <p className="text-xl mobile:text-lg">01</p>
+                  <p className="text-2xl mobile:text-end mobile:text-lg">
                     성장 작업물
                     <br /> BX Publishing
                   </p>
@@ -272,11 +270,11 @@ export default function Company() {
                   xmlns="http://www.w3.org/2000/svg"
                   className="mobile:w-screen mobile:px-10"
                 >
-                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" strokeWidth="3" />
                 </svg>
-                <div className="mobile:mx-10 flex justify-between gap-20">
-                  <p className="mobile:text-lg text-xl">02</p>
-                  <p className="mobile:text-lg mobile:text-end text-2xl">
+                <div className="flex justify-between gap-20 mobile:mx-10">
+                  <p className="text-xl mobile:text-lg">02</p>
+                  <p className="text-2xl mobile:text-end mobile:text-lg">
                     성장 작업물
                     <br /> APP/WEB Service
                   </p>
@@ -289,7 +287,7 @@ export default function Company() {
         <section className="mx-auto h-full w-full max-w-screen-2xl">
           <div className="flex w-full flex-col items-center justify-center content-lg:mx-[20vw] content-lg:block">
             <h1
-              className="font-tenada mobile:text-center text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
+              className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl mobile:text-center"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
@@ -313,7 +311,7 @@ export default function Company() {
               <br />
               스튜디오 낭만의 노하우로 함께 항해합니다.
             </p>
-            <div className="mobile:gap-20 mt-20 flex flex-col gap-[9.125rem] content-lg:flex-row">
+            <div className="mt-20 flex flex-col gap-[9.125rem] mobile:gap-20 content-lg:flex-row">
               <Link href={"/project-request"} className="flex flex-col gap-5">
                 <svg
                   width="346"
@@ -323,11 +321,11 @@ export default function Company() {
                   xmlns="http://www.w3.org/2000/svg"
                   className="mobile:w-screen mobile:px-10 "
                 >
-                  <path d="M331 2L342 13H0" stroke="#96C0FF" stroke-width="3" />
+                  <path d="M331 2L342 13H0" stroke="#96C0FF" strokeWidth="3" />
                 </svg>
-                <div className="mobile:mx-10 flex justify-between gap-20">
-                  <p className="mobile:text-lg text-xl">01</p>
-                  <p className="mobile:text-lg mobile:text-end text-2xl">
+                <div className="flex justify-between gap-20 mobile:mx-10">
+                  <p className="text-xl mobile:text-lg">01</p>
+                  <p className="text-2xl mobile:text-end mobile:text-lg">
                     스튜디오 낭만
                     <br /> Contact us
                   </p>
@@ -433,7 +431,7 @@ export default function Company() {
               <br />
               같은 방향을 바라보는 것부터
             </h2>
-            <div className="mobile:text-base mt-28 text-2xl font-normal leading-[1.8]">
+            <div className="mt-28 text-2xl font-normal leading-[1.8] mobile:text-base">
               낭만이 있다면{" "}
               <span className="opacity-50">사업 계획서와 방향성 수립부터</span>
               <br />
@@ -559,10 +557,6 @@ export default function Company() {
           </div>
         </section>
       </div>
-
-      {/* <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover" >
-        <source src="/watermarked_preview.mp4" type="video/mp4" />
-      </video> */}
     </main>
   );
 }

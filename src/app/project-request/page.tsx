@@ -101,7 +101,6 @@ export default function Home() {
       });
   };
   return (
-    // bg-[#04070B] text-white
     <main className="min-h-screen py-80">
       <div className="fixed left-0 top-0 -z-10 flex h-full w-full bg-[#040002]">
         <video
@@ -110,7 +109,7 @@ export default function Home() {
           loop
           className="m-auto h-full  w-full object-cover"
         >
-          <source src="/second.mp4" type="video/mp4" />
+          <source src="/second.webm" type="video/webm" />
         </video>
       </div>
       <div className=" mx-auto h-full max-w-[90vw] xl:max-w-screen-xl">
