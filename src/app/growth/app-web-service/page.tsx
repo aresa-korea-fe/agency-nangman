@@ -2,41 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
-export type ProjectBrief = {
-  category: string;
-  title: string;
-  content: string;
-};
-export type SitemapImage = {
-  src: string;
-  alt: string;
-  fill: boolean;
-};
-export type ProjectSitemap = {
-  menu: string;
-  text: string;
-  images: SitemapImage[];
-  blur: boolean;
-  background: string;
-};
-
-export type IProject = {
-  id: string;
-  title: string;
-  category: string;
-  client: string;
-  releaseDate: string;
-  intro: string;
-  link: string;
-  mainImage: string;
-  contentImage: string;
-  brief: ProjectBrief[];
-  sitemap: ProjectSitemap[];
-};
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import { IWebAppService } from "@/interface/dtos/web-app-service.interface";
 
 export default function AppWebService() {
-  const items: IProject[] = require("/public/data/app-web-service.interface.json");
+  const items: IWebAppService.IDto[] = require("/public/data/app-web-service.interface.json");
+
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <main className="min-h-screen whitespace-pre-wrap bg-gray-50 leading-none text-black">
       <div className="mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
@@ -46,16 +27,20 @@ export default function AppWebService() {
             href={`app-web-service/${item.id}`}
             scroll={false}
             className={`flex-1 ${index % 2 === 0 ? "mr-auto" : "ml-auto"}`}
+            data-aos="fade-up"
+            data-aos-duration="1000"
           >
             <div className="relative">
               <div className="absolute bottom-0 h-[10rem] w-full bg-gradient-to-t from-white/60 to-white/0"></div>
               <Image
                 priority
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
                 key={item.mainImage}
                 width={1020}
-                height={400}
+                height={560}
                 src={item.mainImage}
-                className="hover:[animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite] h-auto w-auto content-lg:max-w-[50rem]"
+                className="content-lg:max-w-[50rem]"
                 alt=""
               />
               <div className="absolute mt-6 flex flex-col gap-4 lg:-mt-6 lg:ml-6 ">

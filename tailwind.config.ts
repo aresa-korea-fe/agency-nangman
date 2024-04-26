@@ -12,8 +12,8 @@ const config: Config = {
   theme: {
     extend: {
       boxShadow: {
-        innerOn: "inset 0 0 0 4px #5B89FF",
-        innerOff: "inset 0 0 0 4px #CECECE",
+        innerOn: "inset 0 0 0 2px #5B89FF",
+        innerOff: "inset 0 0 0 2px #eaeaea",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -23,6 +23,7 @@ const config: Config = {
       colors: {
         black: "#18181A",
         navyBlue: "#132962",
+        nangmanBlue: "#234098",
       },
       screens: {
         "content-xs": { max: "389px" },

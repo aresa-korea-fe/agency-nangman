@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  IProject,
-  ProjectBrief,
-  ProjectSitemap,
-} from "@/app/growth/app-web-service/page";
+import { IWebAppService } from "@/interface/dtos/web-app-service.interface";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
@@ -84,7 +80,7 @@ function MiddleContent({
   brief,
 }: {
   contentImage: string;
-  brief: ProjectBrief[];
+  brief: IWebAppService.ProjectBrief[];
 }) {
   return (
     <div className="mx-20 flex flex-col items-center gap-24 whitespace-pre-wrap content-xs:mx-6 content-sm:mx-6 content-lg:mx-40">
@@ -130,7 +126,7 @@ function MiddleContent({
   );
 }
 
-function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
+function SitemapSlide({ item }: { item: IWebAppService.ProjectSitemap[] }) {
   const [menus, setMenus] = useState<string[]>([]);
   const [selected, setSelected] = useState<number>(0);
   const navRef = useRef<HTMLDivElement>(null);
@@ -226,7 +222,7 @@ function SitemapSlide({ item }: { item: ProjectSitemap[] }) {
 }
 
 export default function AppWebServiceDetail({ id }: { id: string }) {
-  const items: IProject[] = require("/public/data/app-web-service.interface.json");
+  const items: IWebAppService.IDto[] = require("/public/data/app-web-service.interface.json");
   const item = items.find((content) => content.id === id);
   const headerProps: DetailHeaderProps = {
     mainImage: item!.mainImage,

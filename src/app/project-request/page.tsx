@@ -103,6 +103,16 @@ export default function Home() {
   return (
     // bg-[#04070B] text-white
     <main className="min-h-screen py-80">
+      <div className="fixed left-0 top-0 -z-10 flex h-full w-full bg-[#040002]">
+        <video
+          autoPlay
+          muted
+          loop
+          className="m-auto h-full  w-full object-cover"
+        >
+          <source src="/second.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div className=" mx-auto h-full max-w-[90vw] xl:max-w-screen-xl">
         <div className="flex h-full flex-row">
           <div className="flex w-full flex-col">
@@ -112,9 +122,9 @@ export default function Home() {
               <p>저희는 진짜 서비스에 집중하는 낭만팀입니다.</p> */}
 
               <h2 className="font-tenada pb-2 leading-[1.1]">
-                우리는 창조자에 불과합니다.
+                서비스의 가치가 화면 속으로
                 <br />
-                여러분이 주인공입니다.
+                안전하게 항해할 수 있게
               </h2>
               <p>매 순간, 진심을 다해 사용자 중심의 서비스를 구축합니다.</p>
               <p>

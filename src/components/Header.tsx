@@ -39,12 +39,12 @@ const products = [
     href: "/growth/bx-publishing",
     icon: InboxIcon,
   },
-  {
-    name: "PROP-TECH",
-    description: "부동산을 위한 혁신적인 프롭테크 솔루션",
-    href: "/growth/prop-tech",
-    icon: HomeModernIcon,
-  },
+  // {
+  //   name: "PROP-TECH",
+  //   description: "부동산을 위한 혁신적인 프롭테크 솔루션",
+  //   href: "/growth/prop-tech",
+  //   icon: HomeModernIcon,
+  // },
   {
     name: "DESIGN-PLANNING",
     description: "전략적 관점의 요구사항 기획 및 디자인",

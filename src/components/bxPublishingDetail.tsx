@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { BxItem } from "@/app/growth/bx-publishing/page";
-
+import { IBxPublishing } from "@/interface/dtos/bx-publishing.interface";
 export default function BxPublishingDetail({ id }: { id: string }) {
   const itemList = require("/data/bx-publishing.interface.json");
-  const items: BxItem[] = itemList.items;
+  const items: IBxPublishing.IDto[] = itemList.items;
   const item = items.find((content) => content.id === id);
 
   return (
