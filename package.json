@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.9.4",
     "@emailjs/browser": "^4.3.3",
+    "@fseehawer/react-circular-slider": "^2.6.4",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "again": "^0.0.1",
