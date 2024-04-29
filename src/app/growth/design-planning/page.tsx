@@ -145,7 +145,7 @@ function ReQuestProcess({ data }: { data: any }) {
           <p className="whitespace-nowrap text-3xl font-bold mobile:text-xl">
             요청사항 수집 및 분석
           </p>
-          <p className=" ">
+          <p>
             스튜디오 낭만은 클라이언트가 제공한 문서를 면밀히 검토하여
             요구사항을 이해한 뒤 기능적 요구사항과 비기능적 요구사항으로
             분류합니다.
@@ -155,13 +155,17 @@ function ReQuestProcess({ data }: { data: any }) {
           </p>
         </div>
         {/* content */}
-        <div className="flex items-center gap-[3.75rem]">
-          <Image src={data["image01"]} alt="" width={900} height={100} />
-          <div className="flex flex-col gap-8">
+        <div className="flex items-center gap-[3.75rem] content-md-xs:flex-col">
+          <Image
+            src={data["image01"]}
+            alt=""
+            width={900}
+            height={100}
+            className="h-auto w-1/2"
+          />
+          <div className="flex flex-1 flex-col gap-8">
             <div className="flex gap-3">
-              <p className="whitespace-nowrap text-3xl font-bold text-black">
-                What bother you?
-              </p>
+              <p className="text-3xl font-bold text-black">What bother you?</p>
               <Image
                 src={"/growth/design-planning/talk-icon.svg"}
                 width={34}
@@ -174,7 +178,7 @@ function ReQuestProcess({ data }: { data: any }) {
               {data["question"].map((string: string, index: number) => (
                 <p
                   key={index}
-                  className={`w-fit whitespace-nowrap text-2xl font-bold ${index === 0 || index === 4 ? "text-navyBlue/30" : index % 2 !== 0 ? "text-navyBlue/50" : "text-navyBlue"}`}
+                  className={`w-fit text-2xl font-bold ${index === 0 || index === 4 ? "text-navyBlue/30" : index % 2 !== 0 ? "text-navyBlue/50" : "text-navyBlue"}`}
                 >
                   {string}
                 </p>
@@ -332,7 +336,7 @@ function DesignProcess({ data }: { data: any }) {
       <div className="relative w-full bg-gray-50">
         <div className=" h-full w-full">
           <div className="relative">
-            <div className="bg-nangmanBlue absolute top-60 h-[40vw] max-h-[45.625rem] w-full xl:h-[45.625rem] mobile:h-96 content-md:h-[40rem] content-lg:min-h-[30vw]" />
+            <div className="absolute top-60 h-[40vw] max-h-[45.625rem] w-full bg-nangmanBlue xl:h-[45.625rem] mobile:h-96 content-md:h-[40rem] content-lg:min-h-[30vw]" />
 
             <div className="relative bg-gray-50 pb-16">
               <Image

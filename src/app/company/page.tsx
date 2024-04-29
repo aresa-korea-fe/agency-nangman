@@ -176,8 +176,7 @@ export default function Company() {
                 <div className="flex justify-between gap-20 mobile:mx-10">
                   <p className="text-xl mobile:text-lg">01</p>
                   <p className="text-2xl mobile:text-end mobile:text-lg ">
-                    성장 작업물
-                    <br /> BX Design
+                    BX Design
                   </p>
                 </div>
               </Link>
@@ -198,8 +197,7 @@ export default function Company() {
                 <div className="flex justify-between gap-20 mobile:mx-10">
                   <p className="text-xl mobile:text-lg">02</p>
                   <p className="text-2xl mobile:text-end mobile:text-lg">
-                    성장 작업물
-                    <br /> Design-planning
+                    Design-planning
                   </p>
                 </div>
               </Link>
@@ -253,8 +251,7 @@ export default function Company() {
                 <div className="flex justify-between gap-20 mobile:mx-10">
                   <p className="text-xl mobile:text-lg">01</p>
                   <p className="text-2xl mobile:text-end mobile:text-lg">
-                    성장 작업물
-                    <br /> BX Publishing
+                    BX Publishing
                   </p>
                 </div>
               </Link>
@@ -275,8 +272,7 @@ export default function Company() {
                 <div className="flex justify-between gap-20 mobile:mx-10">
                   <p className="text-xl mobile:text-lg">02</p>
                   <p className="text-2xl mobile:text-end mobile:text-lg">
-                    성장 작업물
-                    <br /> APP/WEB Service
+                    APP/WEB Service
                   </p>
                 </div>
               </Link>

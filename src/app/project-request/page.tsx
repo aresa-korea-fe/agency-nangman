@@ -101,7 +101,7 @@ export default function Home() {
       });
   };
   return (
-    <main className="min-h-screen py-80">
+    <main className="min-h-screen py-80 text-white/80">
       <div className="fixed left-0 top-0 -z-10 flex h-full w-full bg-[#040002]">
         <video
           autoPlay
@@ -578,7 +578,7 @@ export default function Home() {
                 </button>
                 <Link
                   href="/"
-                  className="inline-block rounded-md border border-transparent bg-gray-300 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
+                  className="inline-block rounded-md border border-transparent bg-gray-300 px-8 py-3 text-center font-medium text-gray-600 hover:bg-indigo-700"
                 >
                   취소
                 </Link>

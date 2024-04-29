@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="flex items-center justify-start gap-4 whitespace-nowrap">
               <Link
                 href={`tel:${tel}`}
-                className="flex max-w-36 flex-1 justify-center gap-3 rounded-md bg-navyBlue px-4 py-3 text-sm"
+                className="flex max-w-36 flex-1 justify-center gap-3 rounded-md bg-navyBlue px-4 py-3 text-sm text-white/80"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -70,22 +70,37 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-start gap-5 text-base font-bold text-white/60">
-          <p className="text-lg font-bold text-white">Address</p>
-          <p>
-            전북특별자치도 전주시 덕진구 오공로 123,
-            <br />
-            전북창조경제혁신센터 4층
-          </p>
-          <p>
-            서울특별시 송파구 중대로 135, <br />
-            11층 ICT 청년창업지원센터
-          </p>
+        <div className="flex gap-20">
+          <div className="flex flex-col justify-start gap-5 text-base font-bold text-white/60">
+            <p className="text-lg font-bold text-white">Company</p>
+            <p>
+              주식회사 아리사코리아
+              <br />
+              대표이사 이결
+            </p>
+            <p>
+              통신판매번호: 2023-서울송파-5298
+              <br /> 사업자 등록번호: 213-87-02997
+            </p>
+            <p></p>
+          </div>
+          <div className="flex flex-col justify-start gap-5 text-base font-bold text-white/60">
+            <p className="text-lg font-bold text-white">Address</p>
+            <p>
+              전북특별자치도 전주시 덕진구 오공로 123,
+              <br />
+              전북창조경제혁신센터 4층
+            </p>
+            <p>
+              서울특별시 송파구 중대로 135, <br />
+              11층 ICT 청년창업지원센터
+            </p>
+          </div>
         </div>
       </div>
       <div className="border-t border-white/30 bg-black/80 py-4 text-center text-white/30">
         <span className="mobile:text-xs">
-          COPYRIGHT 2012-2024 STUDIO NANGMAN. ALL RIGHTS RESERVED.
+          COPYRIGHT 2022-2024 STUDIO NANGMAN. ALL RIGHTS RESERVED.
         </span>
       </div>
     </footer>
