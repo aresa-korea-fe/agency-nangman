@@ -106,11 +106,9 @@ export default function Header() {
 
   useEffect(() => {
     function handleResize() {
-      setIsMobile(window.innerWidth < 800);
+      setIsMobile(window.innerWidth < 641);
     }
-
     window.addEventListener("resize", handleResize);
-    // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거하여 메모리 누수를 방지
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -122,10 +120,7 @@ function MobileHeader() {
   const closeModal = () => setMobileMenuOpen(false);
 
   return (
-    <nav
-      className="fixed right-0 top-0 z-[2] p-6 px-8 sm:hidden"
-      aria-label="Global"
-    >
+    <nav className="fixed right-0 top-0 z-[2] p-6 px-8" aria-label="Global">
       <div className="flex">
         <button
           type="button"
@@ -234,7 +229,7 @@ function DesktopHeader() {
   return (
     <div
       ref={headerContainer}
-      className={`pointer-events-none fixed left-0 z-[11] hidden w-full  sm:block ${hideHeader ? "-top-40 duration-700 ease-in" : "top-0  duration-700 ease-in"}`}
+      className={`pointer-events-none fixed left-0 z-[11] w-full ${hideHeader ? "-top-40 duration-700 ease-in" : "top-0  duration-700 ease-in"}`}
     >
       <header className="flex w-full items-center justify-center py-12 pb-0 pt-10 lg:pt-12">
         <Popover.Group className="pointer-events-auto flex gap-8 rounded-[40px] bg-black px-4">
