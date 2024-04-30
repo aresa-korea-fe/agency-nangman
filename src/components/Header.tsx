@@ -74,43 +74,20 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-function useHandleScroll(
-  header: RefObject<HTMLDivElement>,
-  setHideHeader: Dispatch<SetStateAction<boolean>>,
-) {
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    const headerRef = header.current;
-    const handleScroll = () => {
-      if (headerRef) {
-        if (
-          window.scrollY > lastScrollY &&
-          window.scrollY > window.innerHeight / 4
-        ) {
-          setHideHeader(true);
-        } else {
-          setHideHeader(false);
-        }
+export default function Header() {
+  const [isMobile, setIsMobile] = useState(false); // 기본값을 false로 설정
 
-        lastScrollY = window.scrollY;
-      }
+  useEffect(() => {
+    // 클라이언트 사이드에서만 실행됨. 컴포넌트가 마운트될 때 한 번 실행
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 641);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [header, setHideHeader]);
-}
+    handleResize(); // 컴포넌트가 마운트될 때 현재 창의 크기를 기반으로 상태를 설정
 
-export default function Header() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
-
-  useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth < 641);
-    }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, []); // 빈 배열을 전달하여 컴포넌트 마운트 시에만 실행되도록 함
 
   return <>{isMobile ? <MobileHeader /> : <DesktopHeader />}</>;
 }
@@ -216,6 +193,37 @@ function MobileHeader() {
   );
 }
 
+function useHandleScroll(
+  header: RefObject<HTMLDivElement>,
+  setHideHeader: Dispatch<SetStateAction<boolean>>,
+) {
+  // useRef를 사용하여 lastScrollY 변수에 대한 ref를 생성
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const headerRef = header.current;
+    const handleScroll = () => {
+      if (headerRef) {
+        // ref의 현재 값을 사용하여 스크롤 이전 상태와 비교
+        if (
+          window.scrollY > lastScrollY.current &&
+          window.scrollY > window.innerHeight / 4
+        ) {
+          setHideHeader(true);
+        } else {
+          setHideHeader(false);
+        }
+
+        // 스크롤 위치를 lastScrollY ref에 업데이트
+        lastScrollY.current = window.scrollY;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [header, setHideHeader]); // 마지막ScrollY는 의존성 배열에 추가할 필요 없음
+}
+
 function DesktopHeader() {
   const [hideHeader, setHideHeader] = useState(false);
   const headerContainer = useRef<HTMLDivElement>(null);
@@ -226,6 +234,7 @@ function DesktopHeader() {
   const isActive = () => urls.includes(segment);
 
   useHandleScroll(headerContainer, setHideHeader); // 커스텀 훅 사용
+
   return (
     <div
       ref={headerContainer}
