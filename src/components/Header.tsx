@@ -18,7 +18,15 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { Fragment, useEffect, useState } from "react";
+import {
+  Dispatch,
+  Fragment,
+  RefObject,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 const products = [
   {
@@ -66,238 +74,262 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-function useHandleScroll() {
+function useHandleScroll(
+  header: RefObject<HTMLDivElement>,
+  setHideHeader: Dispatch<SetStateAction<boolean>>,
+) {
   useEffect(() => {
     let lastScrollY = window.scrollY;
-
+    const headerRef = header.current;
     const handleScroll = () => {
-      const header = document.querySelector("header");
+      if (headerRef) {
+        if (
+          window.scrollY > lastScrollY &&
+          window.scrollY > window.innerHeight / 4
+        ) {
+          setHideHeader(true);
+        } else {
+          setHideHeader(false);
+        }
 
-      if (
-        window.scrollY > lastScrollY &&
-        window.scrollY > window.innerHeight / 4
-      ) {
-        header?.classList.add("-top-40");
-      } else {
-        header?.classList.remove("-top-40");
+        lastScrollY = window.scrollY;
       }
-
-      lastScrollY = window.scrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [header, setHideHeader]);
 }
 
 export default function Header() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 800);
+    }
+
+    window.addEventListener("resize", handleResize);
+    // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거하여 메모리 누수를 방지
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return <>{isMobile ? <MobileHeader /> : <DesktopHeader />}</>;
+}
+
+function MobileHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const closeModal = () => setMobileMenuOpen(false);
+
+  return (
+    <nav
+      className="fixed right-0 top-0 z-[2] p-6 px-8 sm:hidden"
+      aria-label="Global"
+    >
+      <div className="flex">
+        <button
+          type="button"
+          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          onClick={() => setMobileMenuOpen(true)}
+        >
+          <span className="sr-only">Open main menu</span>
+          <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+        </button>
+      </div>
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-10" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-between">
+            <a href="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">Agency nangman</span>
+              <Image
+                priority
+                src="/nangman_logo@4x.png"
+                alt="Agency nangman"
+                width={40}
+                height={40}
+              />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="space-y-2 py-6">
+                <Link
+                  onClick={closeModal}
+                  href="/company"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  ABOUT US
+                </Link>
+
+                <Disclosure as="div" className="-mx-3">
+                  {({ open }) => (
+                    <>
+                      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                        성장기록물
+                        <ChevronDownIcon
+                          className={classNames(
+                            open ? "rotate-180" : "",
+                            "h-5 w-5 flex-none",
+                          )}
+                          aria-hidden="true"
+                        />
+                      </Disclosure.Button>
+                      <Disclosure.Panel className="mt-2 flex flex-col gap-4 space-y-2 py-2 pl-3">
+                        {/* {[...products, ...callsToAction].map((item) => ( */}
+                        {[...products].map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            className="text-black"
+                            onClick={closeModal}
+                          >
+                            <Disclosure.Button>{item.name}</Disclosure.Button>
+                          </Link>
+                        ))}
+                      </Disclosure.Panel>
+                    </>
+                  )}
+                </Disclosure>
+
+                <Link
+                  onClick={closeModal}
+                  href="/project-request"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  CONTACT
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </nav>
+  );
+}
+
+function DesktopHeader() {
+  const [hideHeader, setHideHeader] = useState(false);
+  const headerContainer = useRef<HTMLDivElement>(null);
 
   const segment = useSelectedLayoutSegment() || "";
   const urls: string[] = ["", "company", "project-request", "growth"];
-  // const hiddenUrls: string[] = [];
-  // const hiddenUrls = ["growth"];
 
   const isActive = () => urls.includes(segment);
-  const closeModal = () => setMobileMenuOpen(false);
 
-  useHandleScroll(); // 커스텀 훅 사용
-
+  useHandleScroll(headerContainer, setHideHeader); // 커스텀 훅 사용
   return (
-    <>
-      <nav
-        className="fixed right-0 top-0 z-[2] p-6 px-8 sm:hidden"
-        aria-label="Global"
-      >
-        <div className="flex">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
+    <div
+      ref={headerContainer}
+      className={`pointer-events-none fixed left-0 z-[11] hidden w-full  sm:block ${hideHeader ? "-top-40 duration-700 ease-in" : "top-0  duration-700 ease-in"}`}
+    >
+      <header className="flex w-full items-center justify-center py-12 pb-0 pt-10 lg:pt-12">
+        <Popover.Group className="pointer-events-auto flex gap-8 rounded-[40px] bg-black px-4">
+          <Link
+            href="/"
+            className={`relative px-6 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white " : "text-gray-900"}
+        after:absolute after:right-0 after:top-1/3 after:h-1/3 after:w-[1px] after:bg-white/50`}
           >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <Dialog
-          as="div"
-          className="lg:hidden"
-          open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
-        >
-          <div className="fixed inset-0 z-10" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="flex items-center justify-between">
-              <a href="/" className="-m-1.5 p-1.5">
-                <span className="sr-only">Agency nangman</span>
-                <Image
-                  priority
-                  src="/nangman_logo@4x.png"
-                  alt="Agency nangman"
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
-                  <Link
-                    onClick={closeModal}
-                    href="/company"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    ABOUT US
-                  </Link>
+            낭만.
+          </Link>
 
-                  <Disclosure as="div" className="-mx-3">
-                    {({ open }) => (
-                      <>
-                        <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                          성장기록물
-                          <ChevronDownIcon
-                            className={classNames(
-                              open ? "rotate-180" : "",
-                              "h-5 w-5 flex-none",
-                            )}
-                            aria-hidden="true"
-                          />
-                        </Disclosure.Button>
-                        <Disclosure.Panel className="mt-2 flex flex-col gap-4 space-y-2 py-2 pl-3">
-                          {/* {[...products, ...callsToAction].map((item) => ( */}
-                          {[...products].map((item) => (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              className="text-black"
-                              onClick={closeModal}
-                            >
-                              <Disclosure.Button>{item.name}</Disclosure.Button>
-                            </Link>
-                          ))}
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
+          <Link
+            href="/company"
+            className={`py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+          >
+            about us
+          </Link>
 
-                  <Link
-                    onClick={closeModal}
-                    href="/project-request"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    CONTACT
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </Dialog.Panel>
-        </Dialog>
-      </nav>
+          <Popover className="relative">
+            {({ open, close }) => (
+              <>
+                <Popover.Button
+                  className={`flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+                >
+                  성장기록물
+                </Popover.Button>
 
-      <div className="pointer-events-none fixed left-0 top-0 z-[11] hidden w-full duration-700 ease-in sm:block">
-        <header className="flex w-full items-center justify-center py-12 pb-0 pt-10 lg:pt-12">
-          <Popover.Group className="pointer-events-auto flex gap-8 rounded-[40px] bg-black px-4">
-            <Link
-              href="/"
-              className={`relative px-6 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white " : "text-gray-900"}
-              after:absolute after:right-0 after:top-1/3 after:h-1/3 after:w-[1px] after:bg-white/50`}
-            >
-              낭만.
-            </Link>
-
-            <Link
-              href="/company"
-              className={`py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
-            >
-              about us
-            </Link>
-
-            <Popover className="relative">
-              {({ open, close }) => (
-                <>
-                  <Popover.Button
-                    className={`flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
-                  >
-                    성장기록물
-                  </Popover.Button>
-
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-200"
-                    enterFrom="opacity-0 translate-y-1"
-                    enterTo="opacity-100 translate-y-0"
-                    leave="transition ease-in duration-150"
-                    leaveFrom="opacity-100 translate-y-0"
-                    leaveTo="opacity-0 translate-y-1"
-                  >
-                    <Popover.Panel className="absolute -left-60 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                      <div className="p-4">
-                        {products.map((item) => (
-                          <div
-                            key={item.name}
-                            onClick={close}
-                            className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                          >
-                            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                              <item.icon
-                                className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-                                aria-hidden="true"
-                              />
-                            </div>
-                            <div className="flex-auto">
-                              <Link
-                                href={item.href}
-                                className="block font-semibold text-gray-900"
-                              >
-                                {item.name}
-                                <span className="absolute inset-0" />
-                              </Link>
-                              <p className="mt-1 text-gray-600">
-                                {item.description}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                        {callsToAction.map((item, index) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                            target={index === 0 ? "_blank" : ""}
-                          >
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-200"
+                  enterFrom="opacity-0 translate-y-1"
+                  enterTo="opacity-100 translate-y-0"
+                  leave="transition ease-in duration-150"
+                  leaveFrom="opacity-100 translate-y-0"
+                  leaveTo="opacity-0 translate-y-1"
+                >
+                  <Popover.Panel className="absolute -left-60 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                    <div className="p-4">
+                      {products.map((item) => (
+                        <div
+                          key={item.name}
+                          onClick={close}
+                          className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                        >
+                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                             <item.icon
-                              className="h-5 w-5 flex-none text-gray-400"
+                              className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
                               aria-hidden="true"
                             />
-                            {item.name}
-                          </a>
-                        ))}
-                      </div>
-                    </Popover.Panel>
-                  </Transition>
-                </>
-              )}
-            </Popover>
+                          </div>
+                          <div className="flex-auto">
+                            <Link
+                              href={item.href}
+                              className="block font-semibold text-gray-900"
+                            >
+                              {item.name}
+                              <span className="absolute inset-0" />
+                            </Link>
+                            <p className="mt-1 text-gray-600">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                      {callsToAction.map((item, index) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                          target={index === 0 ? "_blank" : ""}
+                        >
+                          <item.icon
+                            className="h-5 w-5 flex-none text-gray-400"
+                            aria-hidden="true"
+                          />
+                          {item.name}
+                        </a>
+                      ))}
+                    </div>
+                  </Popover.Panel>
+                </Transition>
+              </>
+            )}
+          </Popover>
 
-            <Link
-              href="/project-request"
-              className={`py-4 pr-5 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
-            >
-              contact
-            </Link>
-          </Popover.Group>
-        </header>
-      </div>
-    </>
+          <Link
+            href="/project-request"
+            className={`py-4 pr-5 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+          >
+            contact
+          </Link>
+        </Popover.Group>
+      </header>
+    </div>
   );
 }

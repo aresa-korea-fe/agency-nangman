@@ -18,7 +18,7 @@ export default function RootLayout({
       <html lang="ko">
         <body className="relative cursor-none">
           <Header />
-          <ClientSideComponent />
+          {/* <ClientSideComponent /> */}
           {children}
           <Footer />
         </body>

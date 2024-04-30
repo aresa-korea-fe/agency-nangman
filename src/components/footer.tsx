@@ -70,7 +70,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex gap-20">
+        <div className="flex gap-20 mobile:flex-col mobile:items-start mobile:gap-5">
           <div className="flex flex-col justify-start gap-5 text-base font-bold text-white/60">
             <p className="text-lg font-bold text-white">Company</p>
             <p>
