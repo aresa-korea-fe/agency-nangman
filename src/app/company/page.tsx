@@ -18,33 +18,33 @@ export default function Company() {
       name: "javascript",
       icon: "/icons/tech-stacks/js.png",
       category: ["frontend", "backend"],
-      scope: 90,
+      scope: 5,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
     },
     {
       name: "typescript",
       icon: "/icons/tech-stacks/typescript.png",
       category: ["frontend", "backend"],
-      scope: 100,
+      scope: 60,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "타입스크립트는 낭만 서비스의 견고함을 제공합니다. 정적 타입을 통해 더 명확하고 안정적인 코드를 작성할 수 있게 해줍니다.",
     },
     {
       name: "java",
       icon: "/icons/tech-stacks/java.png",
-      category: ["frontend", "backend"],
+      category: ["backend"],
       scope: 5,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "자바는 강력한 객체 지향 프로그래밍 언어로, 낭만의 백엔드 시스템을 구축하는 데 있어 효율적인 성능과 보안을 제공합니다.",
     },
     {
       name: "ReactJS",
       icon: "/icons/tech-stacks/reactjs.png",
-      category: ["frontend", "backend"],
+      category: ["frontend"],
       scope: 10,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "ReactJS는 사용자 인터페이스를 더욱 살아있게 만듭니다. 우리의 프론트엔드를 빠르고 효율적으로 구축할 수 있게 해줍니다.",
     },
     {
       name: "nextJS",
@@ -52,115 +52,132 @@ export default function Company() {
       category: ["frontend", "backend"],
       scope: 30,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "NextJS는 React 기반의 프레임워크로서, 서버 사이드 렌더링과 정적 웹 사이트 생성을 지원합니다. 낭만은 이를 활용하여 빠르고 최적화된 웹 경험을 제공합니다.",
     },
     {
       name: "React native",
       icon: "/icons/tech-stacks/reactjs.png",
-      category: ["frontend", "backend"],
-      scope: 5,
+      category: ["frontend"],
+      scope: 30,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "React Native는 서비스를 모바일로 확장하는 데 있어 핵심입니다. 하나의 코드베이스로 다양한 플랫폼에 앱을 제공할 수 있습니다.",
     },
     {
       name: "flutter",
       icon: "/icons/tech-stacks/flutter.png",
-      category: ["frontend", "backend"],
+      category: ["frontend"],
       scope: 30,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "Flutter는 낭만 서비스의 모바일 앱 개발을 혁신합니다. 빠른 개발 속도와 아름다운 UI로 사용자 경험을 한 차원 높여줍니다.",
     },
     {
       name: "angular",
       icon: "/icons/tech-stacks/angular.png",
-      category: ["frontend", "backend"],
+      category: ["frontend"],
       scope: 50,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "강력한 프론트엔드 프레임워크로, 낭만 서비스는 이를 사용하여 대규모의 고성능 애플리케이션을 구축합니다.",
     },
     {
       name: "vueJS",
       icon: "/icons/tech-stacks/vuejs.png",
-      category: ["frontend", "backend"],
+      category: ["frontend"],
       scope: 10,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "점진적으로 채택할 수 있는 아키텍처를 가진 프론트엔드 프레임워크입니다. 낭만 서비스에서는 이를 활용하여 유연하고 확장 가능한 웹 인터페이스를 구축합니다.",
     },
     {
       name: "nodeJS",
       icon: "/icons/tech-stacks/nodejs.png",
-      category: ["frontend", "backend"],
+      category: ["backend"],
       scope: 80,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "서버 측에서의 자바스크립트 실행을 가능하게 하여, 낭만 서비스의 백엔드를 효율적으로 구성할 수 있는 힘을 제공합니다.",
     },
     {
       name: "spring boot",
       icon: "/icons/tech-stacks/spring boot.png",
-      category: ["frontend", "backend"],
+      category: ["backend"],
       scope: 10,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "빠르고, 간편한 백엔드 개발을 가능하게 하여, 낭만 서비스의 안정성과 확장성을 기초로 합니다.",
     },
     {
       name: "AWS",
       icon: "/icons/tech-stacks/aws.png",
-      category: ["frontend", "backend"],
+      category: ["cloud"],
       scope: 50,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "강력한 클라우드 인프라를 제공하여, 낭만 서비스의 전 세계 사용자에게 안정적으로 접근할 수 있는 환경을 마련합니다.",
     },
     {
       name: "NHN cloud",
       icon: "/icons/tech-stacks/nhn-cloud.png",
-      category: ["frontend", "backend"],
+      category: ["cloud"],
       scope: 40,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "국내 최적화된 클라우드 서비스를 통해, 낭만 서비스의 데이터 처리와 저장이 더욱 빠르고 안정적입니다.",
     },
     {
       name: "cloud type",
       icon: "/icons/tech-stacks/cloudtype.png",
-      category: ["frontend", "backend"],
+      category: ["cloud"],
       scope: 60,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "다양한 클라우드 솔루션을 통합 관리하고 더 간편한 배포 방식과 소통 시스템은 낭만의 운영 효율성을 극대화합니다.",
     },
     {
       name: "photoshop",
       icon: "/icons/tech-stacks/photoshop.png",
-      category: ["frontend", "backend"],
+      category: ["design"],
       scope: 75,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "낭만적인 시각적 컨텐츠 제작에 필수적이며, 사용자 인터페이스의 아름다움을 창조하는 데 중요한 역할을 합니다.",
     },
     {
       name: "illustrator",
       icon: "/icons/tech-stacks/illustrator.png",
-      category: ["frontend", "backend"],
+      category: ["design"],
       scope: 62,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "벡터 기반 디자인을 통해, 낭만 서비스의 브랜딩과 시각적 요소를 세련되게 표현합니다.",
     },
     {
       name: "XD",
       icon: "/icons/tech-stacks/xd.png",
-      category: ["frontend", "backend"],
+      category: ["design", "prototype", "UI&UX"],
       scope: 52,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "사용자 경험(UX) 디자인과 프로토타이핑을 통해, 낭만 서비스의 사용자 인터페이스를 직관적이고 매력적으로 만듭니다.",
     },
     {
       name: "figma",
       icon: "/icons/tech-stacks/figma.png",
-      category: ["frontend", "backend"],
+      category: ["design", "prototype", "UI&UX"],
       scope: 89,
       subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 자바스크립트는 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
+        "협업을 중심으로 한 디자인 도구로서, 낭만 서비스의 디자인 작업을 더욱 신속하고 효율적으로 만들어, 창의적인 아이디어를 현실로 전환합니다.",
     },
   ];
 
   const justforyou = useRef(null);
+
+  const handlelabelColors = (str: string) => {
+    switch (str) {
+      case "frontend":
+        return "bg-sky-300";
+      case "backend":
+        return "bg-orange-300";
+      case "cloud":
+        return "bg-indigo-300";
+      case "prototype":
+        return "bg-fuchsia-300";
+      case "design":
+        return "bg-yellow-300";
+      default:
+        return "bg-red-300";
+    }
+  };
 
   useEffect(() => {
     AOS.init({
@@ -527,7 +544,7 @@ export default function Company() {
                 <CircularSlider
                   hideKnob
                   initialValue={30}
-                  label="stack"
+                  label="사용 빈도"
                   appendToValue="%"
                   prependToValue=""
                   labelColor="#ffffff80"
@@ -557,6 +574,16 @@ export default function Company() {
                       <p className="text-3xl font-bold">
                         {stackInfo[selected].name}
                       </p>
+                      <div className="flex gap-2">
+                        {stackInfo[selected].category.map((category, i) => (
+                          <p
+                            key={i}
+                            className={`rounded-full ${handlelabelColors(category)} px-2 py-1 text-xs font-bold leading-none text-black/60`}
+                          >
+                            {category}
+                          </p>
+                        ))}
+                      </div>
                       <p className="max-w-80 font-light tracking-tight">
                         {stackInfo[selected].subText}
                       </p>
