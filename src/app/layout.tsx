@@ -19,8 +19,8 @@ export default function RootLayout({
       <html lang="ko">
         <body className="relative cursor-none">
           <Header />
-          <ClientSideComponent />
           <Floating />
+          <ClientSideComponent />
           {children}
           <Footer />
         </body>

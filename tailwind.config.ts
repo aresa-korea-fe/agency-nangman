@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "spin-slow": "spin 5s linear infinite",
+      },
       spacing: {
         "120-full": "120%",
       },
