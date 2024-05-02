@@ -20,8 +20,8 @@ export default function RootLayout({
         <body className="relative cursor-none">
           <Header />
           <ClientSideComponent />
-          {children}
           <Floating />
+          {children}
           <Footer />
         </body>
       </html>
