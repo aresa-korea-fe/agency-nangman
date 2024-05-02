@@ -264,9 +264,11 @@ export default function Company() {
             </p>
             <div className="w-full border-b border-white/80"></div>
             <p className="text-lg text-white/60 content-xs:text-sm content-sm:text-lg">
-              스튜디오 낭만은 디지털 아티스트들이 모여 브랜드와 사람을 잇는
-              여정을 시작했습니다.
-              <br /> 빠르게 변화하는 웹 트렌드 속에서 우리는 중심을 잃지 않고
+              <p className="mobile:hidden">
+                스튜디오 낭만은 디지털 아티스트들이 모여 브랜드와 사람을 잇는
+                여정을 시작했습니다.
+              </p>
+              빠르게 변화하는 웹 트렌드 속에서 우리는 중심을 잃지 않고
               항해합니다.
             </p>
           </div>
@@ -276,8 +278,9 @@ export default function Company() {
             </p>
             <div className="w-full border-b border-white/80"></div>
             <p className="text-lg text-white/60 content-xs:text-sm content-sm:text-lg">
-              우리는 서비스의 가치를 알아내고 본질을 찾아내기 위해 노력합니다.
-              <br />
+              <p className="mobile:hidden">
+                우리는 서비스의 가치를 알아내고 본질을 찾아내기 위해 노력합니다.
+              </p>
               전략적인 시각과 창의적인 아이디어에 세련된 디자인을 더하여 최적의
               솔루션을 제공합니다.
             </p>
@@ -288,10 +291,12 @@ export default function Company() {
             </p>
             <div className="w-full border-b border-white/80"></div>
             <p className="text-lg text-white/60 content-xs:text-sm content-sm:text-lg">
-              우리는 혼자 모든걸 해내는 슈퍼플레이어보다 다 함께 항해하는
-              선원으로 이뤄져 있습니다.
-              <br /> 새로운 브랜드 가치와 웹 서비스로 고객만족의 목표를 완성하는
-              것. 그것이 우리의 낭만입니다.
+              <p className="mobile:hidden">
+                우리는 혼자 모든걸 해내는 슈퍼플레이어보다 다 함께 항해하는
+                선원으로 이뤄져 있습니다.
+              </p>
+              새로운 브랜드 가치와 웹 서비스로 고객만족의 목표를 완성하는 것.
+              그것이 우리의 낭만입니다.
             </p>
           </div>
         </div>

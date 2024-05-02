@@ -17,7 +17,7 @@ export default function Loader() {
 
   return show ? (
     <div className="hero_area opacity-100 transition-opacity duration-1000">
-      <div className="mb-4 h-2.5 w-full rounded-full bg-white/50 dark:bg-white/50 invisible">
+      <div className="invisible mb-4 h-2.5 w-full rounded-full bg-white/50 dark:bg-white/50">
         <div
           id="myBar"
           className="h-2.5 rounded-full bg-gray-600 dark:bg-white"
@@ -31,6 +31,7 @@ export default function Loader() {
           alt="Agency nangman"
           width={100}
           height={100}
+          className="h-auto w-auto"
         />
         <p className="text-3xl font-bold">Studio NANGMAN</p>
       </div>
@@ -74,7 +75,7 @@ export default function Loader() {
     </div>
   ) : (
     <div className="hero_area opacity-0 transition-opacity duration-1000">
-      <div className="mb-4 h-2.5 w-full rounded-full bg-white/50 dark:bg-white/50 invisible">
+      <div className="invisible mb-4 h-2.5 w-full rounded-full bg-white/50 dark:bg-white/50">
         <div
           id="myBar"
           className="h-2.5 rounded-full bg-gray-600 dark:bg-white"
@@ -88,6 +89,7 @@ export default function Loader() {
           alt="Agency nangman"
           width={100}
           height={100}
+          className="h-auto w-auto"
         />
         <p className="text-3xl font-bold">Studio NANGMAN</p>
       </div>

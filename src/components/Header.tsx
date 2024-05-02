@@ -235,7 +235,13 @@ function DesktopHeader() {
   const headerContainer = useRef<HTMLDivElement>(null);
 
   const segment = useSelectedLayoutSegment() || "";
-  const urls: string[] = ["", "company", "project-request", "growth"];
+  const urls: string[] = [
+    "",
+    "company",
+    "project-request",
+    "growth",
+    "Estimation",
+  ];
 
   const isActive = () => urls.includes(segment);
 

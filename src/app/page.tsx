@@ -11,7 +11,7 @@ const Particle = dynamic(() => import("@/components/particle"), {
 export default function Home() {
   return (
     <Suspense fallback={<Loader />}>
-      <section id="nangmanBg" className="relative h-screen">
+      <section id="nangmanBg" className="relative h-screen overflow-y-hidden">
         <video
           autoPlay
           muted
