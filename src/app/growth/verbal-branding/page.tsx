@@ -75,8 +75,8 @@ const items = [
 
 export default function VerbalBranding() {
   return (
-    <section className="min-h-screen leading-none text-black">
-      <div className="mx-auto h-full max-w-[100vw] gap-40 xl:max-w-screen-xl">
+    <main className="min-h-screen w-full whitespace-pre-wrap bg-gray-50 leading-none text-black">
+      <div className="mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
         <div className="flex flex-wrap justify-center gap-3">
           {items.map((item) => (
             <div
@@ -98,6 +98,6 @@ export default function VerbalBranding() {
           ))}
         </div>
       </div>
-    </section>
+    </main>
   );
 }

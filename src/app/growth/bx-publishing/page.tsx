@@ -37,7 +37,7 @@ export default function BxPublishing() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gray-50 leading-none text-black">
+    <main className="min-h-screen w-full bg-gray-50 leading-none text-black">
       <div className=" mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
         {contents.map(
           (item, index) =>

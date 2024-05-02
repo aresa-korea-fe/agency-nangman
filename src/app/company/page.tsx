@@ -16,7 +16,7 @@ export default function Company() {
   const stackInfo = [
     {
       name: "javascript",
-      icon: "/icons/tech-stacks/js.png",
+      icon: "/icons/tech-stacks/js.webp",
       category: ["frontend", "backend"],
       scope: 75,
       subText:
@@ -24,7 +24,7 @@ export default function Company() {
     },
     {
       name: "typescript",
-      icon: "/icons/tech-stacks/typescript.png",
+      icon: "/icons/tech-stacks/typescript.webp",
       category: ["frontend", "backend"],
       scope: 100,
       subText:
@@ -32,7 +32,7 @@ export default function Company() {
     },
     {
       name: "java",
-      icon: "/icons/tech-stacks/java.png",
+      icon: "/icons/tech-stacks/java.webp",
       category: ["backend"],
       scope: 50,
       subText:
@@ -40,7 +40,7 @@ export default function Company() {
     },
     {
       name: "ReactJS",
-      icon: "/icons/tech-stacks/reactjs.png",
+      icon: "/icons/tech-stacks/reactjs.webp",
       category: ["frontend"],
       scope: 40,
       subText:
@@ -48,7 +48,7 @@ export default function Company() {
     },
     {
       name: "nextJS",
-      icon: "/icons/tech-stacks/nextjs.png",
+      icon: "/icons/tech-stacks/nextjs.webp",
       category: ["frontend", "backend"],
       scope: 50,
       subText:
@@ -56,7 +56,7 @@ export default function Company() {
     },
     {
       name: "React native",
-      icon: "/icons/tech-stacks/reactjs.png",
+      icon: "/icons/tech-stacks/reactjs.webp",
       category: ["frontend"],
       scope: 60,
       subText:
@@ -64,7 +64,7 @@ export default function Company() {
     },
     {
       name: "flutter",
-      icon: "/icons/tech-stacks/flutter.png",
+      icon: "/icons/tech-stacks/flutter.webp",
       category: ["frontend"],
       scope: 68,
       subText:
@@ -72,7 +72,7 @@ export default function Company() {
     },
     {
       name: "angular",
-      icon: "/icons/tech-stacks/angular.png",
+      icon: "/icons/tech-stacks/angular.webp",
       category: ["frontend"],
       scope: 50,
       subText:
@@ -80,7 +80,7 @@ export default function Company() {
     },
     {
       name: "vueJS",
-      icon: "/icons/tech-stacks/vuejs.png",
+      icon: "/icons/tech-stacks/vuejs.webp",
       category: ["frontend"],
       scope: 55,
       subText:
@@ -88,7 +88,7 @@ export default function Company() {
     },
     {
       name: "nodeJS",
-      icon: "/icons/tech-stacks/nodejs.png",
+      icon: "/icons/tech-stacks/nodejs.webp",
       category: ["backend"],
       scope: 94,
       subText:
@@ -96,7 +96,7 @@ export default function Company() {
     },
     {
       name: "spring boot",
-      icon: "/icons/tech-stacks/spring boot.png",
+      icon: "/icons/tech-stacks/spring boot.webp",
       category: ["backend"],
       scope: 45,
       subText:
@@ -104,7 +104,7 @@ export default function Company() {
     },
     {
       name: "AWS",
-      icon: "/icons/tech-stacks/aws.png",
+      icon: "/icons/tech-stacks/aws.webp",
       category: ["cloud"],
       scope: 84,
       subText:
@@ -112,7 +112,7 @@ export default function Company() {
     },
     {
       name: "NHN cloud",
-      icon: "/icons/tech-stacks/nhn-cloud.png",
+      icon: "/icons/tech-stacks/nhn-cloud.webp",
       category: ["cloud"],
       scope: 72,
       subText:
@@ -120,7 +120,7 @@ export default function Company() {
     },
     {
       name: "cloud type",
-      icon: "/icons/tech-stacks/cloudtype.png",
+      icon: "/icons/tech-stacks/cloudtype.webp",
       category: ["cloud"],
       scope: 80,
       subText:
@@ -128,7 +128,7 @@ export default function Company() {
     },
     {
       name: "photoshop",
-      icon: "/icons/tech-stacks/photoshop.png",
+      icon: "/icons/tech-stacks/photoshop.webp",
       category: ["design"],
       scope: 75,
       subText:
@@ -136,7 +136,7 @@ export default function Company() {
     },
     {
       name: "illustrator",
-      icon: "/icons/tech-stacks/illustrator.png",
+      icon: "/icons/tech-stacks/illustrator.webp",
       category: ["design"],
       scope: 62,
       subText:
@@ -144,7 +144,7 @@ export default function Company() {
     },
     {
       name: "XD",
-      icon: "/icons/tech-stacks/xd.png",
+      icon: "/icons/tech-stacks/xd.webp",
       category: ["design", "prototype", "UI&UX"],
       scope: 52,
       subText:
@@ -152,7 +152,7 @@ export default function Company() {
     },
     {
       name: "figma",
-      icon: "/icons/tech-stacks/figma.png",
+      icon: "/icons/tech-stacks/figma.webp",
       category: ["design", "prototype", "UI&UX"],
       scope: 89,
       subText:
@@ -192,7 +192,7 @@ export default function Company() {
       strings: [
         "낭만의 시작점",
         "낭만이 살아 숨쉬는 이 곳",
-        "낭만은 오롯히 당신을 위해",
+        "낭만은 오롯이 당신을 위해",
         "낭만이란 가능성",
         "낭만으로 가득한 이 곳",
         "낭만과 함께하는 시간",

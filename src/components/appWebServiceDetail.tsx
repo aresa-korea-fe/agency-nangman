@@ -237,7 +237,7 @@ export default function AppWebServiceDetail({ id }: { id: string }) {
   return (
     <main
       id="detailWrapper"
-      className={`flex h-auto w-full flex-col gap-32 overflow-x-hidden whitespace-pre-wrap bg-white text-start text-navyBlue`}
+      className={`flex h-auto w-full max-w-[120rem] flex-col items-center justify-center gap-32 overflow-x-hidden whitespace-pre-wrap bg-white text-start text-navyBlue`}
     >
       <DetailHeader {...headerProps}></DetailHeader>
       <MiddleContent

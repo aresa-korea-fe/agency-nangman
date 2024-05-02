@@ -10,14 +10,13 @@ import {
   Bars3Icon,
   CursorArrowRippleIcon,
   FaceSmileIcon,
-  HomeModernIcon,
   InboxIcon,
-  XMarkIcon,
   NewspaperIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
+import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 import {
   Dispatch,
   Fragment,
@@ -75,6 +74,8 @@ function classNames(...classes: string[]) {
 }
 
 export default function Header() {
+  const routerPath = usePathname();
+
   const [isMobile, setIsMobile] = useState(false); // 기본값을 false로 설정
 
   useEffect(() => {
@@ -88,6 +89,11 @@ export default function Header() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []); // 빈 배열을 전달하여 컴포넌트 마운트 시에만 실행되도록 함
+
+  // if (routerPath.includes("growth")) {
+  //   const pathArray = routerPath.split("/");
+  //   if (pathArray[3]) return null;
+  // }
 
   return <>{isMobile ? <MobileHeader /> : <DesktopHeader />}</>;
 }

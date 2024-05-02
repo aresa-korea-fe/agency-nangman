@@ -19,7 +19,7 @@ export default function AppWebService() {
   }, []);
 
   return (
-    <main className="min-h-screen whitespace-pre-wrap bg-gray-50 leading-none text-black">
+    <main className="min-h-screen w-full whitespace-pre-wrap bg-gray-50 leading-none text-black">
       <div className="mx-auto flex h-full max-w-[90vw] flex-col gap-40 xl:max-w-screen-xl">
         {items.map((item, index) => (
           <Link
