@@ -1,5 +1,5 @@
 import BxPublishingDetail from "@/components/bxPublishingDetail";
-import Modal from "@/components/modal";
+import RouterModal from "@/components/RouterModal";
 
 interface PhotoModalPageProps {
   params: {
@@ -11,10 +11,10 @@ export default function BxPublishingDetailPage({
   params,
 }: PhotoModalPageProps) {
   return (
-    <Modal>
+    <RouterModal>
       <div className="max-w-screen-xl">
         <BxPublishingDetail id={params.id}></BxPublishingDetail>
       </div>
-    </Modal>
+    </RouterModal>
   );
 }

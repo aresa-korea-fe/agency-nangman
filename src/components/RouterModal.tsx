@@ -8,7 +8,7 @@ type props = {
   children: ReactNode;
 };
 
-export default function Modal({ children }: props) {
+export default function RouterModal({ children }: props) {
   const [open, isOpen] = useState<boolean>(true);
   const cancelButtonRef = useRef(null);
 
