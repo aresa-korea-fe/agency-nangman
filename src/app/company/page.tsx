@@ -116,7 +116,7 @@ export default function Company() {
           <section className="mx-auto h-full w-full max-w-screen-2xl ">
             <div className="flex w-full flex-col items-center justify-center content-lg:mx-[20vw] content-lg:block">
               <h1
-                className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
+                className="font-tenada text-[5.125rem] leading-tight tracking-normal mobile:text-3xl"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -130,7 +130,7 @@ export default function Company() {
                 01
               </div>
               <p
-                className="text-2xl font-normal leading-[1.8] content-xs:text-base"
+                className="text-2xl font-normal leading-[1.8] mobile:text-base"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -195,7 +195,7 @@ export default function Company() {
           <section className="mx-auto h-full w-full max-w-screen-2xl">
             <div className="flex flex-col items-center justify-center content-lg:mx-[20vw] content-lg:items-end">
               <h1
-                className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
+                className="font-tenada text-[5.125rem] leading-tight tracking-normal mobile:text-3xl"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -210,7 +210,7 @@ export default function Company() {
                 02
               </div>
               <p
-                className="text-2xl font-normal leading-[1.8] content-xs:text-base"
+                className="text-2xl font-normal leading-[1.8] mobile:text-base"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -277,7 +277,7 @@ export default function Company() {
           <section className="mx-auto h-full w-full max-w-screen-2xl">
             <div className="flex w-full flex-col items-center justify-center content-lg:mx-[20vw] content-lg:block">
               <h1
-                className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl mobile:text-center"
+                className="font-tenada text-[5.125rem] leading-tight tracking-normal mobile:text-center mobile:text-3xl"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -292,7 +292,7 @@ export default function Company() {
                 03
               </div>
               <p
-                className="text-2xl font-normal leading-[1.8] content-xs:text-base"
+                className="text-2xl font-normal leading-[1.8] mobile:text-base"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -352,24 +352,26 @@ export default function Company() {
               만들어 냅니다.
             </div>
           </div>
-          <div className="my-20 flex items-center justify-between gap-10 content-md-xs:flex-col-reverse">
-            <div className=" min-h-[27.5rem] rounded-xl bg-[#b5b5ff7c] px-12 py-16 ">
+          <div className="my-20 flex items-center justify-between gap-10 mobile:flex-col-reverse">
+            <div className=" min-h-[27.5rem] rounded-xl bg-[#b5b5ff7c] px-12 py-16  mobile:mx-5 mobile:min-h-80 mobile:px-5">
               <div className="flex flex-1 gap-10 content-md-xs:flex-col content-md-xs:items-center">
-                <CircularSlider
-                  hideKnob
-                  initialValue={30}
-                  label="사용 빈도"
-                  appendToValue="%"
-                  prependToValue=""
-                  labelColor="#ffffff80"
-                  progressColorFrom="#d60e9a"
-                  progressColorTo="#ef8874"
-                  progressSize={4}
-                  trackColor="#dddddd80"
-                  trackSize={4}
-                  dataIndex={stackInfo[selected].scope}
-                  max={100}
-                />
+                <div className="mobile:hidden">
+                  <CircularSlider
+                    hideKnob
+                    initialValue={30}
+                    label="사용 빈도"
+                    appendToValue="%"
+                    prependToValue=""
+                    labelColor="#ffffff80"
+                    progressColorFrom="#d60e9a"
+                    progressColorTo="#ef8874"
+                    progressSize={4}
+                    trackColor="#dddddd80"
+                    trackSize={4}
+                    dataIndex={stackInfo[selected].scope}
+                    max={100}
+                  />
+                </div>
                 <div>
                   <div className="flex flex-col gap-8 content-md-xs:items-center content-md-xs:text-center">
                     <div className="mobile:hidden">
@@ -563,14 +565,16 @@ export default function Company() {
   );
 }
 
-const IntroSection = ({ title, description }: Introduce) => (
-  <div className="flex flex-col gap-5">
-    <p className="border-b border-white/60 pb-4 text-lg font-bold mobile:text-base">
-      {title}
-    </p>
-    <div>
-      <p className="mobile:hidden">{description.hidden}</p>
-      <p>{description.visible}</p>
+function IntroSection({ title, description }: Introduce) {
+  return (
+    <div className="flex flex-col gap-5">
+      <p className="border-b border-white/60 pb-4 text-lg font-bold mobile:text-base">
+        {title}
+      </p>
+      <div>
+        <p className="mobile:hidden">{description.hidden}</p>
+        <p>{description.visible}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+}

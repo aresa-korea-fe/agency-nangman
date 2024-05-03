@@ -170,6 +170,50 @@ export const handlelabelColors = (str: string) => {
   }
 };
 
+export const skillSections = [
+  {
+    title: "Planning & Design",
+    number: "01",
+    description:
+      "우리는 서비스를 새로운 관점으로 분석 후 웹에 적합한 형태로 조립하여 누구나 만족하는 결과물을 창출합니다.",
+    links: [
+      { href: "/growth/bx-publishing", text: "BX Design", number: "01" },
+      {
+        href: "/growth/design-planning",
+        text: "Design-planning",
+        number: "02",
+      },
+    ],
+  },
+  {
+    title: "Publishing & Development",
+    number: "02",
+    description:
+      "새롭게 탄생한 디자인을 코드로 구현하고 서비스의 흐름에 따라 적절히 동작하도록 생명력을 부여합니다.",
+    links: [
+      { href: "/growth/bx-publishing", text: "BX Publishing", number: "01" },
+      {
+        href: "/growth/app-web-service",
+        text: "APP/WEB Service",
+        number: "02",
+      },
+    ],
+  },
+  {
+    title: "Support Business Consulting",
+    number: "03",
+    description:
+      "정부의 지원사업 컨설팅은 스타트업의 활력과 성장력을 부여합니다. 스튜디오 낭만의 노하우로 함께 항해합니다.",
+    links: [
+      {
+        href: "/project-request",
+        text: "스튜디오 낭만 Contact us",
+        number: "01",
+      },
+    ],
+  },
+];
+
 export const introduce: Introduce[] = [
   {
     title: "about us",
