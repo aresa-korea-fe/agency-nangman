@@ -16,6 +16,7 @@ const config: Config = {
       },
       spacing: {
         "120-full": "120%",
+        in: "inherit",
       },
       boxShadow: {
         innerOn: "inset 0 0 0 2px #5B89FF",
@@ -30,6 +31,7 @@ const config: Config = {
         black: "#18181A",
         navyBlue: "#132962",
         nangmanBlue: "#234098",
+        FluorescentBlue: "#0efcfe",
       },
       screens: {
         "content-xs": { max: "389px" },

@@ -27,6 +27,14 @@ import {
   useState,
 } from "react";
 
+const urls: string[] = [
+  "",
+  "company",
+  "project-request",
+  "growth",
+  "estimation",
+];
+
 const products = [
   {
     name: "VERBAL BRANDING",
@@ -101,13 +109,15 @@ export default function Header() {
 function MobileHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const closeModal = () => setMobileMenuOpen(false);
+  const segment = useSelectedLayoutSegment() || "";
+  const isActive = () => urls.includes(segment);
 
   return (
-    <nav className="fixed right-0 top-0 z-[2] p-6 px-8" aria-label="Global">
+    <nav className="fixed right-0 top-0 z-[11] p-6 px-8" aria-label="Global">
       <div className="flex">
         <button
           type="button"
-          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 ${isActive() ? "text-white" : "text-gray-700"}`}
           onClick={() => setMobileMenuOpen(true)}
         >
           <span className="sr-only">Open main menu</span>
@@ -235,13 +245,6 @@ function DesktopHeader() {
   const headerContainer = useRef<HTMLDivElement>(null);
 
   const segment = useSelectedLayoutSegment() || "";
-  const urls: string[] = [
-    "",
-    "company",
-    "project-request",
-    "growth",
-    "Estimation",
-  ];
 
   const isActive = () => urls.includes(segment);
 
