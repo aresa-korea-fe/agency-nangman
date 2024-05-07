@@ -15,6 +15,7 @@ export default function RouterModal({ children }: props) {
   const router = useRouter();
 
   const isClose = () => {
+    isOpen(false);
     router.back();
   };
 
@@ -22,7 +23,7 @@ export default function RouterModal({ children }: props) {
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-10 w-full"
+        className="relative z-50 w-full"
         initialFocus={cancelButtonRef}
         onClose={isClose}
       >
