@@ -8,176 +8,19 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 import CircularSlider from "@fseehawer/react-circular-slider";
+import {
+  Introduce,
+  handlelabelColors,
+  introduce,
+  stackInfo,
+} from "@/constants/company.data";
 
 export default function Company() {
   const [shouldDisplay, setShouldDisplay] = useState(true);
   const [opacity, setOpacity] = useState(0.5);
   const [selected, setSelected] = useState<number>(0);
-  const stackInfo = [
-    {
-      name: "javascript",
-      icon: "/icons/tech-stacks/js.webp",
-      category: ["frontend", "backend"],
-      scope: 75,
-      subText:
-        "낭만에게 자바스크립트는 단순한 프로그래밍 언어가 아닙니다. \n 우리의 창의성을 펼칠 수 있는 캔버스이자, 사용자와 서비스를 이어주는 매개체입니다.",
-    },
-    {
-      name: "typescript",
-      icon: "/icons/tech-stacks/typescript.webp",
-      category: ["frontend", "backend"],
-      scope: 100,
-      subText:
-        "타입스크립트는 낭만 서비스의 견고함을 제공합니다. 정적 타입을 통해 더 명확하고 안정적인 코드를 작성할 수 있게 해줍니다.",
-    },
-    {
-      name: "java",
-      icon: "/icons/tech-stacks/java.webp",
-      category: ["backend"],
-      scope: 50,
-      subText:
-        "자바는 강력한 객체 지향 프로그래밍 언어로, 낭만의 백엔드 시스템을 구축하는 데 있어 효율적인 성능과 보안을 제공합니다.",
-    },
-    {
-      name: "ReactJS",
-      icon: "/icons/tech-stacks/reactjs.webp",
-      category: ["frontend"],
-      scope: 40,
-      subText:
-        "ReactJS는 사용자 인터페이스를 더욱 살아있게 만듭니다. 우리의 프론트엔드를 빠르고 효율적으로 구축할 수 있게 해줍니다.",
-    },
-    {
-      name: "nextJS",
-      icon: "/icons/tech-stacks/nextjs.webp",
-      category: ["frontend", "backend"],
-      scope: 50,
-      subText:
-        "NextJS는 React 기반의 프레임워크로서, 서버 사이드 렌더링과 정적 웹 사이트 생성을 지원합니다. 낭만은 이를 활용하여 빠르고 최적화된 웹 경험을 제공합니다.",
-    },
-    {
-      name: "React native",
-      icon: "/icons/tech-stacks/reactjs.webp",
-      category: ["frontend"],
-      scope: 60,
-      subText:
-        "React Native는 서비스를 모바일로 확장하는 데 있어 핵심입니다. 하나의 코드베이스로 다양한 플랫폼에 앱을 제공할 수 있습니다.",
-    },
-    {
-      name: "flutter",
-      icon: "/icons/tech-stacks/flutter.webp",
-      category: ["frontend"],
-      scope: 68,
-      subText:
-        "Flutter는 낭만 서비스의 모바일 앱 개발을 혁신합니다. 빠른 개발 속도와 아름다운 UI로 사용자 경험을 한 차원 높여줍니다.",
-    },
-    {
-      name: "angular",
-      icon: "/icons/tech-stacks/angular.webp",
-      category: ["frontend"],
-      scope: 50,
-      subText:
-        "강력한 프론트엔드 프레임워크로, 낭만 서비스는 이를 사용하여 대규모의 고성능 애플리케이션을 구축합니다.",
-    },
-    {
-      name: "vueJS",
-      icon: "/icons/tech-stacks/vuejs.webp",
-      category: ["frontend"],
-      scope: 55,
-      subText:
-        "점진적으로 채택할 수 있는 아키텍처를 가진 프론트엔드 프레임워크입니다. 낭만 서비스에서는 이를 활용하여 유연하고 확장 가능한 웹 인터페이스를 구축합니다.",
-    },
-    {
-      name: "nodeJS",
-      icon: "/icons/tech-stacks/nodejs.webp",
-      category: ["backend"],
-      scope: 94,
-      subText:
-        "서버 측에서의 자바스크립트 실행을 가능하게 하여, 낭만 서비스의 백엔드를 효율적으로 구성할 수 있는 힘을 제공합니다.",
-    },
-    {
-      name: "spring boot",
-      icon: "/icons/tech-stacks/spring boot.webp",
-      category: ["backend"],
-      scope: 45,
-      subText:
-        "빠르고, 간편한 백엔드 개발을 가능하게 하여, 낭만 서비스의 안정성과 확장성을 기초로 합니다.",
-    },
-    {
-      name: "AWS",
-      icon: "/icons/tech-stacks/aws.webp",
-      category: ["cloud"],
-      scope: 84,
-      subText:
-        "강력한 클라우드 인프라를 제공하여, 낭만 서비스의 전 세계 사용자에게 안정적으로 접근할 수 있는 환경을 마련합니다.",
-    },
-    {
-      name: "NHN cloud",
-      icon: "/icons/tech-stacks/nhn-cloud.webp",
-      category: ["cloud"],
-      scope: 72,
-      subText:
-        "국내 최적화된 클라우드 서비스를 통해, 낭만 서비스의 데이터 처리와 저장이 더욱 빠르고 안정적입니다.",
-    },
-    {
-      name: "cloud type",
-      icon: "/icons/tech-stacks/cloudtype.webp",
-      category: ["cloud"],
-      scope: 80,
-      subText:
-        "다양한 클라우드 솔루션을 통합 관리하고 더 간편한 배포 방식과 소통 시스템은 낭만의 운영 효율성을 극대화합니다.",
-    },
-    {
-      name: "photoshop",
-      icon: "/icons/tech-stacks/photoshop.webp",
-      category: ["design"],
-      scope: 75,
-      subText:
-        "낭만적인 시각적 컨텐츠 제작에 필수적이며, 사용자 인터페이스의 아름다움을 창조하는 데 중요한 역할을 합니다.",
-    },
-    {
-      name: "illustrator",
-      icon: "/icons/tech-stacks/illustrator.webp",
-      category: ["design"],
-      scope: 62,
-      subText:
-        "벡터 기반 디자인을 통해, 낭만 서비스의 브랜딩과 시각적 요소를 세련되게 표현합니다.",
-    },
-    {
-      name: "XD",
-      icon: "/icons/tech-stacks/xd.webp",
-      category: ["design", "prototype", "UI&UX"],
-      scope: 52,
-      subText:
-        "사용자 경험(UX) 디자인과 프로토타이핑을 통해, 낭만 서비스의 사용자 인터페이스를 직관적이고 매력적으로 만듭니다.",
-    },
-    {
-      name: "figma",
-      icon: "/icons/tech-stacks/figma.webp",
-      category: ["design", "prototype", "UI&UX"],
-      scope: 89,
-      subText:
-        "협업을 중심으로 한 디자인 도구로서, 낭만 서비스의 디자인 작업을 더욱 신속하고 효율적으로 만들어, 창의적인 아이디어를 현실로 전환합니다.",
-    },
-  ];
 
   const justforyou = useRef(null);
-
-  const handlelabelColors = (str: string) => {
-    switch (str) {
-      case "frontend":
-        return "bg-sky-300";
-      case "backend":
-        return "bg-orange-300";
-      case "cloud":
-        return "bg-indigo-300";
-      case "prototype":
-        return "bg-fuchsia-300";
-      case "design":
-        return "bg-yellow-300";
-      default:
-        return "bg-red-300";
-    }
-  };
 
   useEffect(() => {
     AOS.init({
@@ -234,7 +77,7 @@ export default function Company() {
   }, [shouldDisplay]);
 
   return (
-    <main className="relative bg-[#040002] text-white">
+    <main className="h-full w-screen bg-[#040002] text-white">
       <div className="fixed left-0 top-0 flex h-full w-full bg-[#040002]">
         <video
           autoPlay
@@ -246,68 +89,34 @@ export default function Company() {
         </video>
       </div>
 
-      <div className="relative flex h-screen items-center justify-center tracking-normal">
-        <div className="absolute top-1/3 text-center text-8xl font-bold leading-none content-xs:text-3xl content-sm:text-5xl content-md-xs:top-24 content-md:text-6xl">
+      <section className="relative mx-auto flex h-screen w-screen max-w-screen-2xl items-end p-20 tracking-normal mobile:px-5 mobile:pb-20">
+        <div className="absolute left-0 right-0 top-1/3 flex-1 text-center text-8xl font-bold leading-none content-xs:text-3xl content-sm:text-5xl mobile:top-[20%] content-md:text-6xl">
           <span
             ref={justforyou}
             className="font-tenada neon-effect-blue tracking-tight "
           ></span>
         </div>
         <div
-          className="absolute bottom-16 flex gap-10 px-10 content-xs:top-40 content-sm:top-60 content-md-xs:flex-col"
+          className="flex justify-between gap-10 mobile:flex-col mobile:gap-5 mobile:px-5 mobile:text-sm"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
-          <div className="flex max-w-[25rem] flex-col gap-5 content-xs:gap-3 content-sm:gap-3">
-            <p className="text-xl font-medium content-xs:text-base content-sm:text-xl">
-              about us
-            </p>
-            <div className="w-full border-b border-white/80"></div>
-            <p className="text-lg text-white/60 content-xs:text-sm content-sm:text-lg">
-              <p className="mobile:hidden">
-                스튜디오 낭만은 디지털 아티스트들이 모여 브랜드와 사람을 잇는
-                여정을 시작했습니다.
-              </p>
-              빠르게 변화하는 웹 트렌드 속에서 우리는 중심을 잃지 않고
-              항해합니다.
-            </p>
-          </div>
-          <div className="flex max-w-[25rem] flex-col gap-5">
-            <p className="text-xl font-medium content-xs:text-base content-sm:text-xl">
-              our philosophy
-            </p>
-            <div className="w-full border-b border-white/80"></div>
-            <p className="text-lg text-white/60 content-xs:text-sm content-sm:text-lg">
-              <p className="mobile:hidden">
-                우리는 서비스의 가치를 알아내고 본질을 찾아내기 위해 노력합니다.
-              </p>
-              전략적인 시각과 창의적인 아이디어에 세련된 디자인을 더하여 최적의
-              솔루션을 제공합니다.
-            </p>
-          </div>
-          <div className="flex max-w-[25rem] flex-col gap-5">
-            <p className="text-xl font-medium content-xs:text-base content-sm:text-xl">
-              Focused
-            </p>
-            <div className="w-full border-b border-white/80"></div>
-            <p className="text-lg text-white/60 content-xs:text-sm content-sm:text-lg">
-              <p className="mobile:hidden">
-                우리는 혼자 모든걸 해내는 슈퍼플레이어보다 다 함께 항해하는
-                선원으로 이뤄져 있습니다.
-              </p>
-              새로운 브랜드 가치와 웹 서비스로 고객만족의 목표를 완성하는 것.
-              그것이 우리의 낭만입니다.
-            </p>
-          </div>
+          {introduce.map((section, index) => (
+            <IntroSection
+              key={index}
+              title={section.title}
+              description={section.description}
+            />
+          ))}
         </div>
-      </div>
+      </section>
 
       <div className="flex w-screen flex-col gap-32 px-10 py-[120px] backdrop-blur-2xl">
         <div className="flex flex-col gap-60">
           <section className="mx-auto h-full w-full max-w-screen-2xl ">
             <div className="flex w-full flex-col items-center justify-center content-lg:mx-[20vw] content-lg:block">
               <h1
-                className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
+                className="font-tenada text-[5.125rem] leading-tight tracking-normal mobile:text-3xl"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -321,7 +130,7 @@ export default function Company() {
                 01
               </div>
               <p
-                className="text-2xl font-normal leading-[1.8] content-xs:text-base"
+                className="text-2xl font-normal leading-[1.8] mobile:text-base"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -386,7 +195,7 @@ export default function Company() {
           <section className="mx-auto h-full w-full max-w-screen-2xl">
             <div className="flex flex-col items-center justify-center content-lg:mx-[20vw] content-lg:items-end">
               <h1
-                className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl"
+                className="font-tenada text-[5.125rem] leading-tight tracking-normal mobile:text-3xl"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -401,7 +210,7 @@ export default function Company() {
                 02
               </div>
               <p
-                className="text-2xl font-normal leading-[1.8] content-xs:text-base"
+                className="text-2xl font-normal leading-[1.8] mobile:text-base"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -468,7 +277,7 @@ export default function Company() {
           <section className="mx-auto h-full w-full max-w-screen-2xl">
             <div className="flex w-full flex-col items-center justify-center content-lg:mx-[20vw] content-lg:block">
               <h1
-                className="font-tenada text-[5.125rem] leading-tight tracking-normal content-xs:text-3xl content-sm:text-5xl mobile:text-center"
+                className="font-tenada text-[5.125rem] leading-tight tracking-normal mobile:text-center mobile:text-3xl"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -483,7 +292,7 @@ export default function Company() {
                 03
               </div>
               <p
-                className="text-2xl font-normal leading-[1.8] content-xs:text-base"
+                className="text-2xl font-normal leading-[1.8] mobile:text-base"
                 data-aos="fade-up"
                 data-aos-duration="1000"
               >
@@ -543,27 +352,29 @@ export default function Company() {
               만들어 냅니다.
             </div>
           </div>
-          <div className="my-20 flex items-center justify-between gap-10 content-md-xs:flex-col-reverse">
-            <div className=" min-h-[27.5rem] rounded-xl bg-[#b5b5ff7c] px-12  py-16">
+          <div className="my-20 flex items-center justify-between gap-10 mobile:flex-col-reverse">
+            <div className=" min-h-[27.5rem] rounded-xl bg-[#b5b5ff7c] px-12 py-16  mobile:mx-5 mobile:min-h-80 mobile:px-5">
               <div className="flex flex-1 gap-10 content-md-xs:flex-col content-md-xs:items-center">
-                <CircularSlider
-                  hideKnob
-                  initialValue={30}
-                  label="사용 빈도"
-                  appendToValue="%"
-                  prependToValue=""
-                  labelColor="#ffffff80"
-                  progressColorFrom="#d60e9a"
-                  progressColorTo="#ef8874"
-                  progressSize={4}
-                  trackColor="#dddddd80"
-                  trackSize={4}
-                  dataIndex={stackInfo[selected].scope}
-                  max={100}
-                />
+                <div className="mobile:hidden">
+                  <CircularSlider
+                    hideKnob
+                    initialValue={30}
+                    label="사용 빈도"
+                    appendToValue="%"
+                    prependToValue=""
+                    labelColor="#ffffff80"
+                    progressColorFrom="#d60e9a"
+                    progressColorTo="#ef8874"
+                    progressSize={4}
+                    trackColor="#dddddd80"
+                    trackSize={4}
+                    dataIndex={stackInfo[selected].scope}
+                    max={100}
+                  />
+                </div>
                 <div>
                   <div className="flex flex-col gap-8 content-md-xs:items-center content-md-xs:text-center">
-                    <div>
+                    <div className="mobile:hidden">
                       <Image
                         src={stackInfo[selected].icon}
                         alt={stackInfo[selected].name}
@@ -594,7 +405,7 @@ export default function Company() {
                 </div>
               </div>
             </div>
-            <div className="flex max-w-[43.75rem] flex-wrap gap-5">
+            <div className="flex max-w-[43.75rem] flex-wrap gap-5 mobile:hidden">
               {stackInfo.map((stack, index) => (
                 <div
                   key={index}
@@ -751,5 +562,19 @@ export default function Company() {
         </section>
       </div>
     </main>
+  );
+}
+
+function IntroSection({ title, description }: Introduce) {
+  return (
+    <div className="flex flex-col gap-5">
+      <p className="border-b border-white/60 pb-4 text-lg font-bold mobile:text-base">
+        {title}
+      </p>
+      <div>
+        <p className="mobile:hidden">{description.hidden}</p>
+        <p>{description.visible}</p>
+      </div>
+    </div>
   );
 }

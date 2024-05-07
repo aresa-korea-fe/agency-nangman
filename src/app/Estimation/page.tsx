@@ -174,7 +174,16 @@ export default function Estimation() {
           <source src="/second.webm" type="video/webm" />
         </video>
       </div>
-      <section className="relative mx-auto flex h-full max-w-[90vw] justify-between gap-8 xl:max-w-screen-xl">
+      <section className="relative mx-auto flex h-full w-full max-w-[90vw] justify-between gap-8 xl:max-w-screen-xl mobile:flex-col mobile:gap-0">
+        <article className="sticky top-14 z-20 hidden h-28 w-full mobile:block">
+          <MobileSideBox
+            selected={selected}
+            basic={basic}
+            premium={premium}
+            formatUnit={formatUnit}
+            handleSelect={handleSelect}
+          />
+        </article>
         <article className="grid min-w-fit grid-cols-2 gap-4 content-lg:grid-cols-3">
           {data.map((item, index) => {
             return (
@@ -203,76 +212,129 @@ export default function Estimation() {
             );
           })}
         </article>
-        <article className="fixed bottom-0">
-          <div>
-            <p>선택된 기능 {selected.length}개</p>
-          </div>
-        </article>
         <article className="sticky top-28 -mt-28 h-[100px] w-full mobile:hidden">
-          <div className="flex flex-col gap-8 px-6 py-4">
-            <div className="flex flex-col gap-3">
-              <p className="text-lg font-bold ">선택한 기능</p>
-              {selected.length > 0 ? (
-                <div className="flex flex-wrap gap-2">
-                  {selected.map((select, index) => (
-                    <div
-                      key={index}
-                      className="rounded-full bg-gray-200 px-3 py-1 text-sm text-nangmanBlue/80"
-                      onClick={() => handleSelect(select)}
-                    >
-                      {select.name}
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-white/60">기능을 선택해 주세요.</p>
-              )}
-            </div>
-            <div className="min-w-80 rounded-lg bg-white/30 p-6 backdrop-blur-2xl">
-              {selected.length > 0 ? (
-                <div className="flex flex-col gap-5">
-                  <div className="flex w-full flex-col gap-4">
-                    <div className="flex flex-col gap-2">
-                      <p className="text-FluorescentBlue text-lg font-bold ">
-                        Basic
-                      </p>
-                      <p className="flex text-2xl font-bold text-white">
-                        {formatUnit(basic * 10000)}원~
-                      </p>
-                    </div>
-                    <p className="text-white/80">
-                      - 효율적인 가격과 기간
-                      <br /> - 10페이지 이내, 3주 이상
-                    </p>
-                  </div>
-
-                  <div className="w-full border-b border-white/60"></div>
-
-                  <div className="flex w-full flex-col gap-4">
-                    <div className="flex flex-col gap-2">
-                      <p className="text-FluorescentBlue text-lg font-bold ">
-                        Premium
-                      </p>
-                      <p className="flex text-2xl font-bold text-white">
-                        {formatUnit(premium * 10000)}원~
-                      </p>
-                    </div>
-                    <p className="text-white/80">
-                      - 수준 높은 웹서비스와 유지보수
-                      <br /> - 40페이지 이내, 2달 이상
-                    </p>
-                  </div>
-                </div>
-              ) : (
-                <div className="py-32 text-center">
-                  원하시는 기능을 선택하시면
-                  <br /> 예상 견적을 확인하실 수 있어요.
-                </div>
-              )}
-            </div>
-          </div>
+          <DesktopSideBox
+            selected={selected}
+            basic={basic}
+            premium={premium}
+            formatUnit={formatUnit}
+            handleSelect={handleSelect}
+          />
         </article>
       </section>
     </main>
+  );
+}
+interface DesktopSideBoxProps {
+  selected: IEstimation.IDto[];
+  basic: number;
+  premium: number;
+  formatUnit: (num: number) => string;
+  handleSelect: (item: IEstimation.IDto) => void;
+}
+
+function MobileSideBox({
+  selected,
+  formatUnit,
+  basic,
+  premium,
+}: DesktopSideBoxProps) {
+  return (
+    <div className=" rounded-xl bg-navyBlue p-5">
+      {selected.length < 1 ? (
+        <p>기능을 선택해주세요.</p>
+      ) : (
+        <div className="flex w-full flex-col gap-4 leading-tight">
+          <p className="font-bold">선택한 기능 {selected.length}개</p>
+          <div className="flex items-start justify-between gap-4">
+            <p className="flex-nowrap gap-2 overflow-hidden text-ellipsis whitespace-nowrap text-white/80">
+              {selected.reduce((acc, select, index) => {
+                acc += select.name;
+                if (index < selected.length - 1) {
+                  acc += " · ";
+                }
+                return acc;
+              }, "")}
+            </p>
+            <div className="flex-1 whitespace-nowrap border-l pl-4 leading-none">
+              <p className="font-bold text-FluorescentBlue">
+                {formatUnit(basic * 10000)}원~
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DesktopSideBox({
+  selected,
+  basic,
+  premium,
+  formatUnit,
+  handleSelect,
+}: DesktopSideBoxProps) {
+  return (
+    <div className="flex flex-col gap-8 px-6 py-4">
+      <div className="flex flex-col gap-3">
+        <p className="text-lg font-bold">선택한 기능</p>
+        {selected.length > 0 ? (
+          <div className="flex flex-wrap gap-2">
+            {selected.map((select, index) => (
+              <div
+                key={index}
+                className="rounded-full bg-gray-200 px-3 py-1 text-sm text-nangmanBlue/80"
+                onClick={() => handleSelect(select)}
+              >
+                {select.name}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-white/60">기능을 선택해 주세요.</p>
+        )}
+      </div>
+      <div className="min-w-80 rounded-lg bg-white/30 p-6 backdrop-blur-2xl">
+        {selected.length > 0 ? (
+          <div className="flex flex-col gap-5">
+            <div className="flex w-full flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <p className="text-lg font-bold text-FluorescentBlue">Basic</p>
+                <p className="flex text-2xl font-bold text-white">
+                  {formatUnit(basic * 10000)}원~
+                </p>
+              </div>
+              <p className="text-white/80">
+                - 효율적인 가격과 기간
+                <br /> - 10페이지 이내, 3주 이상
+              </p>
+            </div>
+
+            <div className="w-full border-b border-white/60"></div>
+
+            <div className="flex w-full flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <p className="text-lg font-bold text-FluorescentBlue">
+                  Premium
+                </p>
+                <p className="flex text-2xl font-bold text-white">
+                  {formatUnit(premium * 10000)}원~
+                </p>
+              </div>
+              <p className="text-white/80">
+                - 수준 높은 웹서비스와 유지보수
+                <br /> - 40페이지 이내, 2달 이상
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="py-32 text-center">
+            원하시는 기능을 선택하시면
+            <br /> 예상 견적을 확인하실 수 있어요.
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
