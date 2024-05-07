@@ -26,13 +26,16 @@ export default function Loader() {
       </div>
 
       <div className="flex flex-col items-center gap-5">
-        <Image
-          src="/nangman_logo@4x.png"
-          alt="Agency nangman"
-          width={100}
-          height={100}
-          className="h-auto w-auto"
-        />
+        <div className="w-20">
+          <Image
+            src="/nangman_logo@4x.png"
+            alt="Agency nangman"
+            width={100}
+            height={100}
+            className="h-auto w-auto"
+          />
+        </div>
+
         <p className="text-3xl font-bold">Studio NANGMAN</p>
       </div>
 
@@ -84,13 +87,15 @@ export default function Loader() {
       </div>
 
       <div className="flex flex-col items-center gap-5">
-        <Image
-          src="/nangman_logo@4x.png"
-          alt="Agency nangman"
-          width={100}
-          height={100}
-          className="h-auto w-auto"
-        />
+        <div className="w-20">
+          <Image
+            src="/nangman_logo@4x.png"
+            alt="Agency nangman"
+            width={100}
+            height={100}
+            className="h-auto w-auto"
+          />
+        </div>
         <p className="text-3xl font-bold">Studio NANGMAN</p>
       </div>
 

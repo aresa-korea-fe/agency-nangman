@@ -27,13 +27,7 @@ import {
   useState,
 } from "react";
 
-const urls: string[] = [
-  "",
-  "company",
-  "project-request",
-  "growth",
-  "estimation",
-];
+const urls: string[] = ["", "company", "project-request", "estimation"];
 
 const products = [
   {
@@ -110,20 +104,54 @@ function MobileHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const closeModal = () => setMobileMenuOpen(false);
   const segment = useSelectedLayoutSegment() || "";
-  const isActive = () => urls.includes(segment);
+  const isActive = () => urls.indexOf(segment);
 
   return (
-    <nav className="fixed right-0 top-0 z-[11] p-6 px-8" aria-label="Global">
-      <div className="flex">
-        <button
+    <nav className="fixed right-0 top-0 z-50 p-6 px-8" aria-label="Global">
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="flex h-6 w-6 flex-col items-center justify-center"
+      >
+        <span
+          className={`block h-0.5 w-6 rounded-sm  
+                    bg-black transition-all duration-300 ease-out ${
+                      !mobileMenuOpen
+                        ? isActive() !== -1
+                          ? "-translate-y-0.5 bg-white"
+                          : "-translate-y-0.5"
+                        : "translate-y-1 rotate-45 "
+                    }`}
+        ></span>
+        <span
+          className={`my-0.5 block h-0.5 w-6 rounded-sm 
+                     bg-black transition-all duration-300 ease-out ${
+                       !mobileMenuOpen
+                         ? isActive() !== -1
+                           ? "bg-white opacity-100"
+                           : "opacity-100"
+                         : "opacity-0"
+                     }`}
+        ></span>
+        <span
+          className={`block h-0.5 w-6 rounded-sm
+                    bg-black transition-all duration-300 ease-out ${
+                      !mobileMenuOpen
+                        ? isActive() !== -1
+                          ? "translate-y-0.5 bg-white"
+                          : "translate-y-0.5"
+                        : "-translate-y-1 -rotate-45 "
+                    }`}
+        ></span>
+      </button>
+      {/* <button
           type="button"
-          className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 ${isActive() ? "text-white" : "text-gray-700"}`}
+          className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5`}
+          style={{ color: isActive() !== -1 ? "white" : "gray" }}
           onClick={() => setMobileMenuOpen(true)}
         >
           <span className="sr-only">Open main menu</span>
           <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-        </button>
-      </div>
+        </button> */}
       <Dialog
         as="div"
         className="lg:hidden"
@@ -145,7 +173,7 @@ function MobileHeader() {
             </a>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 rounded-md p-2.5 text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
@@ -162,7 +190,13 @@ function MobileHeader() {
                 >
                   ABOUT US
                 </Link>
-
+                <Link
+                  onClick={closeModal}
+                  href="/estimation"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  PRICING
+                </Link>
                 <Disclosure as="div" className="-mx-3">
                   {({ open }) => (
                     <>
@@ -243,11 +277,6 @@ function useHandleScroll(
 function DesktopHeader() {
   const [hideHeader, setHideHeader] = useState(false);
   const headerContainer = useRef<HTMLDivElement>(null);
-
-  const segment = useSelectedLayoutSegment() || "";
-
-  const isActive = () => urls.includes(segment);
-
   useHandleScroll(headerContainer, setHideHeader); // 커스텀 훅 사용
 
   return (
@@ -259,24 +288,31 @@ function DesktopHeader() {
         <Popover.Group className="pointer-events-auto flex gap-8 rounded-[40px] bg-black px-4">
           <Link
             href="/"
-            className={`relative px-6 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white " : "text-gray-900"}
-        after:absolute after:right-0 after:top-1/3 after:h-1/3 after:w-[1px] after:bg-white/50`}
+            className={`"text-white" relative px-6 py-4 text-xs font-semibold uppercase after:absolute
+        after:right-0 after:top-1/3 after:h-1/3 after:w-[1px] after:bg-white/50 lg:text-sm`}
           >
             낭만.
           </Link>
 
           <Link
             href="/company"
-            className={`py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+            className={`"text-white" py-4 text-xs font-semibold uppercase lg:text-sm`}
           >
             about us
+          </Link>
+
+          <Link
+            href="/estimation"
+            className={`"text-white" py-4 text-xs font-semibold uppercase lg:text-sm`}
+          >
+            PRICING
           </Link>
 
           <Popover className="relative">
             {({ open, close }) => (
               <>
                 <Popover.Button
-                  className={`flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+                  className={`"text-white" flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm`}
                 >
                   성장기록물
                 </Popover.Button>
@@ -343,7 +379,7 @@ function DesktopHeader() {
 
           <Link
             href="/project-request"
-            className={`py-4 pr-5 text-xs font-semibold uppercase lg:text-sm ${isActive() ? "text-white" : "text-gray-900"}`}
+            className={`"text-white" py-4 pr-5 text-xs font-semibold uppercase lg:text-sm`}
           >
             contact
           </Link>

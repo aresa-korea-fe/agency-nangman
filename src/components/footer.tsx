@@ -3,9 +3,10 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export default function Footer() {
+  const [infoOpen, setInfoOpen] = useState(false);
   const tel = "080-8798-0110";
   const routerPath = usePathname(); // useRouter 훅 사용
 
@@ -14,21 +15,25 @@ export default function Footer() {
     return null;
   }
   return (
-    <footer className="relative z-10 w-screen bg-[#234098]">
-      <div className="mx-auto flex items-center  justify-between bg-black/80 px-20 py-10 mobile:flex-col mobile:gap-10 mobile:px-0">
-        <div className="flex flex-col items-start gap-4 mobile:w-full mobile:items-center">
-          <div className="flex gap-3">
-            <Image
-              src="/nangman_logo@4x.png"
-              alt="Agency nangman"
-              width={32}
-              height={32}
-            />
-            <p className="text-3xl font-bold leading-none text-white">
+    <footer className="relative w-screen bg-[#234098]">
+      <div className="mx-auto flex items-center justify-between bg-black/80 px-20 py-10 mobile:flex-col mobile:gap-10 mobile:px-10">
+        <div className="flex flex-col items-start gap-4 mobile:w-full mobile:items-start mobile:gap-2">
+          <div className="flex items-center gap-3 mobile:gap-2">
+            <div className="h-10 w-10 mobile:h-6 mobile:w-6">
+              <Image
+                src="/nangman_logo@4x.png"
+                alt="Agency nangman"
+                width={32}
+                height={32}
+                className="h-auto w-auto"
+              />
+            </div>
+
+            <p className="text-3xl font-bold leading-none text-white mobile:text-xl">
               studio NANGMAN
             </p>
           </div>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10 mobile:gap-5">
             <span className="text-white/60">
               낭만은 언제나 당신의 목소리에 귀 기울입니다.
             </span>
@@ -106,9 +111,10 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/30 bg-black/80 py-4 text-center text-white/30">
-        <span className="mobile:text-xs">
-          COPYRIGHT 2022-2024 STUDIO NANGMAN. ALL RIGHTS RESERVED.
-        </span>
+        <div className="mobile:text-xs">
+          <p>COPYRIGHT 2022-2024 STUDIO NANGMAN.</p>{" "}
+          <p className="mobile:hidden">ALL RIGHTS RESERVED.</p>
+        </div>
       </div>
     </footer>
   );

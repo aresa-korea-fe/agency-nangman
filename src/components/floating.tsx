@@ -19,6 +19,18 @@ export default function Floating() {
     else setWhite(false);
   }, [params]);
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <div
       onClick={handleOpen}

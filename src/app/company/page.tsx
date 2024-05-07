@@ -352,9 +352,9 @@ export default function Company() {
               만들어 냅니다.
             </div>
           </div>
-          <div className="my-20 flex items-center justify-between gap-10 mobile:flex-col-reverse">
-            <div className=" min-h-[27.5rem] rounded-xl bg-[#b5b5ff7c] px-12 py-16  mobile:mx-5 mobile:min-h-80 mobile:px-5">
-              <div className="flex flex-1 gap-10 content-md-xs:flex-col content-md-xs:items-center">
+          <div className="my-20 flex items-center justify-between gap-10 mobile:flex-col">
+            <div className=" min-h-[27.5rem] w-full rounded-xl bg-[#b5b5ff7c] px-12 py-16 mobile:mx-5 mobile:min-h-0 mobile:p-5">
+              <div className="flex flex-1 gap-10">
                 <div className="mobile:hidden">
                   <CircularSlider
                     hideKnob
@@ -373,29 +373,37 @@ export default function Company() {
                   />
                 </div>
                 <div>
-                  <div className="flex flex-col gap-8 content-md-xs:items-center content-md-xs:text-center">
-                    <div className="mobile:hidden">
+                  <div className="flex flex-col gap-8 mobile:gap-3">
+                    <div className="max-w-[6.25rem] mobile:max-w-10">
                       <Image
                         src={stackInfo[selected].icon}
                         alt={stackInfo[selected].name}
                         width={200}
                         height={200}
-                        className="max-w-[6.25rem] "
+                        className="h-auto w-auto"
                       />
                     </div>
                     <div className="flex h-full w-full flex-col gap-3">
-                      <p className="text-3xl font-bold">
+                      <p className="text-3xl font-bold mobile:text-xl">
                         {stackInfo[selected].name}
                       </p>
-                      <div className="flex gap-2">
+                      <div className="flex flex-wrap gap-2">
                         {stackInfo[selected].category.map((category, i) => (
                           <p
                             key={i}
-                            className={`rounded-full ${handlelabelColors(category)} px-2 py-1 text-xs font-bold leading-none text-black/60`}
+                            className={`${handlelabelColors(category)} rounded-full px-2 py-1 text-xs font-bold leading-none text-black/60`}
                           >
                             {category}
                           </p>
                         ))}
+                        <p
+                          className={`hidden rounded-full px-2 py-1 text-xs leading-none text-black/60 text-white mobile:block`}
+                          style={{
+                            background: "#d60e9a" + stackInfo[selected].scope,
+                          }}
+                        >
+                          사용빈도 {stackInfo[selected].scope}%
+                        </p>
                       </div>
                       <p className="h-full max-w-80 font-light tracking-tight">
                         {stackInfo[selected].subText}
@@ -405,20 +413,22 @@ export default function Company() {
                 </div>
               </div>
             </div>
-            <div className="flex max-w-[43.75rem] flex-wrap gap-5 mobile:hidden">
+            <div className="flex max-w-[43.75rem] flex-wrap justify-center gap-5 mobile:gap-2 ">
               {stackInfo.map((stack, index) => (
                 <div
                   key={index}
-                  className={`max-h-24 max-w-24 rounded-xl ${selected === index ? "bg-white shadow-2xl" : "bg-[#b5b5ff29]"} p-4`}
+                  className={`max-h-24 max-w-24 rounded-xl mobile:rounded-full ${selected === index ? "bg-white shadow-2xl" : "bg-[#b5b5ff29]"} p-4`}
                   onClick={() => setSelected(index)}
                 >
-                  <Image
-                    src={stack.icon}
-                    alt={stack.name}
-                    width={200}
-                    height={200}
-                    className={`${selected === index ? "" : "opacity-50 grayscale"}`}
-                  />
+                  <div className="mobile:max-w-5">
+                    <Image
+                      src={stack.icon}
+                      alt={stack.name}
+                      width={200}
+                      height={200}
+                      className={`${selected === index ? "" : "opacity-50 grayscale"}`}
+                    />
+                  </div>
                 </div>
               ))}
             </div>

@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <>
       <html lang="ko">
-        <body className="relative cursor-none">
+        <body className="relative min-h-screen w-screen cursor-none overflow-x-hidden">
           <Header />
           <Floating />
           <ClientSideComponent />

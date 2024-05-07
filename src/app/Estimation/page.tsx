@@ -2,7 +2,7 @@
 
 import DynamicHeroIcon from "@/components/dynamicHeroIcon";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { IEstimation } from "@/interface/dtos/estimation.interface";
 
 export default function Estimation() {
@@ -174,53 +174,69 @@ export default function Estimation() {
           <source src="/second.webm" type="video/webm" />
         </video>
       </div>
-      <section className="relative mx-auto flex h-full w-full max-w-[90vw] justify-between gap-8 xl:max-w-screen-xl mobile:flex-col mobile:gap-0">
-        <article className="sticky top-14 z-20 hidden h-28 w-full mobile:block">
-          <MobileSideBox
-            selected={selected}
-            basic={basic}
-            premium={premium}
-            formatUnit={formatUnit}
-            handleSelect={handleSelect}
-          />
-        </article>
-        <article className="grid min-w-fit grid-cols-2 gap-4 content-lg:grid-cols-3">
-          {data.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className={`${selectedAreaClass(item) ? "border-FluorescentBlue" : "border-transparent"} flex min-h-24 w-full cursor-pointer flex-col gap-3 border bg-white/30 p-6 backdrop-blur-2xl mobile:p-4`}
-                onClick={() => handleSelect(item)}
-              >
-                <div className="flex flex-col gap-2">
-                  <DynamicHeroIcon
-                    icon={`${item.icon}Icon`}
-                    className={`${selectedAreaClass(item) ? "text-FluorescentBlue" : "text-white/40"} h-8 w-8 `}
-                  />
+      <section className="mx-auto h-full w-full max-w-[90vw] xl:max-w-screen-xl  mobile:mx-5">
+        <div className="flex flex-col text-white/80">
+          <h2 className="font-tenada pb-2 leading-[1.1]">
+            어떤 서비스가
+            <br />
+            필요하세요?
+          </h2>
+          <p>필요한 서비스만 쏙쏙 골라서 예상 견적을 확인하세요.</p>
+          <p>투명한 B2B 문화를 위해 합리적인 금액과 서비스를 제안합니다.</p>
+        </div>
+
+        <div className="my-6 h-[1px] bg-white/40"></div>
+
+        <div className="relative flex justify-between gap-8 mobile:flex-col mobile:gap-0">
+          <article className="sticky top-20 z-10 hidden h-52 w-full mobile:block">
+            <MobileSideBox
+              selected={selected}
+              basic={basic}
+              premium={premium}
+              formatUnit={formatUnit}
+              setSelected={setSelected}
+              data={data}
+            />
+          </article>
+          <article className="grid min-w-fit grid-cols-2 gap-4 content-lg:grid-cols-3">
+            {data.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`${selectedAreaClass(item) ? "border-FluorescentBlue" : "border-transparent"} flex min-h-24 w-full cursor-pointer flex-col gap-3 border bg-white/30 p-6 backdrop-blur-2xl mobile:p-4`}
+                  onClick={() => handleSelect(item)}
+                >
+                  <div className="flex flex-col gap-2">
+                    <DynamicHeroIcon
+                      icon={`${item.icon}Icon`}
+                      className={`${selectedAreaClass(item) ? "text-FluorescentBlue" : "text-white/40"} h-8 w-8 `}
+                    />
+                    <p
+                      className={`${selectedAreaClass(item) ? "text-white" : "text-white/60"} text-lg font-bold`}
+                    >
+                      {item.name}
+                    </p>
+                  </div>
                   <p
-                    className={`${selectedAreaClass(item) ? "text-white" : "text-white/60"} text-lg font-bold`}
+                    className={`${selectedAreaClass(item) ? "text-white" : "text-white/60"} max-w-60 tracking-tight`}
                   >
-                    {item.name}
+                    {item.explan}
                   </p>
                 </div>
-                <p
-                  className={`${selectedAreaClass(item) ? "text-white" : "text-white/60"} max-w-60 tracking-tight`}
-                >
-                  {item.explan}
-                </p>
-              </div>
-            );
-          })}
-        </article>
-        <article className="sticky top-28 -mt-28 h-[100px] w-full mobile:hidden">
-          <DesktopSideBox
-            selected={selected}
-            basic={basic}
-            premium={premium}
-            formatUnit={formatUnit}
-            handleSelect={handleSelect}
-          />
-        </article>
+              );
+            })}
+          </article>
+          <article className="sticky top-0 -mt-5 h-[100px] w-full mobile:hidden">
+            <DesktopSideBox
+              selected={selected}
+              basic={basic}
+              premium={premium}
+              formatUnit={formatUnit}
+              setSelected={setSelected}
+              data={data}
+            />
+          </article>
+        </div>
       </section>
     </main>
   );
@@ -230,7 +246,8 @@ interface DesktopSideBoxProps {
   basic: number;
   premium: number;
   formatUnit: (num: number) => string;
-  handleSelect: (item: IEstimation.IDto) => void;
+  setSelected: Dispatch<SetStateAction<IEstimation.IDto[]>>;
+  data: IEstimation.IDto[];
 }
 
 function MobileSideBox({
@@ -238,11 +255,46 @@ function MobileSideBox({
   formatUnit,
   basic,
   premium,
+  setSelected,
+  data,
 }: DesktopSideBoxProps) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = (event: any) => {
+    event.stopPropagation(); // 이벤트 버블링을 막음
+    setOpen(false);
+  };
+
+  const popularSelected = () => {
+    setSelected(data.slice(0, 3));
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <div className=" rounded-xl bg-navyBlue p-5">
+    <div className="rounded-xl bg-navyBlue p-5">
       {selected.length < 1 ? (
-        <p>기능을 선택해주세요.</p>
+        <div className="flex w-full flex-col gap-4 leading-tight">
+          <p className="font-bold">선택한 기능이 없습니다.</p>
+          <p className=" text-white/80">기능을 선택해 주세요.</p>
+          <button
+            type="button"
+            className="cursor-not-allowed rounded-lg bg-nangmanBlue px-5 py-2.5 text-center text-sm font-medium text-white dark:bg-nangmanBlue"
+            onClick={popularSelected}
+          >
+            인기 항목 선택하기
+          </button>
+        </div>
       ) : (
         <div className="flex w-full flex-col gap-4 leading-tight">
           <p className="font-bold">선택한 기능 {selected.length}개</p>
@@ -262,6 +314,78 @@ function MobileSideBox({
               </p>
             </div>
           </div>
+          <button
+            type="button"
+            className="cursor-not-allowed rounded-lg bg-nangmanBlue px-5 py-2.5 text-center text-sm font-medium text-white dark:bg-nangmanBlue"
+            onClick={handleOpen}
+          >
+            선택 견적 전체 보기
+          </button>
+          {open ? (
+            <div
+              className="fixed right-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-black/60"
+              onClick={handleClose}
+            >
+              <div
+                className="flex items-center justify-center outline-none"
+                onClick={handleClose}
+              >
+                <div
+                  className="mx-10 w-full rounded-lg bg-black p-6 backdrop-blur-2xl"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="flex flex-col gap-8">
+                    <div className="flex flex-col gap-3">
+                      <p className="text-lg font-bold">선택한 기능</p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {selected.map((select, index) => (
+                          <div key={index} className="text-white">
+                            {select.name}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="">
+                      <div className="flex flex-col gap-5">
+                        <div className="flex w-full flex-col gap-4">
+                          <div className="flex items-center gap-2">
+                            <p className="text-lg font-bold text-FluorescentBlue">
+                              Basic
+                            </p>
+                            <p className="flex text-lg font-bold text-white">
+                              {formatUnit(basic * 10000)}원~
+                            </p>
+                          </div>
+                          <p className="text-white/80">
+                            - 효율적인 가격과 기간
+                            <br /> - 10페이지 이내, 3주 이상
+                          </p>
+                        </div>
+
+                        <div className="w-full border-b border-white/60"></div>
+
+                        <div className="flex w-full flex-col gap-4">
+                          <div className="flex items-center gap-2">
+                            <p className="text-lg font-bold text-FluorescentBlue">
+                              Premium
+                            </p>
+                            <p className="flex text-lg font-bold text-white">
+                              {formatUnit(premium * 10000)}원~
+                            </p>
+                          </div>
+                          <p className="text-white/80">
+                            - 수준 높은 웹서비스와 유지보수
+                            <br /> - 40페이지 이내, 2달 이상
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : null}
         </div>
       )}
     </div>
@@ -273,8 +397,25 @@ function DesktopSideBox({
   basic,
   premium,
   formatUnit,
-  handleSelect,
+  setSelected,
 }: DesktopSideBoxProps) {
+  const selectedAreaClass = (item: IEstimation.IDto) => {
+    const isFind = selected.find((select) => select.name === item.name);
+    return isFind ? true : false;
+  };
+
+  const handleSelect = (item: IEstimation.IDto) => {
+    if (selectedAreaClass(item)) {
+      const excludeArray = selected.filter(
+        (select) => select.name !== item.name,
+      );
+      setSelected(excludeArray);
+      return;
+    }
+    const includeArray = [...selected, item];
+    setSelected(includeArray);
+  };
+
   return (
     <div className="flex flex-col gap-8 px-6 py-4">
       <div className="flex flex-col gap-3">
