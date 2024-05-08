@@ -91,7 +91,7 @@ export default function Floating() {
           />
         </svg>
       </div>
-      <svg viewBox="0 0 500 500" className="animate-spin-slow">
+      <svg viewBox="0 0 500 500" className="animate-spin-reverse">
         <defs>
           <path
             d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
@@ -103,7 +103,7 @@ export default function Floating() {
             fill={white ? "white" : "black"}
             xlinkHref="#textcircle_top"
           >
-            GET PORTFOLIO
+            GET ROMANCE
           </textPath>
         </text>
       </svg>
