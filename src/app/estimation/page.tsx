@@ -163,7 +163,7 @@ export default function Estimation() {
   ];
 
   return (
-    <main className="flex h-full min-h-screen flex-col items-start justify-start pb-20 pt-80">
+    <main className="flex h-full min-h-screen flex-col items-start justify-start pb-20 pt-80 text-white">
       <div className="fixed left-0 top-0 -z-10 flex h-full w-full bg-[#040002]">
         <video
           autoPlay
@@ -417,7 +417,7 @@ function DesktopSideBox({
   };
 
   return (
-    <div className="flex flex-col gap-8 px-6 py-4">
+    <div className="flex flex-col gap-8 px-6 py-4 text-white">
       <div className="flex flex-col gap-3">
         <p className="text-lg font-bold">선택한 기능</p>
         {selected.length > 0 ? (

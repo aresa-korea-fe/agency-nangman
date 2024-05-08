@@ -282,13 +282,13 @@ function DesktopHeader() {
   return (
     <div
       ref={headerContainer}
-      className={`pointer-events-none fixed left-0 z-[11] w-full ${hideHeader ? "-top-40 duration-700 ease-in" : "top-0  duration-700 ease-in"}`}
+      className={`pointer-events-none fixed left-0 z-[11] w-full text-white ${hideHeader ? "-top-40 duration-700 ease-in" : "top-0  duration-700 ease-in"}`}
     >
       <header className="flex w-full items-center justify-center py-12 pb-0 pt-10 lg:pt-12">
         <Popover.Group className="pointer-events-auto flex gap-8 rounded-[40px] bg-black px-4">
           <Link
             href="/"
-            className={`"text-white" relative px-6 py-4 text-xs font-semibold uppercase after:absolute
+            className={`relative px-6 py-4 text-xs font-semibold uppercase text-white after:absolute
         after:right-0 after:top-1/3 after:h-1/3 after:w-[1px] after:bg-white/50 lg:text-sm`}
           >
             낭만.
@@ -296,14 +296,14 @@ function DesktopHeader() {
 
           <Link
             href="/company"
-            className={`"text-white" py-4 text-xs font-semibold uppercase lg:text-sm`}
+            className={`py-4 text-xs font-semibold uppercase text-white lg:text-sm`}
           >
             about us
           </Link>
 
           <Link
             href="/estimation"
-            className={`"text-white" py-4 text-xs font-semibold uppercase lg:text-sm`}
+            className={`py-4 text-xs font-semibold uppercase text-white lg:text-sm`}
           >
             PRICING
           </Link>
@@ -312,7 +312,7 @@ function DesktopHeader() {
             {({ open, close }) => (
               <>
                 <Popover.Button
-                  className={`"text-white" flex items-center gap-x-1 py-4 text-xs font-semibold uppercase lg:text-sm`}
+                  className={`flex items-center gap-x-1 py-4 text-xs font-semibold uppercase text-white lg:text-sm`}
                 >
                   성장기록물
                 </Popover.Button>
@@ -379,7 +379,7 @@ function DesktopHeader() {
 
           <Link
             href="/project-request"
-            className={`"text-white" py-4 pr-5 text-xs font-semibold uppercase lg:text-sm`}
+            className={`py-4 pr-5 text-xs font-semibold uppercase text-white lg:text-sm`}
           >
             contact
           </Link>
