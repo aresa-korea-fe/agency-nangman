@@ -7,7 +7,7 @@ import React, { useState } from "react";
 
 export default function Footer() {
   const [infoOpen, setInfoOpen] = useState(false);
-  const tel = "080-8798-0110";
+  const tel = "070-8798-0110";
   const routerPath = usePathname(); // useRouter 훅 사용
 
   // 현재 페이지가 "/" 메인 페이지일 경우, 푸터를 렌더링하지 않음
