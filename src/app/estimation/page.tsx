@@ -80,7 +80,7 @@ export default function Estimation() {
       name: "Infomation Page",
       explan: "기업 혹은 브랜드를 소개하고 아이덴티티를 노출합니다.",
       icon: "Window",
-      basicPrice: 200,
+      basicPrice: 300,
       premiumPrice: 500,
     },
     {
