@@ -272,5 +272,100 @@
         ]
       }
     ]
+  },
+  {
+    "id": "0101004",
+    "title": "친환경 분해성 충전재\nBIOROOM",
+    "category": "Relative Web Application",
+    "client": "Bioroom",
+    "releaseDate": "2024. 06",
+    "intro": "바이오룸은 100% 순환구조와 지속가능발전목표를 가진 친환경 분해성 소재를 활용하여 패키지를 제공합니다. 환경 친화적인 이미지와 포인트 컬러를 채택하여 브랜드 아이덴티티를 적극적으로 시각화하고 바이오룸 만의 특색있는 홈페이지를 서비스합니다.",
+    "link": "https://www.bioroom.kr/",
+    "mainImage": "/growth/app-web-service/bioroom/main.webp",
+    "contentImage": "/growth/app-web-service/bioroom/mid.webp",
+    "brief": [
+      {
+        "category": "core value",
+        "title": "competitive\nadvantage",
+        "content": "기업의 경쟁력을 더욱 돋보이도록\n강조합니다. "
+      },
+      {
+        "category": "Experience",
+        "title": "production\nprocess",
+        "content": "상품 생산 과정과 공정 방식을 안내하고\n상품에 대한 이해를 증진시킵니다."
+      },
+      {
+        "category": "news",
+        "title": "corporate\nupdates",
+        "content": "기업 동향을 제공하며 공식적인 기업 활동이\n유저에게 노출되도록 콘텐츠화합니다."
+      },
+      {
+        "category": "journey",
+        "title": "communication\nsystem",
+        "content": "고객과의 1:1 소통을 원활하게 하기 위해\n이메일 문의 시스템을 도입합니다."
+      }
+    ],
+    "sitemap": [
+      {
+        "menu": "Main",
+        "text": "브랜드 가치와 소개를 아이콘으로 시각화하여 유저가 기업에 대한 정보를 바로 확인할 수 있도록 배치하고 주력 제품을 노출시켰습니다. 히어로 배너를 통해 현재 위치한 페이지의 위치를 확인할 수 있습니다.",
+        "background": "#273502",
+        "images": [
+          {
+            "src": "/growth/app-web-service/bioroom/sub1-1.webp",
+            "alt": "",
+            "fill": true
+          }
+        ]
+      },
+      {
+        "menu": "About",
+        "text": "바이오룸의 경영 이념과 제품의 가치, 향후의 목표를 디자인하여 사용자가 시각적으로 인지하고 흐름에 따라 기업이 전달하고하는 메세지를 이해할 수 있도록 구성하였습니다.",
+        "background": "#273502",
+        "images": [
+          {
+            "src": "/growth/app-web-service/bioroom/sub2-1.webp",
+            "alt": "",
+            "fill": true
+          }
+        ]
+      },
+      {
+        "menu": "Solution",
+        "text": "제공 가능한 솔루션의 프로세스를 안내하고 고객 여정에 맞는 UX를 제공합니다.",
+        "background": "#273502",
+        "images": [
+          {
+            "src": "/growth/app-web-service/bioroom/sub3-1.webp",
+            "alt": "",
+            "fill": true
+          }
+        ]
+      },
+      {
+        "menu": "News",
+        "text": "기업 관련 소식을 아카이빙하여 사용자가 기업의 동향을 손쉽게 접하도록 하였습니다",
+        "background": "#273502",
+        "images": [
+          {
+            "src": "/growth/app-web-service/bioroom/sub4-1.webp",
+            "alt": "",
+            "fill": true
+          }
+        ]
+      },
+      {
+        "menu": "Contact",
+        "text": "이메일을 통한 문의 서비스와 오시는 길을 상황 별로 안내하고 지도 서비스를 제공합니다.",
+        "background": "#273502",
+        "images": [
+          {
+            "src": "/growth/app-web-service/bioroom/sub5-1.webp",
+            "alt": "",
+            "fill": true
+          }
+        ]
+      }
+    ]
   }
 ]
